@@ -1,0 +1,76 @@
+# Gettext Message File for PloneBooking product.
+# Sebastian Stark <stark@tuebingen.mpg.de>, 2006
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 15 November 2006 14:00:00 GMT\n"
+"PO-Revision-Date: Tue, 15 November 2006 14:00:00 GMT\n"
+"Last-Translator: Sebastian Stark <stark@tuebingen.mpg.de>\n"
+"Language-Team: Sebastian Stark <stark@tuebingen.mpg.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Code: da\n"
+"Language-Name: Danish\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+msgid "Booking center"
+msgstr "Bookinger"
+
+msgid "Booking"
+msgstr "Booking"
+
+msgid "Bookable object"
+msgstr "Objekt, der kan bookes"
+
+msgid "canceled"
+msgstr "Trukket tilbage"
+
+msgid "booked"
+msgstr "Booket"
+
+msgid "cancel"
+msgstr "Slet"
+
+msgid "book"
+msgstr "book"
+
+# workflow transition
+msgid "Book"
+msgstr "Book"
+
+msgid "Periodicity"
+msgstr "Periodisk gentagelse"
+
+msgid "periodicity"
+msgstr "periodisk gentagelse"
+
+msgid "default"
+msgstr "Standard"
+
+msgid "label_same_date_every_weeks"
+msgstr "Samme dag og tidspunkt hver uge"
+
+msgid "label_same_date_every_x_weeks"
+msgstr "Samme dag og tidspunkt alle x uger"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Samme tidspunkt alle x dage i måneden (f.eks. hver anden mandag i måneden)"
+
+msgid "label_day"
+msgstr "Dag"
+
+msgid "label_week"
+msgstr "Uge"
+
+msgid "label_month"
+msgstr "Måned"
+
+msgid "Your changes have been saved."
+msgstr "Dine ændringer er blevet gemt."
+
+msgid "Add New ${type}"
+msgstr "Tilføj ny af type ${type}"
+

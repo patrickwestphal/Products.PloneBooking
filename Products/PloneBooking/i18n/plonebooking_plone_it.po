@@ -1,0 +1,79 @@
+# Gettext Message File for PloneBooking product.
+#  <vincenzo.barone@abstract.it>, 2006
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Mon, 3 July 2006 16:54:23 GMT\n"
+"PO-Revision-Date: Fri, 11 August 2006 21:00:00 GMT\n"
+"Last-Translator:  Vincenzo Barone\n"
+"Language-Team: Abstract Open Solutions\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: it\n"
+"Language-name: Italiano\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: it-ch it-it\n"
+
+msgid "Booking center"
+msgstr "Centro prenotazioni"
+
+msgid "Booking container"
+msgstr "Contenitore prenotazioni"
+
+msgid "Bookable object container"
+msgstr "Contenitore prenotabile"
+
+msgid "Booking"
+msgstr "Prenota"
+
+msgid "Bookable object"
+msgstr "Oggetto prenotabile"
+
+msgid "canceled"
+msgstr "cancellato"
+
+msgid "booked"
+msgstr "prenotato"
+
+msgid "cancel"
+msgstr "cancella"
+
+msgid "book"
+msgstr "prenota"
+
+# workflow transition
+msgid "Book"
+msgstr "Prenota"
+
+msgid "Periodicity"
+msgstr "Periodicita'"
+
+msgid "periodicity"
+msgstr "periodicita'"
+
+msgid "default"
+msgstr "default"
+
+msgid "label_same_date_every_weeks"
+msgstr "la stessa date ogni settimana"
+
+msgid "label_same_date_every_x_weeks"
+msgstr "la stessa data per x settimane"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "la stessa date per x settimane del mese"
+
+msgid "label_day"
+msgstr "giorno"
+
+msgid "label_week"
+msgstr "settimana"
+
+msgid "label_month"
+msgstr "mese"
+
+msgid "Add New ${type}"
+msgstr "Aggiungi Nuovo ${type}"

@@ -1,0 +1,602 @@
+# Gettext Message File for PloneBooking product.
+#  <team@language.com>, 2003
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 1 June 2004 16:54:23 GMT\n"
+"PO-Revision-Date: Mon, 9 August 2004 21:00:00 GMT\n"
+"Last-Translator:  <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: en\n"
+"Language-name: English\n"
+"Preferred-encodings: latin1 utf-8\n"
+"Domain: plonebooking\n"
+"X-Is-Fallback-For:\n"
+
+msgid "description_bookable_object"
+msgstr ""
+
+msgid "label_description"
+msgstr ""
+
+######################
+# Fields
+######################
+
+
+msgid "refresh"
+msgstr "rafraîchir la Clendrier"
+
+msgid "Booked"
+msgstr "réservé"
+
+msgid "booked"
+msgstr "réservé"
+
+msgid "pending"
+msgstr "en attente"
+
+msgid "view"
+msgstr "voir"
+
+msgid "edit"
+msgstr "modifier"
+
+msgid "periodicity"
+msgstr "périodicité"
+
+msgid "label_bookingcenter_categories"
+msgstr ""
+
+msgid "label_bookingcenter_types"
+msgstr ""
+
+msgid "help_bookingcenter_types"
+msgstr ""
+
+msgid "label_bookingcenter_default_calendar_view"
+msgstr ""
+
+msgid "label_bookingcenter_available_calendar_views"
+msgstr ""
+
+msgid "label_booking_user_full_name"
+msgstr ""
+
+msgid "label_booking_user_phone"
+msgstr ""
+
+msgid "label_booking_user_email"
+msgstr ""
+
+msgid "label_booking_objects"
+msgstr ""
+
+msgid "label_booking_start_date"
+msgstr ""
+
+msgid "help_booking_start_date"
+msgstr ""
+
+msgid "label_booking_end_date"
+msgstr ""
+
+msgid "help_booking_end_date"
+msgstr ""
+
+msgid "label_booking_periodicity_end_date"
+msgstr ""
+
+msgid "help_booking_peridodicity_end_date"
+msgstr ""
+
+msgid "label_booking_periodicity_type"
+msgstr ""
+
+msgid "label_bookableobject_type"
+msgstr ""
+
+msgid "label_bookableobject_text"
+msgstr ""
+
+msgid "label_bookableobject_category"
+msgstr ""
+
+msgid "label_same_date_every_weeks"
+msgstr ""
+
+msgid "label_same_date_every"
+msgstr ""
+
+msgid "label_weeks"
+msgstr ""
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr ""
+
+msgid "label_pending_colors"
+msgstr ""
+
+msgid "help_pending_colors"
+msgstr ""
+
+msgid "label_booked_colors"
+msgstr ""
+
+msgid "help_booked_colors"
+msgstr ""
+
+msgid "label_booking_title"
+msgstr ""
+
+msgid "label_booking_description"
+msgstr ""
+
+msgid "help_booking_description"
+msgstr ""
+
+msgid "label_bookableobject_title"
+msgstr ""
+
+msgid "label_bookable_object_states"
+msgstr ""
+
+msgid "help_bookable_object_states"
+msgstr ""
+
+msgid "label_required_filters"
+msgstr ""
+
+msgid "label_refresh_mode"
+msgstr ""
+
+# ###################
+# Views
+# ###################
+
+msgid "message_create_periodic_bookings"
+msgstr ""
+
+msgid "label_booking"
+msgstr ""
+
+msgid "label_new_booking"
+msgstr ""
+
+msgid "label_edit_booking"
+msgstr ""
+
+msgid "label_only_bookable_objects_of_type"
+msgstr ""
+
+msgid "label_only_bookable_objects_of_category"
+msgstr ""
+
+msgid "label_all_categories"
+msgstr ""
+
+msgid "label_see_bookable_object"
+msgstr ""
+
+msgid "label_filter_form"
+msgstr ""
+
+msgid "label_view_form"
+msgstr ""
+
+msgid "title_bookings_for_bookable_object_of_type"
+msgstr ""
+
+msgid "title_bookings_for_bookable_object"
+msgstr ""
+
+msgid "title_bookings_for_bookable_objects"
+msgstr ""
+
+msgid "label_periodicity_configuration"
+msgstr ""
+
+msgid "first_step_text"
+msgstr ""
+
+msgid "label_display_result"
+msgstr ""
+
+msgid "label_these_bookings_will_be_created"
+msgstr ""
+
+msgid "second_step_text"
+msgstr ""
+
+msgid "label_create_bookings"
+msgstr ""
+
+#####################
+# export
+#####################
+
+#. Bookings export of ${bookable_name}
+msgid "title_booking_export"
+msgstr ""
+
+#. Range
+msgid "label_export_range"
+msgstr ""
+
+#. Type
+# Export type (csv, html, whatever), like type in file type
+msgid "label_export_type"
+msgstr ""
+
+#. Available bookings for ${bookable_name}
+msgid "title_booking_export_results"
+msgstr ""
+
+#. Export
+msgid "button_export"
+msgstr ""
+
+#####################
+# misc
+#####################
+
+msgid "label_dynamic_booking_title"
+msgstr ""
+
+msgid "description_no_bookable_object"
+msgstr ""
+
+msgid "Booking center"
+msgstr ""
+
+msgid "Bookable object"
+msgstr ""
+
+msgid "label_booking_date"
+msgstr ""
+
+msgid "description_booking_duration"
+msgstr ""
+
+msgid "description_no_bookings_found"
+msgstr ""
+
+msgid "label_previous_day"
+msgstr ""
+
+msgid "label_previous_week"
+msgstr ""
+
+msgid "label_next_day"
+msgstr ""
+
+msgid "label_next_week"
+msgstr ""
+
+msgid "label_previous_4_weeks"
+msgstr ""
+
+msgid "label_next_4_weeks"
+msgstr ""
+
+msgid "label_next_month"
+msgstr ""
+
+msgid "label_next_3_months"
+msgstr ""
+
+msgid "label_previous_month"
+msgstr ""
+
+msgid "label_previous_3_months"
+msgstr ""
+
+msgid "label_next_year"
+msgstr ""
+
+msgid "label_next_3_years"
+msgstr ""
+
+msgid "label_previous_year"
+msgstr ""
+
+msgid "label_previous_3_years"
+msgstr ""
+
+msgid "label_hour"
+msgstr ""
+
+msgid "label_booked_by"
+msgstr ""
+
+msgid "heading_create_periodic_bookings"
+msgstr ""
+
+msgid "label_already_booked"
+msgstr ""
+
+msgid "label_no_periodic_items"
+msgstr ""
+
+# Date format
+msgid "date_format"
+msgstr ""
+
+msgid "date_long_format"
+msgstr ""
+
+msgid "date_format_without_year"
+msgstr ""
+
+msgid "week_date_format"
+msgstr ""
+
+msgid "month_date_format"
+msgstr ""
+
+msgid "year_date_format"
+msgstr ""
+
+# Weekdays
+msgid "calendar_weekday_0"
+msgstr ""
+
+msgid "calendar_weekday_1"
+msgstr ""
+
+msgid "calendar_weekday_2"
+msgstr ""
+
+msgid "calendar_weekday_3"
+msgstr ""
+
+msgid "calendar_weekday_4"
+msgstr ""
+
+msgid "calendar_weekday_5"
+msgstr ""
+
+msgid "calendar_weekday_6"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+# Months
+msgid "calendar_month_1"
+msgstr ""
+
+msgid "calendar_month_2"
+msgstr ""
+
+msgid "calendar_month_3"
+msgstr ""
+
+msgid "calendar_month_4"
+msgstr ""
+
+msgid "calendar_month_5"
+msgstr ""
+
+msgid "calendar_month_6"
+msgstr ""
+
+msgid "calendar_month_7"
+msgstr ""
+
+msgid "calendar_month_8"
+msgstr ""
+
+msgid "calendar_month_9"
+msgstr ""
+
+msgid "calendar_month_10"
+msgstr ""
+
+msgid "calendar_month_11"
+msgstr ""
+
+msgid "calendar_month_12"
+msgstr ""
+
+msgid "label_bookable_object_category"
+msgstr ""
+
+msgid "show_day"
+msgstr ""
+
+msgid "show_more_infos"
+msgstr ""
+
+msgid "link_title_book_it"
+msgstr ""
+
+msgid "title_periodic_items"
+msgstr ""
+
+msgid "head_from"
+msgstr ""
+
+msgid "head_to"
+msgstr ""
+
+msgid "head_review_state"
+msgstr ""
+
+msgid "label_no_category"
+msgstr ""
+
+msgid "label_calendar"
+msgstr ""
+
+msgid "label_listing"
+msgstr ""
+
+msgid "label_year"
+msgstr ""
+
+msgid "label_bookingcenter_default_view_mode"
+msgstr ""
+
+msgid "label_bookingcenter_available_view_modes"
+msgstr ""
+
+msgid "label_bookingcenter_default_listing_view"
+msgstr ""
+
+msgid "label_bookingcenter_available_listing_views"
+msgstr ""
+
+msgid "label_day"
+msgstr ""
+
+msgid "label_week"
+msgstr ""
+
+msgid "label_month"
+msgstr ""
+
+msgid "label_bookingcenter_calendar_starting_hour"
+msgstr ""
+
+msgid "help_bookingcenter_calendar_starting_hour"
+msgstr ""
+
+msgid "label_bookingcenter_calendar_ending_hour"
+msgstr ""
+
+msgid "help_bookingcenter_calendar_ending_hour"
+msgstr ""
+
+msgid "label_all_types"
+msgstr ""
+
+msgid "label_up_to_booking_center"
+msgstr ""
+
+msgid "label_see_all_bookings_of_this_type"
+msgstr ""
+
+msgid "label_see_all_bookings_of_this_category"
+msgstr ""
+
+msgid "label_add_new_booking"
+msgstr ""
+
+msgid "description_add_new_booking"
+msgstr ""
+
+msgid "description_add_new_booking_in_calendar_view"
+msgstr ""
+
+msgid "heading_add_booking"
+msgstr ""
+
+msgid "description_add_booking"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "label_up_to_booked_object"
+msgstr ""
+
+msgid "label_review_bookings"
+msgstr ""
+
+msgid "label_publish_automatically_bookings"
+msgstr ""
+
+msgid "label_default_booking_review_mode"
+msgstr ""
+
+msgid "label_booking_review_mode"
+msgstr ""
+
+msgid "message_date_already_booked"
+msgstr ""
+
+msgid "message_no_booking_created"
+msgstr ""
+
+msgid "Retract"
+msgstr ""
+
+msgid "Retract All"
+msgstr ""
+
+msgid "Book"
+msgstr ""
+
+msgid "Book All"
+msgstr ""
+
+msgid "description_waiting_periodicity_results"
+msgstr ""
+
+msgid "description_waiting_periodicity_creation"
+msgstr ""
+
+msgid "message_give_number_for_periodicity"
+msgstr ""
+
+msgid "message_periodicity_end_date_not_valid"
+msgstr ""
+
+msgid "message_object_not_found"
+msgstr ""
+
+msgid "message_periodic_booking_creation_summary"
+msgstr ""
+
+msgid "description_waiting_booking_process"
+msgstr ""
+
+msgid "message_booking_process_summary"
+msgstr ""
+
+msgid "label_view"
+msgstr ""
+
+msgid "label_edit"
+msgstr ""
+
+msgid "label_retract"
+msgstr ""
+
+msgid "label_book"
+msgstr ""
+
+msgid "label_refresh_manual"
+msgstr ""
+
+msgid "label_refresh_auto"
+msgstr ""
+
+msgid "label_goto_bookable_object"
+msgstr ""

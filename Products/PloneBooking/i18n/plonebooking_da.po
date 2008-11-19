@@ -1,0 +1,528 @@
+# Gettext Message File for PloneBooking product.
+# Sebastian Stark <stark@tuebingen.mpg.de>, 2006
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 15 November 2006 14:00:00 GMT\n"
+"PO-Revision-Date: Tue, 15 November 2006 14:00:00 GMT\n"
+"Last-Translator: Sebastian Stark <stark@tuebingen.mpg.de>\n"
+"Language-Team: Sebastian Stark <stark@tuebingen.mpg.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Code: da\n"
+"Language-Name: Danish\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plonebooking\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+######################
+# Fields
+######################
+
+msgid "label_bookingcenter_categories"
+msgstr "Kategorier"
+
+msgid "label_bookingcenter_types"
+msgstr "Objekttyper"
+
+msgid "help_bookingcenter_types"
+msgstr "Du kan definere en liste med objekter, der kan bookes (et objekt pr. linie)"
+
+msgid "label_bookingcenter_default_calendar_view"
+msgstr "Standard kalenderudseende"
+
+msgid "label_bookingcenter_available_calendar_views"
+msgstr "Mulige kalenderudseender"
+
+msgid "label_booking_user_full_name"
+msgstr "Fulde navn for personen, der booker"
+
+msgid "label_booking_user_phone"
+msgstr "Telefon"
+
+msgid "label_booking_user_email"
+msgstr "E-Mail"
+
+msgid "label_booking_objects"
+msgstr "Objekter, der kan bookes:"
+
+msgid "label_booking_start_date"
+msgstr "Startdato"
+
+msgid "help_booking_start_date"
+msgstr "Angiv starttidspunkt for bookingen. Du kan klikke på kalenderikonet og vælge derfra."
+
+msgid "label_booking_end_date"
+msgstr "Slutdato for bookingen"
+
+msgid "help_booking_end_date"
+msgstr "Angiv sluttidspunkt for reserveringen. Du kan klikke på kalenderikonet og vælge derfra."
+
+msgid "label_booking_periodicity_end_date"
+msgstr "Slutdato for periodisk gentagelse "
+
+msgid "help_booking_peridodicity_end_date"
+msgstr "Angiv slutdato for gentagen reservering. Du kan klikke på kalenderikonet og vælge derfar." 
+
+msgid "label_booking_periodicity_type"
+msgstr "Type af periodisk gentagelse"
+
+msgid "label_bookableobject_type"
+msgstr "Reserveringstype"
+
+msgid "label_bookableobject_text"
+msgstr "Tekst"
+
+msgid "label_bookableobject_category"
+msgstr "Kategori"
+
+msgid "label_same_date_every_weeks"
+msgstr "Samme dag og tidspunkt ugentligt"
+
+msgid "label_same_date_every"
+msgstr "Samme dag og tidspunkt hver"
+
+msgid "label_weeks"
+msgstr "Uger"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Samme dag og tidspunkt månedligt (f.eks. hver anden mandag i måneden)"
+
+msgid "label_pending_colors"
+msgstr "Tekst- og baggrundsfarve for bookinger med status \"åben\""
+
+msgid "help_pending_colors"
+msgstr "Du skal adskille de to farver med \":\" (f.eks. \"red:white\", hvor \"red\" er tekstfarven og \"white\" er baggrundsfarven)"
+
+msgid "label_booked_colors"
+msgstr "Tekst- og baggrundsfarve for bookinger med status \"åben\""
+
+msgid "help_booked_colors"
+msgstr "Du skal adskille de to farver med \":\" (f.eks. \"red:white\", hvor \"red\" er tekstfarven og \"white\" er baggrundsfarven)"
+
+
+msgid "label_booking_title"
+msgstr "Bookingens titel"
+
+msgid "label_booking_description"
+msgstr "Kommentar"
+
+msgid "help_booking_description"
+msgstr "Skriv en kommentar."
+
+msgid "label_bookableobject_title"
+msgstr "Titlen på objektet, der kan bookes"
+
+msgid "label_bookable_object_states"
+msgstr "Angivelse af hvilken status et objekt skal have for at reservering er tilladt"
+
+msgid "help_bookable_object_states"
+msgstr "Angiv hvilken status reserverbare objekter skal have. Hvis et objekt har en status, som ikke står på denne liste, vil det ikke optræde på listen over objekter, der kan bookes."
+
+
+# ###################
+# Views
+# ###################
+
+msgid "message_create_periodic_bookings"
+msgstr "${created} objekter oprettet, ${already_booked} allerede reserveret"
+
+msgid "label_booking"
+msgstr "Booking"
+
+msgid "label_new_booking"
+msgstr "Ny reservering"
+
+msgid "label_edit_booking"
+msgstr "Ændre booking"
+
+msgid "label_only_bookable_objects_of_type"
+msgstr "Kun reserverbare objekter af typen:"
+
+msgid "label_only_bookable_objects_of_category"
+msgstr "Kun reserverbare objekter med kategorien:"
+
+msgid "label_all_categories"
+msgstr "Alle kategorier"
+
+msgid "label_see_bookable_object"
+msgstr "Se reserverbare objekter:"
+
+msgid "label_filter_form"
+msgstr "Filter"
+
+msgid "title_bookings_for_bookable_object_of_type"
+msgstr "Booking af typen ${type}"
+
+msgid "label_periodicity_configuration"
+msgstr "Opsætning af den periodisk gentagelse"
+
+msgid "first_step_text"
+msgstr "<string>Erster Schritt:</strong> Vælg en type af periodisk gentagelse og klike på \"Vis resultat\" linket. Du kan rette i værdierne og igen klikke på \Vis resultat\", det vil ikke oprette nogen reserveringer, men bare vise en liste af indholdstyper, der vil blive oprettet."
+
+msgid "label_display_result"
+msgstr "Vis resultat"
+
+msgid "label_these_bookings_will_be_created"
+msgstr "Disse bookinger vil blive oprettet"
+
+msgid "second_step_text"
+msgstr "<strong>Andet skridt:</strong>Hvis du er tilfreds med resultatet herund, klik da på \"Opret booking\". Der vil kun blive oprettet bookinger på enheder, der ikke allerede er booket. Du kan i feltet \"værdier\" og igen klikke på \"Vis resultat\" for at se et nyt resultat."
+
+msgid "label_create_bookings"
+msgstr "Opret bookinger"
+
+#####################
+# misc
+#####################
+
+msgid "label_dynamic_booking_title"
+msgstr "Reserveringer fra ${start_date} til ${end_date}"
+
+msgid "description_no_bookable_object"
+msgstr "Ingen objekter kan bookes."
+
+msgid "Booking center"
+msgstr "Bookinger"
+
+msgid "Bookable object"
+msgstr "Objekt, der skal bookes"
+
+msgid "label_booking_date"
+msgstr "Dato:"
+
+msgid "description_booking_duration"
+msgstr "Fra ${start_date} til ${end_date}"
+
+msgid "description_no_bookings_found"
+msgstr "Der er ikke fundet nogen reserveringer."
+
+msgid "label_previous_day"
+msgstr "Forrige dag"
+
+msgid "label_previous_week"
+msgstr "Forrige uge"
+
+msgid "label_next_day"
+msgstr "Næste dag"
+
+msgid "label_next_week"
+msgstr "Næste uge"
+
+msgid "label_previous_4_weeks"
+msgstr "Forrige 4 uger"
+
+msgid "label_next_4_weeks"
+msgstr "Næste 4 uger"
+
+msgid "label_next_month"
+msgstr "Næste måned"
+
+msgid "label_next_3_months"
+msgstr "Næste 3 måneder"
+
+msgid "label_previous_month"
+msgstr "Forrige måned"
+
+msgid "label_previous_3_months"
+msgstr "Forrige 3 måneder"
+
+msgid "label_next_year"
+msgstr "Næste år"
+
+msgid "label_next_3_years"
+msgstr "Næste 3 år"
+
+msgid "label_previous_year"
+msgstr "Forrige år"
+
+msgid "label_previous_3_years"
+msgstr "Forrige 3 år"
+
+msgid "label_hour"
+msgstr "Time"
+
+msgid "label_booked_by"
+msgstr "Booked af"
+
+msgid "heading_create_periodic_bookings"
+msgstr "Opret reservering med periodisk gentagelse"
+
+msgid "label_already_booked"
+msgstr "Allerede booket"
+
+msgid "label_no_periodic_items"
+msgstr "Kan ikke oprette periodisk gentagelse."
+
+# Date format
+msgid "date_format"
+msgstr "${weekdayname}, ${day} ${monthname} ${year}"
+
+msgid "date_long_format"
+msgstr "${year}/${month}/${day} ${hour}"
+
+msgid "date_format_without_year"
+msgstr "${weekdayname} ${day} ${monthname}"
+
+msgid "week_date_format"
+msgstr "${year}, uge ${week}"
+
+msgid "month_date_format"
+msgstr "${year}, ${monthname}"
+
+msgid "year_date_format"
+msgstr "${year}"
+
+# Weekdays
+msgid "calendar_weekday_0"
+msgstr "Mandag"
+
+msgid "calendar_weekday_1"
+msgstr "Tirsdag"
+
+msgid "calendar_weekday_2"
+msgstr "Onsdag"
+
+msgid "calendar_weekday_3"
+msgstr "Torsdag"
+
+msgid "calendar_weekday_4"
+msgstr "Fredag"
+
+msgid "calendar_weekday_5"
+msgstr "Lørdag"
+
+msgid "calendar_weekday_6"
+msgstr "Søndag"
+
+msgid "Monday"
+msgstr "Mandag"
+
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+msgid "Wednesday"
+msgstr "Onsdag"
+
+msgid "Thursday"
+msgstr "Torsdag"
+
+msgid "Friday"
+msgstr "Fredag"
+
+msgid "Saturday"
+msgstr "Lørdag"
+
+msgid "Sunday"
+msgstr "Søndag"
+
+# Months
+msgid "calendar_month_1"
+msgstr "Januar"
+
+msgid "calendar_month_2"
+msgstr "Februar"
+
+msgid "calendar_month_3"
+msgstr "Marts"
+
+msgid "calendar_month_4"
+msgstr "April"
+
+msgid "calendar_month_5"
+msgstr "Maj"
+
+msgid "calendar_month_6"
+msgstr "Juni"
+
+msgid "calendar_month_7"
+msgstr "Juli"
+
+msgid "calendar_month_8"
+msgstr "August"
+
+msgid "calendar_month_9"
+msgstr "September"
+
+msgid "calendar_month_10"
+msgstr "Oktober"
+
+msgid "calendar_month_11"
+msgstr "November"
+
+msgid "calendar_month_12"
+msgstr "December"
+
+msgid "label_bookable_object_category"
+msgstr "Kategori"
+
+msgid "show_day"
+msgstr "Vis dag"
+
+msgid "show_more_infos"
+msgstr "Vis mere info om bookingen"
+
+msgid "link_title_book_it"
+msgstr "Gennemfør booking"
+
+msgid "title_periodic_items"
+msgstr "Periodiske gentagelser"
+
+msgid "head_from"
+msgstr "fra"
+
+msgid "head_to"
+msgstr "til"
+
+msgid "head_review_state"
+msgstr "Status"
+
+msgid "label_no_category"
+msgstr "Ingen kategori"
+
+msgid "label_calendar"
+msgstr "Kalender"
+
+msgid "label_listing"
+msgstr "Liste"
+
+msgid "label_year"
+msgstr "År"
+
+msgid "label_bookingcenter_default_view_mode"
+msgstr "Standard-udseende"
+
+msgid "label_bookingcenter_available_view_modes"
+msgstr "Mulige udseender"
+
+msgid "label_bookingcenter_default_listing_view"
+msgstr "Standard-listeudseende"
+
+msgid "label_bookingcenter_available_listing_views"
+msgstr "Mulige listeudseender"
+
+msgid "label_day"
+msgstr "Dag"
+
+msgid "label_week"
+msgstr "Uge"
+
+msgid "label_month"
+msgstr "Måned"
+
+msgid "label_bookingcenter_calendar_starting_hour"
+msgstr "Starttidspunkt (Time)"
+
+msgid "help_bookingcenter_calendar_starting_hour"
+msgstr "Dette bliver brugt i dag- og uge kalenderudseender"
+                           
+msgid "label_bookingcenter_calendar_ending_hour"
+msgstr "Sluttidspunkt (Time)"
+
+msgid "help_bookingcenter_calendar_ending_hour"
+msgstr "Dette bliver brugt i dag- og uge kalenderudseender"
+
+msgid "label_all_types"
+msgstr "Alle Typer"
+
+msgid "label_up_to_booking_center"
+msgstr "Op til reserveringer"
+
+msgid "label_see_all_bookings_of_this_type"
+msgstr "Se alle reserveringer af denne type"
+
+msgid "label_see_all_bookings_of_this_category"
+msgstr "Se alle reserveringer i denne kategori"
+
+msgid "label_add_new_booking"
+msgstr "Tilføj booking"
+
+msgid "description_add_new_booking"
+msgstr "Vælg et udseende, kontroller rådighed og ${add_new_booking}."
+
+msgid "description_add_new_booking_in_calendar_view"
+msgstr "I kalenderudseendet tilføjer du en ny reservering ved at klikke på \"+\""
+
+msgid "heading_add_booking"
+msgstr "Tilføj booking"
+
+msgid "description_add_booking"
+msgstr "Vælg et objekt at booke."
+
+msgid "Add"
+msgstr "Tilføj"
+
+msgid "Cancel"
+msgstr "Slet"
+
+msgid "label_up_to_booked_object"
+msgstr "Op til det bookede objekt"
+
+msgid "label_review_bookings"
+msgstr "Kontroller bookinger"
+
+msgid "label_publish_automatically_bookings"
+msgstr "Publicer bookinger automatisk"
+
+msgid "label_default_booking_review_mode"
+msgstr "Standard (Bookinger)"
+
+msgid "label_booking_review_mode"
+msgstr "Bookingstatus"
+
+msgid "message_date_already_booked"
+msgstr "Der er allerede booket et objekt på dette tidspunkt."
+
+msgid "message_no_booking_created"
+msgstr "Der er ikke oprettet nogen booking."
+
+msgid "Retract"
+msgstr "Træk tilbage"
+
+msgid "Retract All"
+msgstr "Træk alle tilbage"
+
+msgid "Book"
+msgstr "Book"
+
+msgid "Book All"
+msgstr "Book alle"
+
+msgid "description_waiting_periodicity_results"
+msgstr "Vent venligst: Udregner periodiske gentagelser ..."
+
+msgid "description_waiting_periodicity_creation"
+msgstr "Vent venligst: Opretter periodiske gentagelser ..."
+
+msgid "message_give_number_for_periodicity"
+msgstr "Du skal angive antal periodisk gentagelser."
+
+msgid "message_periodicity_end_date_not_valid"
+msgstr "Slutdatoen for periodiske gentagelser er ugyldig."
+
+msgid "message_object_not_found"
+msgstr "Objekt ikke fundet"
+
+msgid "message_periodic_booking_creation_summary"
+msgstr "%created% enhed(er) oprettet, %already booked% allerede booket, %errors% fejl."
+
+msgid "description_waiting_booking_process"
+msgstr "Vent venligst, Reserveringer bliver gennemført ..."
+
+msgid "message_booking_process_summary"
+msgstr "%processed% reservering(er) gennemført , %errors% fejl."
+
+msgid "label_view"
+msgstr "Udseende"
+
+msgid "label_edit"
+msgstr "Rediger"
+
+msgid "label_retract"
+msgstr "Træk tilbagee"
+
+msgid "label_book"
+msgstr "Book"
+

@@ -1,0 +1,898 @@
+<!-- ****************************************
+**         View mode menu
+******************************************* -->
+<metal:block metal:define-macro="mode_menu"
+             i18n:domain="plonebooking"
+             tal:define="vocab python:btool.getViewModeVocabulary();">
+	<div id="mode-menu">
+		<select name="dmode"
+            tal:define="js_dview python:test(dmode == 'listing' and dview == 'year', 'month', dview);"
+				    tal:attributes="tabindex tabindex/next;
+                            onchange string:javascript:Booking.refreshFilter()"
+				    tal:condition="python:len(available_modes) > 1">
+		  <tal:modes tal:repeat="mode available_modes">
+		    <option tal:define="title python:vocab.getValue(mode)"
+		            tal:attributes="value mode;
+		                            selected python:test(mode == dmode, 'selected', None)"
+		       		tal:content="title" />
+		  </tal:modes>
+		</select>
+	</div>
+</metal:block>
+
+<!-- ****************************************
+**          Day navigation
+******************************************* -->
+<metal:block metal:define-macro="day_navigation">
+  <h3 id="dateTitle">
+    <a tal:attributes="href string:${nav_base_url}&ts=${ts}"
+       tal:content="python: btool.getFormatedDate(dt)" />
+  </h3>
+
+  <div id="plonebooking-nav"
+       tal:define="prevdate python:btool.substractDays(ts);
+                   nextdate python:btool.addDays(ts);
+                   prevprevdate python:btool.substractDays(ts, days=7);
+                   nextnextdate python:btool.addDays(ts, days=7);">
+    <div id="plonebooking-left-nav" >
+      <a tal:attributes="href string:${nav_base_url}&ts=${prevprevdate}">
+        &lt;&lt;&nbsp;<tal:block i18n:translate="label_previous_week">Previous week</tal:block>
+      </a>&nbsp;&nbsp;
+      <a tal:attributes="href string:${nav_base_url}&ts=${prevdate}">
+        &lt;&nbsp;<tal:block i18n:translate="label_previous_day">Previous day</tal:block>
+      </a>
+    </div>
+    <div id="plonebooking-right-nav">
+      <!-- the right part to go to next -->
+      <a tal:attributes="href string:${nav_base_url}&ts=${nextdate}">
+        <tal:block i18n:translate="label_next_day">Next day</tal:block>&nbsp;&gt;
+      </a>&nbsp;&nbsp;
+      <a tal:attributes="href string:${nav_base_url}&ts=${nextnextdate}">
+        <tal:block i18n:translate="label_next_week">Next week</tal:block>&nbsp;&gt;&gt;
+      </a>
+    </div>
+  </div>
+</metal:block>
+
+<!-- ****************************************
+**          Week navigation
+******************************************* -->
+<metal:block metal:define-macro="week_navigation">
+	<h3 id="dateTitle">
+    <a tal:attributes="href string:${nav_base_url}&ts=${ts}"
+  	   tal:content="python:btool.getFormatedWeekDate(week, year)" />
+  </h3>
+  <div id="plonebooking-nav"
+       tal:define="prevdate python:btool.substractWeeks(ts);
+                   nextdate python:btool.addWeeks(ts);
+                   prevprevdate python:btool.substractWeeks(ts, weeks=4);
+                   nextnextdate python:btool.addWeeks(ts, weeks=4);">
+    <div id="plonebooking-left-nav" >
+      <a tal:attributes="href string:${nav_base_url}&ts=${prevprevdate}">
+        &lt;&lt;&nbsp;<tal:block i18n:translate="label_previous_4_weeks">Previous 4 weeks</tal:block>
+        </a>&nbsp;&nbsp;
+      <a tal:attributes="href string:${nav_base_url}&ts=${prevdate}">
+        &lt;&nbsp;<tal:block i18n:translate="label_previous_week">Previous week</tal:block>
+      </a>
+    </div>
+    <div id="plonebooking-right-nav">
+      <a tal:attributes="href string:${nav_base_url}&ts=${nextdate}">
+        <tal:block i18n:translate="label_next_week">Next week</tal:block>&nbsp;&gt;
+      </a>&nbsp;&nbsp;
+      <a tal:attributes="href string:${nav_base_url}&ts=${nextnextdate}">
+        <tal:block i18n:translate="label_next_4_weeks">Next 4 weeks</tal:block>&nbsp;&gt;&gt;
+      </a>
+    </div>
+  </div>
+</metal:block>
+
+<!-- ****************************************
+**          Month navigation
+******************************************* -->
+<metal:block metal:define-macro="month_navigation">
+  <h3 id="dateTitle">
+    <a tal:attributes="href string:${nav_base_url}&ts=${ts}"
+  		tal:content="python:btool.getFormatedMonthDate(month, year)" />
+  </h3>
+  <div id="plonebooking-nav"
+       tal:define="prevdate python:btool.substractMonths(ts);
+                   nextdate python:btool.addMonths(ts);
+                   prevprevdate python:btool.substractMonths(ts, months=3);
+                   nextnextdate python:btool.addMonths(ts, months=3);">
+    <div id="plonebooking-left-nav" >
+      <a tal:attributes="href string:${nav_base_url}&ts=${prevprevdate}">
+        &lt;&lt;&nbsp;<tal:block i18n:translate="label_previous_3_months">Previous 3 months</tal:block>
+        </a>&nbsp;&nbsp;
+      <a tal:attributes="href string:${nav_base_url}&ts=${prevdate}">
+        &lt;&nbsp;<tal:block i18n:translate="label_previous_month">Previous month</tal:block>
+      </a>
+    </div>
+    <div id="plonebooking-right-nav">
+      <a tal:attributes="href string:${nav_base_url}&ts=${nextdate}">
+        <tal:block i18n:translate="label_next_month">Next month</tal:block>&nbsp;&gt;
+      </a>&nbsp;&nbsp;
+      <a tal:attributes="href string:${nav_base_url}&ts=${nextnextdate}">
+        <tal:block i18n:translate="label_next_3_months">Next 3 months</tal:block>&nbsp;&gt;&gt;
+      </a>
+    </div>
+  </div>
+</metal:block>
+
+<!-- ****************************************
+**          Year navigation
+******************************************* -->
+<metal:block metal:define-macro="year_navigation">
+	<h3 id="dateTitle"
+  		tal:content="python:btool.getFormatedYearDate(year)" />
+
+  <div id="plonebooking-nav"
+       tal:define="prevdate python:btool.substractYears(ts);
+                   nextdate python:btool.addYears(ts);
+                   prevprevdate python:btool.substractYears(ts, years=3);
+                   nextnextdate python:btool.addYears(ts, years=3);">
+    <div id="plonebooking-left-nav" >
+      <a tal:attributes="href string:${nav_base_url}&ts=${prevprevdate}">
+        &lt;&lt;&nbsp;<tal:block i18n:translate="label_previous_3_years">Previous 3 years</tal:block>
+        </a>&nbsp;&nbsp;
+      <a tal:attributes="href string:${nav_base_url}&ts=${prevdate}">
+        &lt;&nbsp;<tal:block i18n:translate="label_previous_year">Previous year</tal:block>
+      </a>
+    </div>
+    <div id="plonebooking-right-nav">
+      <a tal:attributes="href string:${nav_base_url}&ts=${nextdate}">
+        <tal:block i18n:translate="label_next_year">Next year</tal:block>&nbsp;&gt;
+      </a>&nbsp;&nbsp;
+      <a tal:attributes="href string:${nav_base_url}&ts=${nextnextdate}">
+        <tal:block i18n:translate="label_next_3_years">Next 3 years</tal:block>&nbsp;&gt;&gt;
+      </a>
+    </div>
+  </div>
+</metal:block>
+
+<!-- ****************************************
+**          Calendar view menu
+******************************************* -->
+<metal:block metal:define-macro="calendar_menu"
+             i18n:domain="plonebooking"
+             tal:define="vocab python:btool.getListingViewVocabulary();
+                         available_views python:here.getAvailableCalendarViews()">
+	<div id="calendar-menu">
+	  <tal:views tal:repeat="view available_views">
+	    <a tal:define="icon string:${view}view.png;
+	                   url string:${here/absolute_url}?ts=${ts}&dmode=calendar&dview=${view};
+	                   url python:test(is_bcenter and btype is not None, '%s&btype=%s' % (url, btype), url);
+	                   url python:test(is_bcenter and bcategory is not None, '%s&bcategory=%s' % (url, bcategory), url);
+	                   title python:vocab.getValue(view)"
+	       tal:attributes="href url;
+	                       class python:test(dview == view, 'selected', None);"
+        ><img tal:attributes="src   string:${portal_url}/$icon;
+	                          alt   title;
+	                          title title;"
+	           i18n:attributes="title, alt" /></a>&nbsp;
+
+	  </tal:views>
+	</div>
+</metal:block>
+
+<!-- ****************************************
+**          Calendar view dy day
+******************************************* -->
+<metal:block metal:define-macro="calendar_day"
+             i18n:domain="plonebooking"
+             tal:define="interval_in_minutes python: 30;
+                         interval_in_seconds python: interval_in_minutes * 60;
+                         cal_start_ts python:btool.setTsTime(ts, hour=here.getCalendarStartingHour());
+                         cal_end_ts          python:btool.setTsTime(ts, hour=here.getCalendarEndingHour());
+                         cal_start_dt        python:getZDateTimeFromts(cal_start_ts);
+                         cal_end_dt          python:getZDateTimeFromts(cal_end_ts + interval_in_seconds);
+                         hours               python: btool.buildPeriodList(cal_start_ts, cal_end_ts, interval_in_seconds);
+                         booking_result      python:here.groupBookingsByIntervalOfMinutes(cal_start_dt, cal_end_dt, interval=interval_in_minutes, **filter_args);
+                         group_keys          python:booking_result[0];
+                         booking_groups      python:booking_result[1];
+                         day_length   python: cal_end_ts - cal_start_ts + 3600;">
+
+  <metal:block metal:use-macro="macro_def/day_navigation" />
+  <table class="listing bookingsListing">
+  <thead>
+    <tr>
+      <th i18n:translate="label_hour">Hour</th>
+      <th/>
+    </tr>
+  </thead>
+  <tbody id="bookingCalendar">
+    <tal:loop tal:repeat="hour hours">
+
+      <tal:defines tal:define="start_ts  hour;
+                               end_ts    python:hour + interval_in_seconds;
+                               start_dt  python:DateTime(start_ts);
+                               end_dt    python:DateTime(end_ts);
+                               group_key python:(start_dt.year(), start_dt.month(), start_dt.day(), (start_dt.hour() * 60 + start_dt.minute()),);
+                               bookings  python:booking_groups.get(group_key, [])">
+        <tr>
+          <td class="bookingHourCell"
+              tal:content="python: DateTime(hour).TimeMinutes()">
+              8:00
+          </td>
+          <td class="bookingCell" style="width:100%;">
+            <input type="hidden" tal:attributes="value string:${start_ts}:${end_ts}" />
+            <a title="Book it"
+               class="visualNoPrint bookIt "
+               tal:condition="python:(bookableobject and not bookings or not bookableobject)"
+               tal:attributes="href  string:${add_booking_url}?start_ts=${start_ts}&end_ts=${end_ts};
+                               class string:visualNoPrint bookIt ${bookingClass};"
+               i18n:attributes="title link_title_book_it">
+              +
+            </a>
+            <tal:loop tal:repeat="booking bookings">
+              <a href="#"
+                 tal:define="state booking/review_state;
+                             state python:test(state == 'booked', 'booked', 'pending');
+                             booked_obj_uid booking/bookedObjectUID;
+                             booked_obj python:get_object(booked_obj_uid);
+                             booked_obj_title python:booked_obj.title_or_id();"
+                 tal:attributes="href booking/url;
+                                 class string:booking-${state};">
+                <span tal:replace="booked_obj_title" /> :
+                <tal:block i18n:translate="label_booked_by">booked by</tal:block> <span tal:replace="booking/creator" /> -
+                <span tal:replace="booking/title" />
+              </a>
+            </tal:loop>
+          </td>
+        </tr>
+
+      </tal:defines>
+    </tal:loop>
+  </tbody>
+  </table>
+  <metal:block metal:use-macro="macro_def/legend" />
+</metal:block>
+
+<!-- ****************************************
+**          Calendar view by week
+******************************************* -->
+<metal:block metal:define-macro="calendar_week"
+             i18n:domain="plonebooking"
+             tal:define="interval_in_minutes python: 60;
+                         interval_in_seconds python: interval_in_minutes * 60;
+                         week           python: dt.week();
+                         year           python: dt.year();
+                         date_range     python: btool.getDateRangeFromWeek(week, year);
+                         cal_start_dt   python: date_range[0];
+                         cal_end_dt     python: date_range[1];
+                         booking_result python: here.groupBookingsByIntervalOfMinutes(cal_start_dt, cal_end_dt, interval=interval_in_minutes, **filter_args);
+                         group_keys     python: booking_result[0];
+                         booking_groups python: booking_result[1];
+                         days           python: ['', 'Monday', 'Tuesday','Wednesday', 'Thursday','Friday','Saturday', 'Sunday'];
+                         days_header    python: btool.buildWeekDays(week, year);
+                         starting_hour  python: here.getCalendarStartingHour();
+                         ending_hour    python: here.getCalendarEndingHour();
+                         week_table     python: btool.buildWeekTable(week, year, starting_hour=starting_hour, ending_hour=ending_hour, delta=interval_in_seconds);
+                         cal_start_ts python: date_range[0].millis() / 1000;
+                         day_length   python: 3600 * (ending_hour - starting_hour + 1); ">
+
+  <metal:block metal:use-macro="macro_def/week_navigation" />
+
+
+
+    <table class="listing bookingsListing">
+      <thead>
+        <tr id="week-days">
+          <th>
+            <!-- hour / weekday -->
+          </th>
+          <th tal:repeat="day days_header">
+            <a  tal:attributes="href python: here.absolute_url()+'?dmode=calendar&dview=day&ts=' + str(day)"
+                tal:content="python:btool.getFormatedDate(DateTime(day), with_year=0)" />
+          </th>
+        </tr>
+      </thead>
+      <tbody id="bookingCalendar">
+        <tal:loop tal:repeat="line week_table">
+        <tr>
+
+          <td class="bookingHourCell" tal:content="python: DateTime(line[0]).TimeMinutes()">
+            8:00
+          </td>
+
+          <tal:loop tal:repeat="day line">
+            <tal:defines tal:define="start_ts  day;
+                                     end_ts    python:start_ts + 3600 ;
+                                     start_dt  python:DateTime(start_ts);
+                               	     end_dt    python:DateTime(end_ts);
+			                         group_key python:(start_dt.year(), start_dt.month(), start_dt.day(), (start_dt.hour() * 60 + start_dt.minute()),);
+                               		 bookings  python:booking_groups.get(group_key, [])">
+
+            <td class="bookingCell">
+              <input type="hidden" tal:attributes="value string:${start_ts}:${end_ts}" />
+              <a title="Book it"
+                 class="visualNoPrint bookIt "
+                 tal:condition="python:(bookableobject and not bookings and can_add_booking) or (not bookableobject and can_add_booking)"
+                 tal:attributes="href  string:${add_booking_url}?start_ts=${start_ts}&end_ts=${end_ts};
+                                 class string:visualNoPrint bookIt ${bookingClass};"
+                 i18n:attributes="title link_title_book_it">
+                  +
+              </a>
+              <tal:loop tal:repeat="booking bookings">
+                <a href=""
+                   title="Show more booking infos"
+                   tal:define="state booking/review_state;
+                               state python:test(state == 'booked', 'booked', 'pending');
+                               booked_obj_uid booking/bookedObjectUID;
+                               booked_obj python:get_object(booked_obj_uid);
+                               booked_obj_title python:booked_obj.title_or_id();"
+                   tal:attributes="href booking/url;
+                                   class string:booking-${state};"
+                   i18n:attributes="title show_more_infos">
+                   <span tal:replace="booked_obj_title" /> :
+                   <tal:block i18n:translate="label_booked_by">booked by</tal:block>
+                   <span tal:replace="booking/creator" /> -
+                   <span tal:replace="booking/title" />
+                </a>
+              </tal:loop>
+            </td>
+            </tal:defines>
+          </tal:loop>
+        </tr>
+        </tal:loop>
+      </tbody>
+    </table>
+
+
+    <metal:block metal:use-macro="macro_def/legend" />
+</metal:block>
+
+<!-- ****************************************
+**          Calendar view by month
+******************************************* -->
+<metal:block metal:define-macro="calendar_month"
+             i18n:domain="plonebooking"
+             tal:define="interval_in_days    python:1;
+                         month               python:dt.month();
+                         year                python:dt.year();
+                         date_range          python:btool.getDateRangeFromMonth(month, year);
+                         start_date          python:date_range[0];
+                         end_date            python:date_range[1];
+                         booking_result      python:here.groupBookingsByDay(start_date, end_date, **filter_args);
+                         group_keys          python:booking_result[0];
+                         booking_groups      python:booking_result[1];
+                         days_header         python:['Monday', 'Tuesday','Wednesday', 'Thursday','Friday','Saturday', 'Sunday'];
+                         month_calendar      python: btool.buildMonthCalendar(year, month);
+                         cal_start_ts python:start_date.millis() / 1000;
+                         starting_hour       python: here.getCalendarStartingHour();
+                         day_length   python:0;">
+
+  <metal:block metal:use-macro="macro_def/month_navigation" />
+
+    <table class="listing bookingsListing">
+          <thead>
+            <tr>
+              <th class="discreet" i18n:translate="head_week_number">
+                <!-- week / days -->
+                 week number
+              </th>
+              <th tal:repeat="day days_header">
+                <span i18n:translate="" tal:omit-tag="" tal:content="day" />
+              </th>
+            </tr>
+          </thead>
+          <tbody id="bookingCalendar">
+            <tal:loop tal:repeat="line month_calendar">
+            <tr>
+              <td class="monthBookingCell monthBookingCellWeekDay">
+                <!-- Week number -->
+                <a href="" class="WeekNumber"
+                   tal:define="dt python: DateTime(year, month, btool.getFirstValidDay(line))"
+                   tal:attributes="href python: here.absolute_url()+'?&dmode=calendar&dview=week&ts='+str(btool.getTsFromZDateTime(dt))"
+                   tal:content="python:dt.week()">
+                   1
+                </a>
+              </td>
+
+              <tal:loop tal:repeat="day_number line">
+              <td tal:attributes="class python:test(day_number, 'monthBookingCell', 'monthBookingEmptyCell')">
+                <tal:test tal:condition="day_number">
+                <tal:defines tal:define="group_key python:(year, month, day_number);
+                                         day_date  python:DateTime(*group_key);
+                                     	 day_ts    python:btool.getTsFromZDateTime(day_date);
+                                         start_ts  python:day_ts + starting_hour * 3600;
+                                         end_ts    python:start_ts + 3600;
+                               		 	     bookings  python:booking_groups.get(group_key, [])">
+                  <a title="Book it"
+                     class="visualNoPrint bookIt "
+                     tal:condition="python: can_add_booking"
+                     tal:attributes="href  string:${add_booking_url}?start_ts=${start_ts}&end_ts=${end_ts};
+                                     class string:visualNoPrint bookIt ${bookingClass};"
+                     i18n:attributes="title link_title_book_it">
+                      +
+                  </a>
+                  <a href="#"
+                     title="Show the day"
+                     tal:attributes="href string:${here/absolute_url}?ts=${day_ts}&dmode=calendar&dview=day;"
+                     i18n:attributes="title show_day"
+                     tal:content="day_number" />
+                  <div class="monthViewList">
+                    <tal:loop tal:repeat="booking bookings">
+                        <a  tal:define="state booking/review_state;
+                                        state python:test(state == 'booked', 'booked', 'pending');
+                                        booked_obj_uid booking/bookedObjectUID;
+                                        booked_obj python:get_object(booked_obj_uid);
+                                        booked_obj_title python:booked_obj.title_or_id();"
+                            tal:attributes="class string:booking-${state};
+                                            href booking/url;"
+                            class="BookingThumb">
+                          <tal:block
+                            tal:condition="not:bookableobject">
+                          <span tal:replace="booked_obj_title" />&nbsp;-&nbsp;</tal:block><span tal:replace="booking/title" />
+                        </a>
+                    </tal:loop>
+                  </div>
+                </tal:defines>
+                </tal:test>
+              </td>
+              </tal:loop>
+
+            </tr>
+            </tal:loop>
+          </tbody>
+        </table>
+
+  <metal:block metal:use-macro="macro_def/legend" />
+</metal:block>
+
+<!-- ****************************************
+**          Listing view menu
+******************************************* -->
+<metal:block metal:define-macro="listing_menu"
+             i18n:domain="plonebooking"
+             tal:define="vocab python:btool.getListingViewVocabulary();
+                         available_views python:here.getAvailableListingViews()">
+	<div id="listing-menu">
+	  <tal:views tal:repeat="view available_views">
+	    <a tal:define="url string:${here/absolute_url}?ts=${ts}&dmode=listing&dview=${view};
+	                   url python:test(is_bcenter and btype is not None, '%s&btype=%s' % (url, btype), url);
+	                   url python:test(is_bcenter and bcategory is not None, '%s&bcategory=%s' % (url, bcategory), url);
+	                   title python:vocab.getValue(view)"
+	       tal:attributes="href url;
+	       								 class python:test(dview == view, 'selected', None);"
+	       tal:content="title" />&nbsp;
+	  </tal:views>
+	</div>
+</metal:block>
+
+<!-- ****************************************
+**          Listing view
+******************************************* -->
+<metal:block metal:define-macro="listing_view" i18n:domain="plonebooking">
+  <div class="bookingResults"
+       tal:define="group_keys 			 python:booking_result[0];
+                   booking_groups 		 python:booking_result[1];
+                   display_groups 		 python:test(len(group_keys) == 1, False, True);
+	               bookable_objects_dict python:dict([(x.UID(), x) for x in bookable_objects])">
+
+    <tal:block tal:repeat="group_key group_keys">
+      <tal:block tal:define="bookings python:booking_groups.get(group_key, None)">
+
+        <tal:block tal:condition="display_groups">
+        	<tal:block tal:condition="python:group_by == 'day'">
+	        	<h4 tal:define="group_date python:DateTime(group_key[0], group_key[1], group_key[2])"
+	        	    tal:content="python:btool.getFormatedDate(group_date)" />
+	        </tal:block>
+	        <tal:block tal:condition="python:group_by == 'month'">
+		        <h4 tal:content="python:btool.getFormatedMonthDate(group_key[1], group_key[0])" />
+		      </tal:block>
+        </tal:block>
+
+        <p tal:condition="not:bookings"
+           i18n:translate="description_no_bookings_found">
+        No bookings found.
+        </p>
+
+        <dl tal:condition="bookings">
+          <tal:block tal:repeat="booking bookings">
+          	<tal:block tal:define="start_fd python:btool.getFormatedLongDate(booking['start']);
+                                   end_fd python:btool.getFormatedLongDate(booking['end'])">
+	            <dt tal:define="title booking/title">
+	              <a href=""
+	                 tal:attributes="href booking/url">
+	                <tal:block tal:condition="title"
+	                           tal:content="title" i18n:translate="" />
+	                <tal:block tal:condition="not:title"
+	                           i18n:translate="label_dynamic_booking_title">
+	                  Booking from
+	                  <span i18n:name="start_date"
+	                        tal:content="start_fd" />
+	                  to
+	                  <span i18n:name="end_date"
+	                        tal:content="end_fd" />
+	                </tal:block>
+	              </a>
+	            </dt>
+
+	            <dd>
+		            <div tal:define="bobject_uid booking/bookedObjectUID"
+		                 tal:condition="python:here_uid!=bobject_uid">
+		              <tal:block tal:define="ref_obj python:bookable_objects_dict.get(bobject_uid, None)"
+		                         tal:condition="nocall: ref_obj">
+		                <a href=""
+		                   tal:define="url string:${ref_obj/absolute_url}?ts=${ts}&dmode=${dmode}&dview=${dview}"
+		                   tal:attributes="href url"
+		                   tal:content="ref_obj/title_or_id" />
+		              </tal:block>
+		            </div>
+	            </dd>
+	            <dd i18n:translate="description_booking_duration">
+	              From
+	              <span i18n:name="start_date"
+	                    tal:content="start_fd" />
+	              to
+	              <span i18n:name="end_date"
+	                    tal:content="end_fd" />
+	            </dd>
+	          </tal:block>
+          </tal:block>
+        </dl>
+      </tal:block>
+    </tal:block>
+  </div>
+</metal:block>
+
+<!-- ****************************************
+**          Listing view by day
+******************************************* -->
+<metal:block metal:define-macro="listing_day"
+             i18n:domain="plonebooking"
+             tal:define="date_range python:btool.getDateRangeFromDate(dt);
+             			 start_date python:date_range[0];
+                         end_date python:date_range[1];
+                         group_by string:day;
+                         booking_result python:here.groupBookingsByDay(start_date, end_date, **filter_args);
+                         cal_start_ts   python: start_date.millis()/1000;
+                         day_length     python: 0;">
+  <metal:block metal:use-macro="macro_def/day_navigation" />
+  <metal:block metal:use-macro="macro_def/listing_view" />
+</metal:block>
+
+<!-- ****************************************
+**          Listing view by week
+******************************************* -->
+<metal:block metal:define-macro="listing_week"
+             i18n:domain="plonebooking"
+             tal:define="week python:dt.week();
+                         year python:dt.year();
+                         date_range python:btool.getDateRangeFromWeek(week, year);
+                         start_date python:date_range[0];
+                         end_date python:date_range[1];
+                         group_by string:day;
+                         booking_result python:here.groupBookingsByDay(start_date, end_date, **filter_args);
+                         cal_start_ts   python: start_date.millis()/1000;
+                         day_length     python: 0;">
+  <metal:block metal:use-macro="macro_def/week_navigation" />
+  <metal:block metal:use-macro="macro_def/listing_view" />
+
+</metal:block>
+
+<!-- ****************************************
+**          Listing view by month
+******************************************* -->
+<metal:block metal:define-macro="listing_month"
+             i18n:domain="plonebooking"
+             tal:define="month          python:dt.month();
+                         year           python:dt.year();
+                         date_range     python:btool.getDateRangeFromMonth(month, year);
+                         start_date     python:date_range[0];
+                         end_date       python:date_range[1];
+                         group_by       string:day;
+                         booking_result python:here.groupBookingsByDay(start_date, end_date, **filter_args);
+                         group_keys     python:booking_result[0];
+                         booking_groups python: booking_result[1];
+                         cal_start_ts   python: start_date.millis()/1000;
+                         day_length     python: 0;">
+  <metal:block metal:use-macro="macro_def/month_navigation" />
+  <metal:block metal:use-macro="macro_def/listing_view" />
+</metal:block>
+
+<!-- ****************************************
+**          Listing view by year
+******************************************* -->
+<metal:block metal:define-macro="listing_year"
+             i18n:domain="plonebooking"
+             tal:define="year                python:dt.year();
+                         date_range          python:btool.getDateRangeFromYear(year);
+                         start_date          python:date_range[0];
+                         end_date            python:date_range[1];
+                         group_by            string:month;
+                         booking_result      python:here.groupBookingsByMonth(start_date, end_date, **filter_args);
+                         cal_start_ts python: start_date.millis()/1000;
+                         day_length   python: 0;">
+  <metal:block metal:use-macro="macro_def/year_navigation" />
+  <metal:block metal:use-macro="macro_def/listing_view" />
+</metal:block>
+
+
+<!-- ****************************************
+**          Planning view by day
+******************************************* -->
+<metal:block metal:define-macro="planning_day"
+             i18n:domain="plonebooking"
+             tal:define="cal_start_ts python: btool.setTsTime(ts, hour=here.getCalendarStartingHour());
+                         cal_end_ts          python: btool.setTsTime(ts, hour=here.getCalendarEndingHour());
+                         cal_start_dt        python: getZDateTimeFromts(cal_start_ts);
+                         cal_end_dt          python: getZDateTimeFromts(cal_end_ts);
+                         interval_in_minutes python: 60;
+                         interval_in_seconds python: interval_in_minutes * 60;
+                         hours               python: btool.buildPeriodList(cal_start_ts, cal_end_ts, interval_in_seconds);
+                         booking_result      python: here.groupBookingsByDay(cal_start_dt, cal_end_dt, **filter_args);
+                         bookings            python: booking_result[1].values();
+                         day_length   python: cal_end_ts - cal_start_ts + 3600;">
+
+  <metal:block metal:use-macro="macro_def/day_navigation" />
+  <table  class="planning" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <th></th>
+        <th tal:repeat="hour hours">
+            <span tal:replace="python: DateTime(hour).hour()" />h
+        </th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td tal:repeat="hour hours"><img /></td>
+      </tr>
+    </thead>
+    <tbody id="bookingPlanning">
+      <tal:block  tal:condition="bookings"
+                  tal:repeat="booking python: bookings[0]">
+        <tr tal:define="start_ts         python: (booking['start'].millis() / 1000) - cal_start_ts;
+                        end_ts           python: (booking['end'].millis() / 1000) - cal_start_ts;
+                        left             python: round(100 * start_ts / float(day_length), 3);
+                        width            python: round(100 * (end_ts - start_ts) / float(day_length), 3);
+                        state            booking/review_state;
+                        state            python: test(state == 'booked', 'booked', 'pending');
+                        booked_obj_uid   booking/bookedObjectUID;
+                        booked_obj       python:get_object(booked_obj_uid);
+                        booked_obj_title python:booked_obj.title_or_id();">
+          <td width="100%">
+            <span tal:replace="booking/creator" /> -
+            <span tal:replace="booking/title" />
+          </td>
+          <td tal:attributes="colspan python:len(hours)" class="timeline">
+            <a   tal:attributes="style string:left: ${left}%;; width: ${width}%;;;
+                                 class string:booking-${state};
+                                 href  booking/url;">
+                   <div tal:content="booked_obj_title" />
+            </a>
+          </td>
+        </tr>
+      </tal:block>
+    </tbody>
+  </table>
+  <p align="center"
+     tal:condition="not:bookings"
+     i18n:translate="description_no_bookings_found">
+      No bookings found.
+  </p>
+
+  <metal:block metal:use-macro="macro_def/legend" />
+</metal:block>
+
+<!-- ****************************************
+**          Legend
+******************************************* -->
+<metal:block metal:define-macro="legend">
+  <ul class="legend"
+      i18n:domain="plone"
+      tal:define="items python:[('booked', 'booking-booked'), ('pending', 'booking-pending')]">
+    <tal:states tal:repeat="item items">
+      <li tal:define="css_class python:item[1];
+                      state python:item[0];"
+          tal:attributes="class css_class;"
+          i18n:translate=""
+          tal:content="state" />
+    </tal:states>
+  </ul>
+</metal:block>
+
+
+<metal:block define-macro="defines"
+             i18n:domain="plonebooking"
+             tal:define="btool              here/portal_booking;
+                         atool              nocall:portal/archetype_tool;
+                         get_object         nocall:atool/getObject;
+                         macro_def          nocall:here/plonebooking_macros/macros;
+                         getDatetimeFromTs  nocall:btool/getDatetimeFromTs;
+                         getZDateTimeFromts nocall:btool/getZDateTimeFromts;
+                         getTsFromZDateTime nocall:btool/getTsFromZDateTime;
+                         getTsFromDatetime  nocall:btool/getTsFromDatetime;
+                         available_modes    python:here.getAvailableViewModes();
+                         default_mode       python:here.getDefaultViewMode();
+                         default_view       python:here.getDefaultCalendarView();
+
+                         dmode              python:request.get('dmode', default_mode);
+                         dview              python:request.get('dview', default_view);
+                         btype              request/btype | btype | nothing;
+                         bcategory          request/bcategory | bcategory | nothing;
+                         here_title         here/title_or_id;
+                         here_uid           here/UID;
+
+                         bcenter            here/getBookingCenter;
+                         bcenter_url        bcenter/absolute_url;
+                         is_bcenter         python:bcenter == here;
+                         bookableobject     bookableobject | request/bookableobject | python:not is_bcenter and here.getId() or None;
+                         add_booking_url    python:is_bcenter and 'plonebooking_add_form' or 'plonebooking_add';
+                         add_booking_url    string:${here/absolute_url}/${add_booking_url};
+
+                         filter_args        python:test(is_bcenter, btool.buildFilter(getType=btype, getCategory=bcategory),
+                                                                    btool.buildFilter(getBookedObjectUID=here_uid));
+                         btypes             python:here.getBookableObjectTypes(review_state='published', **filter_args);
+                         bcategories        python:here.getBookableObjectCategories(review_state='published', **filter_args);
+                         bookable_objects   python:here.getBookableObjects(review_state='published', **filter_args);
+
+                         ts                 python:request.get('ts', btool.getTodayTs());
+                         dt                 python:getZDateTimeFromts(ts);
+                         cal_start_ts       python:btool.setTsTime(ts, hour=here.getCalendarStartingHour());
+                         member_fullname    python:member and member.getProperty('fullname', '');
+                         member_email       python:member and member.getProperty('email', '');
+                         member_phone       python:member and member.getProperty('phone', '');
+                         view_macro_id      string:${dmode}_${dview};
+                         view_macro         python:path('here/plonebooking_macros/macros/%s' % view_macro_id) ;
+                         nav_base_url       string:${here/absolute_url}?dmode=${dmode}&dview=${dview};
+                         nav_base_url       python:btype and (nav_base_url + '&btype=' + btype) or nav_base_url;
+                         nav_base_url       python:bcategory and (nav_base_url + '&bcategory=' + bcategory) or nav_base_url;
+                         nav_base_url       python:bookableobject and (nav_base_url + '&bookableobject=' + bookableobject) or nav_base_url;
+                         bookingClass       python:test(bookableobject, 'bookableObject', '');
+                         can_add_booking    python:mtool.checkPermission('PloneBooking: Add booking', here);
+                         can_modify         python:mtool.checkPermission('Modify portal content', here);
+                         refresh_mode       here/getCalendarRefreshMode;
+                         required_filters   here/getRequiredFilters;
+                         manual_refresh     python:refresh_mode == 'manual' or required_filters;
+						             ref                request/refresh-filter | nothing;">
+  <metal:content define-slot="content" />
+</metal:block>
+
+<!-- ****************************************
+**          Main
+******************************************* -->
+<metal:block metal:define-macro="main_view">
+  <metal:content use-macro="here/plonebooking_macros/macros/defines">
+    <metal:fill fill-slot="content">
+      <form method="get" id="booking-form"
+            tal:attributes="action string:${here/absolute_url}/${template/getId}">
+        <input type="hidden" name="ts"             tal:attributes="value ts" />
+        <input type="hidden" name="center_url"     tal:attributes="value here/absolute_url" />
+        <input type="hidden" name="dview"          tal:attributes="value dview" />
+        <input type="hidden" name="start_ts"       tal:attributes="value cal_start_ts | nothing" />
+        <input type="hidden" name="length_ts"      tal:attributes="value day_length   | nothing" />
+        <input type="hidden" name="isAnon"         tal:attributes="value isAnon" />
+        <input type="hidden" name="portal_url"     tal:attributes="value string:${portal_url}" />
+
+        <tal:block tal:condition="not:btypes">
+        	<p i18n:translate="description_no_bookable_object">
+        	No object can be booked.
+        	</p>
+        </tal:block>
+
+        <div tal:condition="btypes">
+
+      		<div id="booking-filter">
+      			<metal:block metal:use-macro="here/booking_filter/macros/main" />
+      		</div>
+
+          <tal:block tal:condition="manual_refresh">
+            <div id="plonebooking-view">&nbsp;</div>
+          </tal:block>
+
+          <tal:block tal:condition="not:manual_refresh">
+
+            <div id="plonebooking-view">
+
+              <metal:block define-macro="booking_view">
+                <h2 tal:condition="is_bcenter"
+                    i18n:translate="title_bookings_for_bookable_objects">
+                  Bookings for bookable objects
+                </h2>
+
+                <h2 tal:condition="not:is_bcenter"
+                    i18n:translate="title_bookings_for_bookable_object">
+                  Bookings for bookable object:
+                  <tal:block i18n:name="bookableobject" tal:content="here/title_or_id" />
+                </h2>
+
+                <p>
+      	          <span i18n:translate="description_add_new_booking">
+      	            Select a view, search for availability and
+
+      	            <span i18n:name="add_new_booking">
+      	              <a href="add_booking_url" class="bootIt" id="addNewBooking"
+      	                 onclick="return Booking.editPopup(event);"
+      	                 tal:define="start_ts     cal_start_ts;
+      	                             end_ts       python:start_ts + 3600"
+      	                 tal:attributes="href  string:${add_booking_url}?start_ts=${start_ts}&end_ts=${end_ts};
+      	                                 class string:bookIt ${bookingClass}"
+      	                 i18n:translate="label_add_new_booking">
+      	                add new booking
+      	              </a>
+      	            </span>
+      				.
+      	          </span>
+      	          <span i18n:translate="description_add_new_booking_in_calendar_view"
+      	                tal:condition="python:'calendar' in available_modes">
+      	            On calendar view, add a new booking by clicking on « + ».
+      	          </span>
+                </p>
+
+                <metal:block metal:use-macro="view_macro" />
+              </metal:block>
+            </div>
+          </tal:block>
+        </div>
+      </form>
+    </metal:fill>
+  </metal:content>
+</metal:block>
+
+<!--
+  Menu for Booking
+-->
+
+<metal:block metal:define-macro="booking_menu">
+  <div id="booking-menu"
+       tal:define="transitions       workflow_actions;
+                   can_modify        python:checkPermission('Modify portal content', here);
+                   actions           python:actions.get('object', []);
+                   displayed_actions python:('view', 'edit', 'periodicity')"
+       tal:condition="can_modify">
+      <tal:loop repeat="action actions">
+
+        <tal:action condition="python: action['id'] in displayed_actions">
+          <a href="#"
+             class="context"
+             tal:attributes="href action/url"
+             tal:content="action/id"
+             i18n:domain="plonebooking"
+             i18n:translate="">
+            Modify
+          </a>
+        </tal:action>
+      </tal:loop>
+
+
+
+      <tal:loop repeat="transition transitions">
+
+        <a href="#"
+           class="context"
+           i18n:translate=""
+           tal:content="transition/name"
+           i18n:domain="plone"
+           i18n:attributes="title"
+           tal:attributes="href string:${here/absolute_url}/content_status_modify?workflow_action=${transition/id};
+                           title transition/name">File Menu Item 1</a>
+      </tal:loop>
+  </div>
+</metal:block>
+
+<!--
+Link to booking reference types
+-->
+<metal:block define-macro="booking_ref"
+             i18n:domain="plonebooking">
+ <span style="padding : 0px 0px 10px 0px;">
+  <img src=""
+       style="float:left; padding : 4px 5px 10px 0px;"
+       tal:attributes="src python: portal.absolute_url()+'/arrowUp.gif'"
+        	 />
+  <a href=""
+	   class="link-parent"
+	   tal:define="booked_obj here/getBookedObject"
+	   tal:attributes="href booked_obj/absolute_url"
+	   i18n:translate="label_up_to_booked_object">
+	Up to booked object
+	</a>
+</metal:block>
+
+<!-- ****************************************
+**          Read only field
+******************************************* -->
+<metal:block define-macro="read_only_field"
+             i18n:domain="plonebooking">
+</metal:block>

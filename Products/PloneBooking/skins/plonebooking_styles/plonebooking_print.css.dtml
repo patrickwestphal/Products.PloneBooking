@@ -1,0 +1,46 @@
+<dtml-comment>
+  PloneBooking style sheet for printing
+</dtml-comment>
+
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/css')">
+
+
+#fieldsetlegend-metadata{
+	display:none;
+}
+
+.formTab lastFormTab{
+	display:none;
+}
+
+
+
+#calendar-menu {
+  display: none;
+}
+
+#plonebooking-nav {
+  display: none;
+}
+
+.link-parent {
+  display: none;
+}
+
+a:link, a:visited {
+  color: #520;
+  background: transparent;
+  font-size: xx-small;
+  font-weight: normal;
+  font-family: serif;
+  text-decoration: none;
+}
+
+#content a:link:after,
+#content a:visited:after {
+   content: "";
+}
+
+.event p,a,b {
+  padding-top: 0px;
+}

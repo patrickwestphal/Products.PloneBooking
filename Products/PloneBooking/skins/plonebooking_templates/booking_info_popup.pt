@@ -1,0 +1,120 @@
+<span id="booking-popup-content"
+     i18n:domain="plonebooking"
+     tal:define="bookable_obj here/getBookableObject;
+                 bookable_obj_url bookable_obj/absolute_url;
+                 booking_url here/absolute_url;
+                 booking_uid here/UID;
+                 utool nocall:here/portal_url;
+                 portal utool/getPortalObject;
+                 btool nocall:portal/portal_booking;
+                 getFormatedDate nocall:btool/getFormatedDate;
+                 getFormatedLongDate nocall:btool/getFormatedLongDate;
+                 mtool nocall:here/portal_membership;
+                 wtool nocall:here/portal_workflow;
+                 booking_state python:wtool.getInfoFor(here, 'review_state');
+                 checkPermission nocall:mtool/checkPermission;
+                 can_modify python:checkPermission('Modify portal content', here);
+                 can_review python:checkPermission('Review portal content', here);">
+  <metal:block tal:define="ptool nocall:portal/portal_properties;
+                           charset ptool/site_properties/default_charset;
+                           dummy python:request.RESPONSE.setHeader('Cache-Control', 'no-cache, no-store, max-age=0, private, must-revalidate, pre-check=0, post-check=0');
+                           dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset)" />
+
+  <div style="width: 450px;">
+     <a id="booking-popup-close" onclick="return Booking.closePopup()"
+        href="javascript: void(0);">X</a>
+	  <h3  class="popupHeading">
+	    <span i18n:translate="description_booking_duration">
+	      From
+	      <span i18n:name="start_date" id="start_date"
+	            tal:replace="python:getFormatedLongDate(here.start())" />
+	      to
+	      <span i18n:name="end_date" id="end_date"
+	            tal:replace="python:getFormatedLongDate(here.end())" />
+	    </span>
+	  </h3>
+      <div class="content">
+	  <dl  style="width: 400px;">
+	    <dt tal:content="here/Title|nothing" />
+	    <dd>
+	      <span class="bookingField"
+	            i18n:translate="label_booking_objects">
+	        Booking object(s) :
+	      </span>
+	      <tal:block tal:define="ref_obj here/getBookedObject">
+	        <a href=""
+	           tal:attributes="href string:javascript:Booking.openPopup(this, {href: '${bookable_obj_url}/bookableobject_ajax_view'});; void(0);;"
+	           tal:content="ref_obj/title_or_id" />
+	      </tal:block>
+	    </dd>
+	    <dd tal:define="fullname here/getFullName"
+	        tal:condition="fullname">
+	      <span class="bookingField"
+	            i18n:translate="label_booked_by">
+	        Booked by
+	      </span>
+	      <span tal:content="fullname" />
+	    </dd>
+	    <dd tal:define="phone here/getPhone"
+	        tal:condition="phone">
+	      <span class="bookingField"
+	            i18n:translate="label_booking_user_phone">
+	        Phone
+	      </span> :
+	      <span tal:content="phone" />
+	    </dd>
+	    <dd tal:define="email here/getEmail"
+	        tal:condition="email">
+	      <span class="bookingField"
+	            i18n:translate="label_booking_user_email">
+	        Email
+	      </span> :
+	      <a tal:attributes="href string:mailto:${email}"
+	         tal:content="email" />
+	    </dd>
+	  </dl>
+	  <p class="bookingDescription"
+	     tal:define="description here/Description"
+	     tal:condition="description">
+	    <strong i18n:translate="label_booking_description">Comment</strong> :
+	    <span tal:replace="description" />
+	  </p>
+	  <ul>
+	    <li tal:condition="python:False">
+	      <a href="" class="context"
+	         tal:attributes="href string:${booking_url}/view"
+	         i18n:translate="label_view">View</a>
+	    </li>
+	    <li tal:condition="can_modify">
+	      <a class="context"
+	         onclick="return Booking.editPopup(event);"
+	         tal:attributes="href    string:${booking_url}/edit;"
+	         i18n:translate="label_edit">Edit</a>
+	    </li>
+	    <li tal:condition="python:False and can_modify">
+	      <a class="context"
+	         tal:attributes="href    string:${booking_url}/edit;"
+	         i18n:translate="label_edit">Full Edit</a>
+	    </li>
+	    <li tal:condition="python:can_modify">
+	      <a class="context"
+	         onclick="return Booking.periodicityPopup(event)"
+	         tal:attributes="href    string:${booking_url}/booking_periodicity_form;"
+	         i18n:translate="periodicity">Periodicity</a>
+	    </li>
+	    <li tal:condition="python:can_review or can_modify">
+	      <a href="" class="context"
+	         tal:attributes="href    string: ${booking_url}/content_status_modify?workflow_action=cancel;
+	                         onclick string: return Booking.remove(this);"
+	         i18n:translate="label_retract">Retract</a>
+	    </li>
+	    <li tal:condition="python:booking_state != 'booked' and can_review">
+	      <a href="" class="context"
+	         tal:attributes="href    string: ${booking_url}/content_status_modify?workflow_action=book;
+	                         onclick string: return Booking.validate(this)"
+	         i18n:translate="label_book">Book</a>
+	    </li>
+	  </ul>
+	  </div>
+  </div>
+</span>

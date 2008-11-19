@@ -1,0 +1,618 @@
+# Gettext Message File for PloneBooking product.
+# Vincenzo Barone <vincenzo.barone@abstract.it>, 2006
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 4 July 2006 16:54:23 GMT\n"
+"PO-Revision-Date: Mon, 7 July 2004 21:00:00 GMT\n"
+"Last-Translator: Vincenzo Barone <vincenzo.barone@abstract.it>\n"
+"Language-Team: Vincenzo Barone <vincenzo.barone@abstract.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: it\n"
+"Language-name: Italiano\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plonebooking\n"
+"X-Is-Fallback-For: it-ch it-it\n"
+
+######################
+# Fields
+######################
+
+msgid "label_bookingcenter_categories"
+msgstr "Categorie"
+
+msgid "label_bookingcenter_types"
+msgstr "Tipi"
+
+msgid "help_bookingcenter_types"
+msgstr "Help tipi"
+
+msgid "label_bookingcenter_default_calendar_view"
+msgstr "Vista default del calendario"
+
+msgid "label_bookingcenter_available_calendar_views"
+msgstr "Viste del calendario disponibili"
+
+msgid "label_booking_user_full_name"
+msgstr "Nome Completo"
+
+msgid "label_booking_user_phone"
+msgstr "Telefono"
+
+msgid "label_booking_user_email"
+msgstr "Email"
+
+msgid "label_booking_objects"
+msgstr "Oggetti prenotabili"
+
+msgid "label_booking_start_date"
+msgstr "Data inizio"
+
+msgid "help_booking_start_date"
+msgstr "Indica la data d'inizio della prenotazione"
+
+msgid "label_booking_end_date"
+msgstr "Data Fine"
+
+msgid "help_booking_end_date"
+msgstr "Indica la data di fine della prenotazione"
+
+msgid "label_booking_periodicity_end_date"
+msgstr "Fine periodicita'"
+
+msgid "help_booking_peridodicity_end_date"
+msgstr "Inserisci la data di fine per la periodicita'"
+
+msgid "label_booking_periodicity_type"
+msgstr "Tipo periodicita'"
+
+msgid "label_bookableobject_type"
+msgstr "Tipi prenotabili"
+
+msgid "label_bookableobject_text"
+msgstr "Testo"
+
+msgid "label_bookableobject_category"
+msgstr "Categorie"
+
+msgid "label_same_date_every_weeks"
+msgstr "La stessa data ogni settimana"
+
+msgid "label_same_date_every"
+msgstr "La stessa data ogni"
+
+msgid "label_weeks"
+msgstr "settimane"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Lo stesso giorno della mese (Ad esempio ogni secondo lunedi' del mese)"
+
+msgid "label_pending_colors"
+msgstr "Colore prenotazione in attesa di accettazione"
+
+msgid "help_pending_colors"
+msgstr "Indica il colore delle prenotazione che si trovano nello stato di attesa di accettazione. Separare i due colori con ':', per esempio se si vuole utilizzare il colore rosso per il testo ed il colore bianco per il background inserire red:white"
+
+msgid "label_booked_colors"
+msgstr "Colore prenotazione accettata"
+
+msgid "help_booked_colors"
+msgstr "Indica il colore delle prenotazione che si trovano nello stato di accettato. Separare i due colori con ':', per esempio se si vuole utilizzare il colore rosso per il testo ed il colore bianco per il background inserire red:white"
+
+msgid "label_booking_title"
+msgstr "Titolo"
+
+msgid "label_booking_description"
+msgstr "Note"
+
+msgid "help_booking_description"
+msgstr "Inserisci eventuali note per la prenotazione"
+
+msgid "label_bookableobject_title"
+msgstr "Titolo"
+
+msgid "label_bookable_object_states"
+msgstr "Stati"
+
+msgid "help_bookable_object_states"
+msgstr "Indica gli stati per la visualizzazione delle prenotazioni"
+
+# ###################
+# Views
+# ###################
+
+msgid "message_create_periodic_bookings"
+msgstr "La prenotazione con periodicita' e' stata creata"
+
+msgid "label_booking"
+msgstr "Prenotato"
+
+msgid "label_new_booking"
+msgstr "Nuova Prenotazione"
+
+msgid "label_edit_booking"
+msgstr "Modifica prenotazione"
+
+msgid "label_only_bookable_objects_of_type"
+msgstr "Visualizza prenotazioni del tipo"
+
+msgid "label_only_bookable_objects_of_category"
+msgstr "Visualizza prenotazione della categoria"
+
+msgid "label_all_categories"
+msgstr "Tutte le categorie"
+
+msgid "label_see_bookable_object"
+msgstr "Visuallizza le prenotazioni"
+
+msgid "label_filter_form"
+msgstr "Filtro"
+
+msgid "title_bookings_for_bookable_object_of_type"
+msgstr "Titolo"
+
+msgid "label_periodicity_configuration"
+msgstr "Configurazione periodicita'"
+
+msgid "first_step_text"
+msgstr "Primo passo: selezionare un tipo di periodicità e una data per la fine della periodicità"
+
+msgid "label_display_result"
+msgstr "Visualizza risutato"
+
+msgid "label_these_bookings_will_be_created"
+msgstr "Sono state create le seguenti prenotazioni"
+
+msgid "second_step_text"
+msgstr "Secondo passo"
+
+msgid "label_create_bookings"
+msgstr "Crea prenotazioni"
+
+#####################
+# misc
+#####################
+
+msgid "label_dynamic_booking_title"
+msgstr ""
+
+msgid "description_no_bookable_object"
+msgstr ""
+
+msgid "Booking center"
+msgstr "Centro prenotazioni"
+
+msgid "Booking container"
+msgstr "Cartella Prenotazioni"
+
+msgid "Bookable object container"
+msgstr ""
+
+msgid "Booking"
+msgstr "Prenotato"
+
+msgid "Bookable object"
+msgstr ""
+
+msgid "label_booking_user_information"
+msgstr "Informazioni utente"
+
+msgid "label_booked_objects"
+msgstr ""
+
+msgid "label_booking_duration"
+msgstr ""
+
+msgid "Add booking"
+msgstr "Aggiungi prenotazione"
+
+msgid "Display all bookings listing"
+msgstr ""
+
+msgid "Add bookable object"
+msgstr ""
+
+msgid "Display all bookable objects"
+msgstr ""
+
+msgid "label_all_bookable_objects"
+msgstr ""
+
+msgid "label_bookablecontainer_title"
+msgstr ""
+
+msgid "label_bookingcontainer_title"
+msgstr ""
+
+msgid "label_booking_date"
+msgstr "Data"
+
+msgid "description_booking_duration"
+msgstr ""
+
+msgid "description_no_bookings_found"
+msgstr "Nessuna prenotazione trovata"
+
+msgid "link_previous"
+msgstr "Precedente"
+
+msgid "link_next"
+msgstr "Successivo"
+
+msgid "label_group_by"
+msgstr "Raggruppa per"
+
+msgid "Day"
+msgstr "Giorno"
+
+msgid "Week"
+msgstr "Settimana"
+
+msgid "Month"
+msgstr "Mese"
+
+msgid "Year"
+msgstr "Anno"
+
+msgid "label_previous_day"
+msgstr "Giorno precedente"
+
+msgid "label_previous_week"
+msgstr "Settimana precedente"
+
+msgid "label_next_day"
+msgstr "Giorno successivo"
+
+msgid "label_next_week"
+msgstr "Settimana successiva"
+
+msgid "label_previous_4_weeks"
+msgstr "Le 4 settimane precedenti"
+
+msgid "label_next_4_weeks"
+msgstr "Le 4 settimane successive"
+
+msgid "label_next_month"
+msgstr "Mese successivo"
+
+msgid "label_next_3_months"
+msgstr "I 3 mesi successivi"
+
+msgid "label_previous_month"
+msgstr "Mese precedente"
+
+msgid "label_previous_3_months"
+msgstr "I 3 mesi precedenti"
+
+msgid "label_next_year"
+msgstr "Anno successivo"
+
+msgid "label_next_3_years"
+msgstr "I 3 anni successivi"
+
+msgid "label_previous_year"
+msgstr "Anno precedente"
+
+msgid "label_previous_3_years"
+msgstr "I 3 anni precedenti"
+
+msgid "label_hour"
+msgstr "Ora"
+
+msgid "label_by"
+msgstr "Da"
+
+msgid "label_booked_by"
+msgstr "Prenotato da"
+
+msgid "label_group_by_category"
+msgstr "Ragruppa per categorie"
+
+msgid "label_see_all_types"
+msgstr "Visualizza tutte le prenotazioni"
+
+msgid "heading_create_periodic_bookings"
+msgstr "Crea prenotazioni con periodicita'"
+
+msgid "link_return_to_booking_view"
+msgstr "Ritorna alla visualizzazione delle prenotazioni"
+
+msgid "label_periodicity_deactivated"
+msgstr ""
+
+msgid "label_already_booked"
+msgstr "Gia' prenotato"
+
+msgid "Create objects"
+msgstr ""
+
+msgid "label_no_periodic_items"
+msgstr "Nessuna periodicità presente"
+
+# Date format
+msgid "date_format"
+msgstr "${weekdayname},  ${day} ${monthname} ${year}"
+
+msgid "date_long_format"
+msgstr "${day}/${month}/${year} ${hour}"
+
+msgid "date_format_without_year"
+msgstr "${weekdayname} ${day} ${monthname}"
+
+msgid "week_date_format"
+msgstr "settimana ${week}, ${year} "
+
+msgid "month_date_format"
+msgstr "${monthname}, ${year}"
+
+msgid "head_week_number"
+msgstr "settimana n."
+
+# Weekdays
+msgid "calendar_weekday_0"
+msgstr "Lunedi'"
+
+msgid "calendar_weekday_1"
+msgstr "Martedi'"
+
+msgid "calendar_weekday_2"
+msgstr "Mercoledi'"
+
+msgid "calendar_weekday_3"
+msgstr "Giovedi'"
+
+msgid "calendar_weekday_4"
+msgstr "Venerdi'"
+
+msgid "calendar_weekday_5"
+msgstr "Sabato"
+
+msgid "calendar_weekday_6"
+msgstr "Domenica"
+
+
+#Giorni
+msgid "Monday"
+msgstr "lunedi'"
+
+msgid "Tuesday"
+msgstr "martedi'"
+
+msgid "Wednesday"
+msgstr "mercoledi'"
+
+msgid "Thursday"
+msgstr "giovedi'"
+
+msgid "Friday"
+msgstr "venerdi'"
+
+msgid "Saturday"
+msgstr "sabato"
+
+msgid "Sunday"
+msgstr "Domenica"
+
+#Mesi
+msgid "July"
+msgstr "Luglio"
+
+msgid "june"
+msgstr "giugno"
+
+
+
+
+# Months
+msgid "calendar_month_1"
+msgstr "Gennaio"
+
+msgid "calendar_month_2"
+msgstr "Febbraio"
+
+msgid "calendar_month_3"
+msgstr "Marzo"
+
+msgid "calendar_month_4"
+msgstr "Aprile"
+
+msgid "calendar_month_5"
+msgstr "Maggio"
+
+msgid "calendar_month_6"
+msgstr "Giugno"
+
+msgid "calendar_month_7"
+msgstr "Luglio"
+
+msgid "calendar_month_8"
+msgstr "Agosto"
+
+msgid "calendar_month_9"
+msgstr "Settembre"
+
+msgid "calendar_month_10"
+msgstr "Ottobre"
+
+msgid "calendar_month_11"
+msgstr "Novembre"
+
+msgid "calendar_month_12"
+msgstr "Dicembre"
+
+msgid "label_bookable_object_category"
+msgstr ""
+
+msgid "show_day"
+msgstr "Mostra giorno"
+
+msgid "show_more_infos"
+msgstr "Mostra maggiori informazioni"
+
+msgid "link_title_book_it"
+msgstr ""
+
+msgid "text_week_number"
+msgstr "settimana numero "
+
+msgid "title_periodic_items"
+msgstr ""
+
+msgid "head_from"
+msgstr "Dal"
+
+msgid "head_to"
+msgstr "Al"
+
+msgid "head_review_state"
+msgstr ""
+
+msgid "label_no_category"
+msgstr ""
+
+msgid "label_calendar"
+msgstr "Calendario"
+
+msgid "label_listing"
+msgstr "Listato"
+
+msgid "label_year"
+msgstr "Anno"
+
+msgid "label_bookingcenter_default_view_mode"
+msgstr "Vista di default"
+
+msgid "label_bookingcenter_available_view_modes"
+msgstr "Viste disponibili"
+
+msgid "label_bookingcenter_default_listing_view"
+msgstr "Vista default per il listato"
+
+msgid "label_bookingcenter_available_listing_views"
+msgstr "Viste del listato disponibili"
+
+msgid "label_day"
+msgstr "Giorno"
+
+msgid "label_week"
+msgstr "settimana"
+
+msgid "label_month"
+msgstr "mese"
+
+msgid "label_bookingcenter_calendar_starting_hour"
+msgstr "Ora inizio prenotazioni"
+
+msgid "help_bookingcenter_calendar_starting_hour"
+msgstr "Indica l'ora d'inizio delle prenotazioni, l'ora indicata sarà presente sul calendario e nel campo selezione per le prenotazioni"
+                           
+msgid "label_bookingcenter_calendar_ending_hour"
+msgstr "Ora fine prenotazioni"
+
+msgid "help_bookingcenter_calendar_ending_hour"
+msgstr "Indica l'ora di fine delle prenotazioni, l'ora indicata sarà presente sul calendario e nel campo selezione per le prenotazioni"
+
+msgid "label_all_types"
+msgstr "Tutti i tipi"
+
+msgid "label_up_to_booking_center"
+msgstr "Ritorna al centro prenotazioni"
+
+msgid "label_see_all_bookings_of_this_type"
+msgstr "Visualizza tutte le prenotazioni di questo tipo"
+
+msgid "label_see_all_bookings_of_this_category"
+msgstr "Visualizza tutte le prenotazoni per questa categoria"
+
+msgid "label_add_new_booking"
+msgstr "e aggiungi una nuova prentazione."
+
+msgid "description_add_new_booking"
+msgstr "Seleziona una vista, ricerca le disponibilita' per le prenotazioni"
+
+msgid "description_add_new_booking_in_calendar_view"
+msgstr "Sul calendario puoi aggiungere una prenotazione cliccando semplicemente sul simbolo +."
+
+msgid "heading_add_booking"
+msgstr "Aggiungi prenotazione"
+
+msgid "description_add_booking"
+msgstr "Seleziona l'oggetto che vuoi prenotare"
+
+msgid "Add"
+msgstr "Aggiungi"
+
+msgid "Cancel"
+msgstr "Cancella"
+
+msgid "label_up_to_booked_object"
+msgstr "Ritorna all'oggetto prenotato"
+
+msgid "label_review_bookings"
+msgstr "Necessaria la richiesta dell'accettazione"
+
+msgid "label_publish_automatically_bookings"
+msgstr "Accettazione automatica"
+
+msgid "label_default_booking_review_mode"
+msgstr "Utilizza la modalità impostata per il booking center"
+
+msgid "label_booking_review_mode"
+msgstr "Imposta la modalità per la gestione delle accettazioni delle prenotazioni"
+
+msgid "message_date_already_booked"
+msgstr "Per la data selezionata e' gia' presente una prenotazione"
+
+msgid "message_no_booking_created"
+msgstr "Nessuna prenotazione e' stata creata"
+
+msgid "Retract"
+msgstr "Ritira"
+
+msgid "Retract All"
+msgstr "Ritira tutte le pren"
+
+msgid "Book"
+msgstr "Prenota"
+
+msgid "Book All"
+msgstr "Prenota tutto"
+
+msgid "descriptiootazionin_waiting_periodicity_results"
+msgstr "Per favore attendi: risultati periodicita' in elaborazione ..."
+
+msgid "description_waiting_periodicity_creation"
+msgstr "Per favore attendi: Creazione periodicita' in corso ..."
+
+msgid "message_give_number_for_periodicity"
+msgstr "Inserisci un numero per la periodicita'"
+
+msgid "message_periodicity_end_date_not_valid"
+msgstr "La data di fine periodicita' non e' valida, si prega di provare con un valore diverso"
+
+msgid "message_object_not_found"
+msgstr "Prenotazione non trovata"
+
+msgid "message_periodic_booking_creation_summary"
+msgstr ""
+
+msgid "description_waiting_booking_process"
+msgstr ""
+
+msgid "message_booking_process_summary"
+msgstr ""
+
+msgid "label_view"
+msgstr "Visualizza"
+
+msgid "label_edit"
+msgstr "Modifica"
+
+msgid "label_retract"
+msgstr "Ritira"
+
+msgid "label_book"
+msgstr "Prenota"

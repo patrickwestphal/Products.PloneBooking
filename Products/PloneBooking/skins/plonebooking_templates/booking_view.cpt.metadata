@@ -1,0 +1,13 @@
+[default]
+title=View booking
+
+[validators]
+validators=
+
+[actions]
+action.success=traverse_to:string:booking_manage
+action.success..Retract=traverse_to:string:booking_manage
+action.success..RetractAll=traverse_to:string:booking_manage
+action.success..Book=traverse_to:string:booking_manage
+action.success..BookAll=traverse_to:string:booking_manage
+action.failure=redirect_to:string:booking_view

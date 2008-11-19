@@ -1,0 +1,529 @@
+# Gettext Message File for PloneBooking product.
+#  <team@language.com>, 2003
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: 2007-02-11 22:52+0000\n"
+"PO-Revision-Date: 2007-02-11 23:53+0100\n"
+"Last-Translator: Lukas Zdych <lukas.zdych@corenet.cz>\n"
+"Language-Team: Lukas Zdych <lukas.zdych@corenet.cz>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: cs\n"
+"Language-Name: Czech\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: plonebooking\n"
+
+# ####################
+# Fields
+# ####################
+msgid "label_bookingcenter_categories"
+msgstr "Kategorie"
+
+msgid "label_bookingcenter_types"
+msgstr "Typy zamluvitelných položek"
+
+msgid "help_bookingcenter_types"
+msgstr "Můžete definovat seznam typů zamluvitelných položek (každý na samostatný řádek)"
+
+msgid "label_bookingcenter_default_calendar_view"
+msgstr "Výchozí kalendářové zobrazení"
+
+msgid "label_bookingcenter_available_calendar_views"
+msgstr "Dostupná kalendářová zobrazení"
+
+msgid "label_booking_user_full_name"
+msgstr "Celé jméno vlastníka rezervace"
+
+msgid "label_booking_user_phone"
+msgstr "Telefon"
+
+msgid "label_booking_user_email"
+msgstr "Email"
+
+msgid "label_booking_objects"
+msgstr "Zamluvitelné položky:"
+
+msgid "label_booking_start_date"
+msgstr "Začátek rezervace"
+
+msgid "help_booking_start_date"
+msgstr "Zadejte datum a čas začátku rezervace. Můžete kliknout na ikonku kalendáře a vybrat datum."
+
+msgid "label_booking_end_date"
+msgstr "Konec rezervace"
+
+msgid "help_booking_end_date"
+msgstr "Zadejte datum a čas konce rezervace nebo klikněte na ikonku kalendáře a vyberte jej."
+
+#, fuzzy
+msgid "label_booking_periodicity_end_date"
+msgstr "Periodicity end date"
+
+#, fuzzy
+msgid "help_booking_peridodicity_end_date"
+msgstr "Enter the ending peridodicity date and time, or click the calendar icon and select it."
+
+#, fuzzy
+msgid "label_booking_periodicity_type"
+msgstr "Periodicity type"
+
+msgid "label_bookableobject_type"
+msgstr "Typ zamluvitelné položky"
+
+msgid "label_bookableobject_text"
+msgstr "Text"
+
+msgid "label_bookableobject_category"
+msgstr "Kategorie"
+
+msgid "label_same_date_every_weeks"
+msgstr "Stejný den a hodinu každý týden"
+
+msgid "label_same_date_every"
+msgstr "Stejný den a hodinu každý"
+
+msgid "label_weeks"
+msgstr "týdny"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Stejný den a hodinu každý měsíc (např. každé druhé pondělí v měsíci)"
+
+msgid "label_pending_colors"
+msgstr "Barvy textu a pozadí pro rezervace ve stavu \"ke schválení\""
+
+msgid "help_pending_colors"
+msgstr "Dvě barvy musíte oddělit dvojtečkou \":\" (např. \"red:white\" kde \"red\" je barva textu a \"white\" je barva pozadí)"
+
+msgid "label_booked_colors"
+msgstr "Barvy textu a pozadí pro rezervace ve stavu \"zamluveno\""
+
+msgid "help_booked_colors"
+msgstr "Dvě barvy musíte oddělit dvojtečkou \":\" (např. \"red:white\" kde \"red\" je barva textu a \"white\" je barva pozadí)"
+
+msgid "label_booking_title"
+msgstr "Nadpis rezervace"
+
+msgid "label_booking_description"
+msgstr "Komentář"
+
+msgid "help_booking_description"
+msgstr "Zadejte komentář."
+
+msgid "label_bookableobject_title"
+msgstr "Název zamluvitelné položky"
+
+msgid "label_bookable_object_states"
+msgstr "Stavy zamluvitelných položek, pro které jsou povoleny rezervace."
+
+msgid "help_bookable_object_states"
+msgstr "Definujte stavy workflow zamluvitelných položek. Pokud položka není v jednom ze zde uvedených stavů, neobjeví se v seznamu zamluvitelných položek."
+
+# ###################
+# Views
+# ###################
+#, fuzzy
+msgid "message_create_periodic_bookings"
+msgstr "${created} items(s) created, ${already_booked} already booked"
+
+msgid "label_booking"
+msgstr "Rezervace"
+
+msgid "label_new_booking"
+msgstr "Nová rezervace"
+
+msgid "label_edit_booking"
+msgstr "Upravit rezervaci"
+
+msgid "label_only_bookable_objects_of_type"
+msgstr "Pouze zamluvitelné položkdy typu:"
+
+msgid "label_only_bookable_objects_of_category"
+msgstr "Pouze zamluvitelné položkdy v kategorii:"
+
+msgid "label_all_categories"
+msgstr "Všechny kategorie"
+
+msgid "label_see_bookable_object"
+msgstr "Vidíte zamluvitelnou položku:"
+
+msgid "label_filter_form"
+msgstr "Filtrovací formulář"
+
+msgid "title_bookings_for_bookable_object_of_type"
+msgstr "Rezervace zamluvitelných objektů typu ${type}"
+
+msgid "label_periodicity_configuration"
+msgstr "Nastavení pravidelnosti"
+
+msgid "first_step_text"
+msgstr "<strong>První krok</strong>: vyberte typ a datum konce opakovatelnosti a klikněte na odkaz \"Zobrazit výsledek\". Můžete upravit hodnoty polí a znovu kliknout na \"Zobrazit výsledek\", nebudou vytvořeny žádné rezervace. Bude pouze zobrazen seznam rezervací, které mají vytvořeny."
+
+msgid "label_display_result"
+msgstr "Zobrazit výsledek"
+
+msgid "label_these_bookings_will_be_created"
+msgstr "Budou vytvořeny následující rezervace"
+
+msgid "second_step_text"
+msgstr "<strong>Druhý krok:</strong> pokud souhlasíte s níže uvedeným výsledkem, klikněte na odkaz \"Vytvořit rezervace\". Budou vytvořeny pouze položky, které nejsou doposud rezervovány. Můžete upravit pole \"hodnoty\" a kliknout znovu na \"Zobrazit výsledek \" pro zobrazní nového výsledku."
+
+msgid "label_create_bookings"
+msgstr "Vytvořit rezervace"
+
+# ###################
+# misc
+# ###################
+msgid "label_dynamic_booking_title"
+msgstr "Formulář rezervace od ${start_date} do ${end_date}"
+
+msgid "description_no_bookable_object"
+msgstr "Žádné z položek nemohou být zarezervovány."
+
+msgid "Booking center"
+msgstr "Rezervace"
+
+msgid "Bookable object"
+msgstr "Zamluvitelná položka"
+
+msgid "label_booking_date"
+msgstr "Datum:"
+
+msgid "description_booking_duration"
+msgstr "Od ${start_date} do ${end_date}"
+
+msgid "description_no_bookings_found"
+msgstr "Nebyli nalezeny žádné rezervace."
+
+msgid "label_previous_day"
+msgstr "Předchozí den"
+
+msgid "label_previous_week"
+msgstr "Předchozí týden"
+
+msgid "label_next_day"
+msgstr "Následující den"
+
+msgid "label_next_week"
+msgstr "Následující týden"
+
+msgid "label_previous_4_weeks"
+msgstr "Předchozí 4 týdny"
+
+msgid "label_next_4_weeks"
+msgstr "Následující 4 týdny"
+
+msgid "label_next_month"
+msgstr "Následující měsíc"
+
+msgid "label_next_3_months"
+msgstr "Následující 3 měsíce"
+
+msgid "label_previous_month"
+msgstr "Předchozí měsíc"
+
+msgid "label_previous_3_months"
+msgstr "Předchozí 3 měsíce"
+
+msgid "label_next_year"
+msgstr "Následující rok"
+
+msgid "label_next_3_years"
+msgstr "Následující 3 roky"
+
+msgid "label_previous_year"
+msgstr "Předchozí rok"
+
+msgid "label_previous_3_years"
+msgstr "Předchozí 3 roky"
+
+msgid "label_hour"
+msgstr "Hodina"
+
+msgid "label_booked_by"
+msgstr "Zamluvil/a"
+
+msgid "heading_create_periodic_bookings"
+msgstr "Vytvořit pravidelné rezervace"
+
+msgid "label_already_booked"
+msgstr "Již rezervováno"
+
+msgid "label_no_periodic_items"
+msgstr "Nelze vytvořit žádné opakování."
+
+# Date format
+msgid "date_format"
+msgstr "${weekdayname}, ${day} ${monthname} ${year}"
+
+msgid "date_long_format"
+msgstr "${year}/${month}/${day} ${hour}"
+
+msgid "date_format_without_year"
+msgstr "${weekdayname} ${day} ${monthname}"
+
+msgid "week_date_format"
+msgstr "week ${week}, ${year}"
+
+msgid "month_date_format"
+msgstr "${monthname}, ${year}"
+
+msgid "year_date_format"
+msgstr "${year}"
+
+# Weekdays
+msgid "calendar_weekday_0"
+msgstr "Pondělí"
+
+msgid "calendar_weekday_1"
+msgstr "Úterý"
+
+msgid "calendar_weekday_2"
+msgstr "Středa"
+
+msgid "calendar_weekday_3"
+msgstr "Čtvrtek"
+
+msgid "calendar_weekday_4"
+msgstr "Pátek"
+
+msgid "calendar_weekday_5"
+msgstr "Sobota"
+
+msgid "calendar_weekday_6"
+msgstr "Neděle"
+
+msgid "Monday"
+msgstr "Pondělí"
+
+msgid "Tuesday"
+msgstr "Úterý"
+
+msgid "Wednesday"
+msgstr "Středa"
+
+msgid "Thursday"
+msgstr "Čtvrtek"
+
+msgid "Friday"
+msgstr "Pátek"
+
+msgid "Saturday"
+msgstr "Sobota"
+
+msgid "Sunday"
+msgstr "Neděle"
+
+# Months
+msgid "calendar_month_1"
+msgstr "Leden"
+
+msgid "calendar_month_2"
+msgstr "Únor"
+
+msgid "calendar_month_3"
+msgstr "Březen"
+
+msgid "calendar_month_4"
+msgstr "Duben"
+
+msgid "calendar_month_5"
+msgstr "Květen"
+
+msgid "calendar_month_6"
+msgstr "Červen"
+
+msgid "calendar_month_7"
+msgstr "Červenec"
+
+msgid "calendar_month_8"
+msgstr "Srpen"
+
+msgid "calendar_month_9"
+msgstr "Září"
+
+msgid "calendar_month_10"
+msgstr "Říjen"
+
+msgid "calendar_month_11"
+msgstr "Listopad"
+
+msgid "calendar_month_12"
+msgstr "Prosinec"
+
+msgid "label_bookable_object_category"
+msgstr "Kategorie"
+
+msgid "show_day"
+msgstr "Zobrazit den"
+
+msgid "show_more_infos"
+msgstr "Zobrazit více informací o rezervaci"
+
+msgid "link_title_book_it"
+msgstr "Zamluvit"
+
+msgid "title_periodic_items"
+msgstr "Pravidelné položky"
+
+msgid "head_from"
+msgstr "od"
+
+msgid "head_to"
+msgstr "do"
+
+msgid "head_review_state"
+msgstr "Stav"
+
+msgid "label_no_category"
+msgstr "Žádná kategorie"
+
+msgid "label_calendar"
+msgstr "Kalendář"
+
+msgid "label_listing"
+msgstr "Seznam"
+
+msgid "label_year"
+msgstr "Rok"
+
+msgid "label_bookingcenter_default_view_mode"
+msgstr "Výchozí režim zobrazení"
+
+msgid "label_bookingcenter_available_view_modes"
+msgstr "Dostupné režimy zobrazení"
+
+msgid "label_bookingcenter_default_listing_view"
+msgstr "Výchozí zobrazení seznamu"
+
+msgid "label_bookingcenter_available_listing_views"
+msgstr "Dostupná zobrazení seznamu"
+
+msgid "label_day"
+msgstr "Den"
+
+msgid "label_week"
+msgstr "Týden"
+
+msgid "label_month"
+msgstr "Měsíc"
+
+msgid "label_bookingcenter_calendar_starting_hour"
+msgstr "Hodina začátku"
+
+msgid "help_bookingcenter_calendar_starting_hour"
+msgstr "Používá se v denním a týdenním zobrazení kalendáře"
+
+msgid "label_bookingcenter_calendar_ending_hour"
+msgstr "Hodina konce"
+
+msgid "help_bookingcenter_calendar_ending_hour"
+msgstr "Používá se v denním a týdenním zobrazení kalendáře"
+
+msgid "label_all_types"
+msgstr "Všechny typy"
+
+msgid "label_up_to_booking_center"
+msgstr "Nahoru na rezervace"
+
+msgid "label_see_all_bookings_of_this_type"
+msgstr "Vidíte všechny rezervace tohoto typu"
+
+msgid "label_see_all_bookings_of_this_category"
+msgstr "Vidíte všechny rezervace v této kategorii"
+
+msgid "label_add_new_booking"
+msgstr "přidat novou rezervaci"
+
+#, fuzzy
+msgid "description_add_new_booking"
+msgstr "Select a view, search for availability and ${add_new_booking}"
+
+msgid "description_add_new_booking_in_calendar_view"
+msgstr "Na kalendářovém zobrazení přidáte novou rezervaci kliknutím na \"+\""
+
+msgid "heading_add_booking"
+msgstr "Přidat rezervaci"
+
+msgid "description_add_booking"
+msgstr "Vyberte předmět rezervace"
+
+msgid "Add"
+msgstr "Přidat"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "label_up_to_booked_object"
+msgstr "Nahoru na předmět rezervace"
+
+msgid "label_review_bookings"
+msgstr "Posoudit Rezervace"
+
+msgid "label_publish_automatically_bookings"
+msgstr "Automaticky zveřejnit rezervace"
+
+msgid "label_default_booking_review_mode"
+msgstr "Výchozí (Rezervace)"
+
+msgid "label_booking_review_mode"
+msgstr "Režim rezervací"
+
+msgid "message_date_already_booked"
+msgstr "Položka je v tomto období již rezervována."
+
+msgid "message_no_booking_created"
+msgstr "Nebyli vytvořeny žádné rezervace."
+
+msgid "Retract"
+msgstr "Stáhnout"
+
+msgid "Retract All"
+msgstr "Stáhnout vše"
+
+#, fuzzy
+msgid "Book"
+msgstr "Book"
+
+msgid "Book All"
+msgstr "Rezervovat vše"
+
+msgid "description_waiting_periodicity_results"
+msgstr "Prosíme vyčkejte: Připravují se pravidelné rezervace ..."
+
+msgid "description_waiting_periodicity_creation"
+msgstr "Prosíme vyčkejte: Vytváří se pravidelné rezervace ..."
+
+msgid "message_give_number_for_periodicity"
+msgstr "Musíte zadat počet opakování."
+
+msgid "message_periodicity_end_date_not_valid"
+msgstr "Datum konce opakování je neplatný."
+
+msgid "message_object_not_found"
+msgstr "Nebyla nalezena žádná položka."
+
+msgid "message_periodic_booking_creation_summary"
+msgstr "%created% položek vytvořeno, %already_booked% již rezervováno, %errors% chyb."
+
+msgid "description_waiting_booking_process"
+msgstr "Čekejte na zpracování rezervací ..."
+
+msgid "message_booking_process_summary"
+msgstr "%processed% rezervací zpracováno, %errors% chyb."
+
+msgid "label_view"
+msgstr "Zobrazení"
+
+msgid "label_edit"
+msgstr "Upravit"
+
+msgid "label_retract"
+msgstr "Stáhnout"
+
+#, fuzzy
+msgid "label_book"
+msgstr "Book"
+

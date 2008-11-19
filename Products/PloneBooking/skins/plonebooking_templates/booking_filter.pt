@@ -1,0 +1,192 @@
+<!-- ****************************************
+**          Booking filter
+******************************************* -->
+<tal:block define="btool 			      nocall:here/portal_booking;
+	 			           btype 	   		    request/btype | btype | nothing;
+          	   	   bcategory 		    request/bcategory | bcategory | nothing;
+                   bookableobject   request/bookableobject | bookableobject | nothing;
+				           default_mode 	  python:here.getDefaultViewMode();
+                   dmode 	   		    dmode | python:request.get('dmode', default_mode);
+                   default_view 	  python:here.getDefaultCalendarView();
+                   dview 	   		    dview | python:request.get('dview', default_view);
+                   dview            python:dview == 'year' and dmode == 'calendar' and 'month' or dview;
+          	   	   ts 	   	    	  ts | python:request.get('ts', btool.getTodayTs());
+                   filter_args  	  python:btool.buildFilter(getType=btype, getCategory=bcategory);
+                   btypes 			    python:here.getBookableObjectTypes(review_state='published', **filter_args);
+                   bcategories  	  python:here.getBookableObjectCategories(review_state='published', **filter_args);
+                   bookable_objects python:here.getBookableObjects(review_state='published', **filter_args);
+                   available_modes  python:here.getAvailableViewModes();
+                   bcenter          here/getBookingCenter;
+                   bcenter_url      bcenter/absolute_url;
+                   is_bcenter       python:bcenter == here;
+                   utool            nocall:here/portal_url;
+                   portal_url       utool;
+                   here_url         here/absolute_url;
+                   required_filters here/getRequiredFilters;
+                   refresh_mode     here/getCalendarRefreshMode;
+                   manual_refresh   python:refresh_mode == 'manual' or required_filters;
+                   Iterator 	      python:modules['Products.CMFPlone'].IndexIterator;
+                   tabindex		      python:Iterator(pos=30000, mainSlot=False);
+                   charset          here/getCharset;
+                   dummy            python:request.RESPONSE.setHeader('Cache-Control', 'no-cache, no-store, max-age=0, private, must-revalidate, pre-check=0, post-check=0');
+                   dummy            python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset);">
+<metal:block define-macro="main"
+             i18n:domain="plonebooking">
+  <fieldset id="fieldset-filter" class="opened">
+    <legend i18n:translate="label_filter_form">Filter</legend>
+
+    <div id="filter-calendar"></div>
+
+    <div class="filter-fields">
+      <tal:block tal:condition="not:is_bcenter">
+        <ul>
+          <li tal:condition="btype"
+              tal:define="vocab python:here.getTypeDisplayList();">
+            <strong>
+              <tal:block i18n:translate="description_bookable_object_type">
+              Type: <span i18n:name="type" tal:replace="python:vocab.getValue(btype)" />
+              </tal:block>
+            </strong>
+            <br />
+            <a tal:attributes="href string:${bcenter_url}?btype=${btype}"
+               i18n:translate="label_see_all_bookings_of_this_type">
+              See all bookings of this type
+            </a>
+          </li>
+
+          <li tal:condition="bcategory"
+              tal:define="vocab python:here.getCategoryDisplayList();">
+            <strong>
+              <tal:block i18n:translate="description_bookable_object_category">
+              Category: <span i18n:name="category" tal:replace="python:vocab.getValue(bcategory)" />
+              </tal:block>
+            </strong>
+            <br />
+            <a tal:attributes="href string:${bcenter_url}?bcategory=${bcategory}"
+               i18n:translate="label_see_all_bookings_of_this_category">
+            See all bookings of this category
+            </a>
+          </li>
+        </ul>
+
+        <input type="hidden" name="btype" tal:attributes="value btype" />
+        <input type="hidden" name="bcategory" tal:attributes="value bcategory" />
+        <input type="hidden" name="bookableobject" tal:attributes="value bookableobject" />
+      </tal:block>
+
+      <tal:block tal:condition="is_bcenter">
+        <div class="field"
+        	   tal:define="required python:'type' in required_filters">
+          <label i18n:translate="label_only_bookable_objects_of_type">Only bookable objects of type:</label>
+          <span class="fieldRequired"
+                tal:condition="required"
+                title="Required"
+                i18n:translate="label_required"
+                i18n:attributes="title title_required;"
+                i18n:domain="plone">
+            (Required)
+          </span>
+          <div class="formHelp"></div>
+          <select name="btype"
+                  onchange="Booking.refreshFilter();"
+                  tal:define="vocab here/getTypeDisplayList;"
+                  tal:attributes="tabindex tabindex/next;">
+            <option value=""
+                    i18n:translate="label_all_types">All types</option>
+            <tal:loop tal:repeat="item btypes">
+              <option tal:attributes="value item;
+                                      selected python:test(item == btype, 'selected', None)"
+                      tal:content="python:vocab.getValue(item)" />
+            </tal:loop>
+          </select>
+        </div>
+
+        <div class="field"
+        	   tal:define="required python:'category' in required_filters"
+             tal:condition="bcategories">
+          <label i18n:translate="label_only_bookable_objects_of_category">Only bookable object of category:</label>
+          <span class="fieldRequired"
+                tal:condition="required"
+                title="Required"
+                i18n:translate="label_required"
+                i18n:attributes="title title_required;"
+                i18n:domain="plone">
+            (Required)
+          </span>
+          <div class="formHelp"></div>
+          <select name="bcategory"
+                  onchange="Booking.refreshFilter();"
+                  tal:define="vocab here/getCategoryDisplayList;"
+                  tal:attributes="tabindex tabindex/next;">
+            <option value=""
+                    i18n:translate="label_all_categories">All categories</option>
+
+            <tal:loop tal:repeat="item bcategories">
+              <option tal:attributes="value item;
+                                      selected python:test(item == bcategory, 'selected', None)"
+                      tal:content="python:vocab.getValue(item)" />
+            </tal:loop>
+          </select>
+        </div>
+
+        <div class="field"
+        	   tal:define="required python:'resource' in required_filters">
+          <label i18n:translate="label_see_bookable_object">See bookable object:</label>
+          <span class="fieldRequired"
+                tal:condition="required"
+                title="Required"
+                i18n:translate="label_required"
+                i18n:attributes="title title_required;"
+                i18n:domain="plone">
+            (Required)
+          </span>
+          <div class="formHelp"></div>
+          <select name="bookableobject"
+                  onchange="Booking.refreshFilter();"
+          		    tal:attributes="tabindex tabindex/next;">
+            <option value="">------</option>
+            <tal:loop tal:repeat="obj bookable_objects">
+              <option tal:define="obj_id obj/getId"
+                      tal:attributes="value obj_id;
+                                      selected python:test(obj_id == bookableobject, 'selected', None)"
+                      tal:content="obj/title_or_id" />
+            </tal:loop>
+          </select>
+          <tal:block tal:condition="bookableobject">
+            <a href=""
+               class="bookableobjectDescriptionLink"
+               tal:attributes="href string:javascript:Booking.openPopup(this, {href: '${here_url}/${bookableobject}/bookableobject_ajax_view'});; void(0);;"
+               i18n:translate="label_bookableobject_description">Description</a>
+          </tal:block>
+        </div>
+      </tal:block>
+    </div>
+  </fieldset>
+
+  <fieldset id="fieldset-view" class="opened">
+    <legend i18n:translate="label_view_form">View</legend>
+    <div id="calendar-view">
+      <metal:block metal:use-macro="here/plonebooking_macros/macros/mode_menu" />
+
+      <tal:block tal:condition="python:dmode == 'calendar'">
+        <metal:block metal:use-macro="here/plonebooking_macros/macros/calendar_menu" />
+      </tal:block>
+
+      <tal:block tal:condition="python:dmode == 'listing'">
+        <metal:block metal:use-macro="here/plonebooking_macros/macros/listing_menu" />
+      </tal:block>
+    </div>
+  </fieldset>
+
+	<div class="formControls"
+	     tal:condition="manual_refresh">
+		<input class="context"
+	  	       type="submit"
+	           name="refresh-filter"
+	           onclick="return Booking.canRefresh()"
+	           value="OK"
+	           i18n:attributes="value OK" />
+	</div>
+
+</metal:block>
+</tal:block>

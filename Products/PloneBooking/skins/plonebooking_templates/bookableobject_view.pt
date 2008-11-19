@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonebooking">
+
+  <head>
+    <metal:block fill-slot="head_slot">
+      <link rel="Stylesheet" type="text/css"  media="screen"
+      tal:attributes="href string:$portal_url/jscalendar/calendar-system.css" />
+        <link rel="Stylesheet" type="text/css"  media="screen"
+          tal:attributes="href string:$portal_url/plonebooking_styles.css" />
+        <link rel="stylesheet" type="text/css" media="print" href=""
+          tal:attributes="href string:$portal_url/plonebooking_print.css" />
+
+    </metal:block>
+    <metal:javascriptslot fill-slot="javascript_head_slot">
+
+      <script type="text/javascript" src="jscalendar/calendar_stripped.js"></script>
+      <script type="text/javascript"
+            charset="iso-8859-15"
+          tal:define="boundLanguages here/portal_languages/getLanguageBindings;
+              prefLang python:boundLanguages[0].split('-')[0];
+              src string:jscalendar/calendar-$prefLang.js;"
+          tal:condition="exists:src"
+          tal:attributes="src src">
+      </script>
+      <script type="text/javascript" src="jscalendar/calendar_formfield.js"></script>
+        <script type="text/javascript"
+              tal:attributes="src string:$portal_url/plonebooking.js">
+        </script>
+    </metal:javascriptslot>
+
+    <metal:block fill-slot="top_slot">
+    <!--
+      Disable border for role Manager ...
+    -->
+    <tal:test
+         define="utool nocall:here/portal_url;
+                 portal utool/getPortalObject;
+                 mtool nocall:portal/portal_membership;
+                 authorized_permission python:'Modify portal content';"
+         condition="python:not mtool.checkPermission(authorized_permission, here)">
+        <tal:disable_border define="dummy python:request.set('disable_border', 1);" />
+
+    </tal:test>
+  </metal:block>
+  </head>
+
+  <body>
+    <metal:fill fill-slot="main">
+      <div metal:define-macro="main"
+           id="bookableobject-view"
+           tal:define="btool nocall:here/portal_booking;
+           						 bcenter python:here.getBookingCenter();
+           						 bcenter_url bcenter/absolute_url;
+           						 btype here/getType;
+           						 bcategory here/getCategory;
+                       ts python:request.get('ts', portal.portal_booking.getTodayTs());
+                       default_mode python:bcenter.getDefaultViewMode();
+             					 dmode python:request.get('dmode', default_mode);
+                       default_view python:bcenter.getDefaultCalendarView();
+                       dview python:request.get('dview', default_view);
+                       nav_base_url string:${bcenter_url}?ts=${ts}&dmode=${dmode}&dview=${dview}">
+
+        <h1 tal:content="here/title_or_id">
+        Title
+        </h1>
+
+        <span style="padding : 0px 0px 10px 0px;">
+	        <img src=""
+	             style="float:left; padding : 4px 5px 10px 10px;"
+	        	 tal:attributes="src python: portal.absolute_url()+'/arrowUp.gif'"
+	        	 />
+	        <a href=""
+	           class="link-parent"
+	           tal:attributes="href nav_base_url"
+	           i18n:translate="label_up_to_booking_center">
+
+	        Up to booking center
+	        </a>
+        </span>
+
+        <div class="visualClear">&nbsp;</div>
+
+        <div class="documentDescription"
+           tal:define="description here/Description"
+           tal:condition="description"
+           tal:content="description">
+          description
+        </div>
+
+        <div class="stx"
+             tal:define="len_text python:len(here.getText())"
+             tal:condition="len_text"
+             tal:attributes="class python:test(here.Format() in ('text/structured',
+                                                   'text/x-rst', ), 'stx', 'plain')">
+            <div tal:replace="structure python:here.CookedBody(stx_level=2)" />
+        </div>
+
+        <tal:block tal:define="btype here/getType;
+                               bcategory here/getCategory;
+                               bookableobject here/getId">
+          <metal:block metal:use-macro="here/plonebooking_macros/macros/main_view">
+            Calendar view
+          </metal:block>
+        </tal:block>
+      </div>
+    </metal:fill>
+  </body>
+</html>

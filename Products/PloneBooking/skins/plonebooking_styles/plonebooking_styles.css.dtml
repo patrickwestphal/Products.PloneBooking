@@ -1,0 +1,557 @@
+/* <dtml-with base_properties> */
+
+/* Bookings calendar */
+
+#fieldsetlegend-metadata{
+	display:none;
+}
+
+.formTab lastFormTab{
+	display:none;
+}
+
+fieldset {
+	line-height:1em;
+}
+
+table.bookingsListing {
+  width: 100%;
+}
+
+table.bookingsListing th {
+  padding: 0.2em 0.5em;
+}
+
+table.bookingsListing td {
+  padding: 0;
+  border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+  vertical-align : top;
+}
+
+table.bookingsListing td.bookingCell {
+  text-align: center;
+}
+
+table.bookingsListing td.bookingHourCell {
+  padding: 0.4em 0.5em;
+  vertical-align: middle;
+}
+
+table.bookingsListing td.bookingCell a {
+  display: block;
+  padding: 0.4em 0.5em !important;
+  /*margin: 0.5em !important;*/
+  margin: 1px;
+  /*width: 150px;
+  float: left;*/
+}
+
+table.bookingsListing td.monthBookingCell {
+  padding: 0.2em;
+  width: 14%;
+}
+
+.monthViewList a {
+  display: block;
+  /*margin: 0.2em !important;*/
+  padding: 0.2em !important;
+  /*width: 150px;*/
+  /*float: left;*/
+}
+
+table.bookingsListing td.monthBookingEmptyCell {
+  background: &dtml-globalBackgroundColor;;
+}
+
+
+table.bookingsListing td.monthBookingCellWeekDay {
+  width: 2%;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+}
+
+.monthBookingCellWeekDay a {
+  display: block !important;
+  padding: 40px 0 !important;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.monthBookingCellWeekDay a:hover {
+  background-color: &dtml-globalBackgroundColor; !important;
+  text-decoration: none !important;
+}
+
+.booking-pending {
+  background-color: &dtml-notifyBorderColor; !important;
+}
+
+.booking-booked {
+  background: &dtml-globalBackgroundColor; !important;
+}
+
+#bookableobject-view ul { clear: both; }
+
+ul.legend {
+  list-style: none;
+  margin-left: 0;
+}
+
+ul.legend li {
+  display: inline;
+  margin-right: 0.4em;
+  padding: 0.4em 1em;
+  border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+}
+
+/* MONTH VIEW */
+
+.monthViewList {
+	clear: both;
+}
+
+.monthViewList a {
+    margin: 1px;
+}
+
+.monthBookingCell .bookIt {
+	float: right;
+}
+
+/* BOOKING CONTAINER */
+
+div.groupByTabs {
+  padding: 0;
+  margin: 1em 0;
+}
+
+div.groupByTabs a {
+  text-decoration: none;
+}
+
+div.groupByTabs a.selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+div.groupByActions {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+div.groupByActions a {
+  text-decoration: none;
+}
+
+div.groupByActions a:hover {
+  text-decoration: underline;
+}
+
+/* booking_main_template */
+#calendar-menu, #listing-menu {
+  margin: 10px 0;
+  text-align : right;
+  float: right;
+  text-decoration : none;
+}
+
+#calendar-menu a {
+	text-decoration: none;
+}
+
+#calendar-menu a.selected img {
+  text-decoration: none;
+  border: 1px solid blue;
+}
+
+#mode-menu {
+	margin: 10px 0 0px 0;
+	float: left;
+}
+
+#listing-menu a.selected {
+  font-weight: bold;
+}
+
+#dateTitle {
+  text-align: center;
+  clear: both;
+}
+
+#dateTitle a {
+  padding:1px 0px 1px 16px !important;
+}
+
+#plonebooking-nav {
+  font-size: x-small;
+  clear: both;
+}
+
+#plonebooking-nav #plonebooking-left-nav {
+  float: left;
+  text-align: left;
+}
+
+#plonebooking-nav #plonebooking-right-nav {
+  text-align: right;
+}
+
+.plonebooking_weekdays {
+  position: absolute;
+  top: 0px;
+  width: 13%;
+  height: 750px;
+  text-align: center;
+  border-left: #aaaaaa 1px solid;
+}
+
+.plonebooking_monthdays {
+  position: absolute;
+  top: 0em;
+  width: 13%;
+  height: 42.7em;
+  text-align: center;
+  font-style: bold;
+  font-size: 1.5em;
+  border-left: #aaaaaa 1px solid;
+}
+
+.plonebooking_monthcells {
+  margin-left: 0%;
+  margin-top: 4em;
+  position: absolute;
+  width: 13%;
+  height: 10em;
+  text-align: left;
+  overflow: auto;
+}
+
+#booking-content {
+margin-top: 1em;
+}
+
+
+/* misc */
+
+table.periodicListing {
+  width: 100%;
+}
+
+table.periodicListing th {
+  padding: 0.2em 0.5em;
+}
+
+table.periodicListing td {
+  padding: 0.2em 0.5em;
+}
+
+table.periodicListing td a {
+  display: block;
+  padding: 0.4em 0.5em;
+}
+
+#lstBookings {
+	padding-left: 30px;
+}
+
+#bookingProgressbar {
+  border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+  position: relative;
+  margin: 5px 0;
+}
+
+#bookingProgressbar div  {
+  background: &dtml-globalBackgroundColor;;
+  height: 2em;
+  width: 0;
+}
+
+#bookingProgressbar span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 2em;
+}
+#goto-booking, #goto-bookableobject  {
+	display: none;
+	text-align: center;
+}
+
+.booking-popup, #timestamp-info, .booking-popup {
+  position: absolute;
+  z-index: 65000;
+  display: none;
+  border: 2px solid &dtml-globalBorderColor;;
+  background: white;
+}
+
+
+
+.timestamp-info {
+  border-width: 1px;
+  border-style: solid;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+#booking-popup-content h1 {
+  float: left;
+  margin: 0px 0px 0.5em 0px;
+  padding: 0px;
+  border: 0px;
+  border-bottom: 1px solid black;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#booking-popup-content .visualClear {
+  height: 0px;
+  overflow: hidden;
+}
+
+#booking-popup-content dt {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#booking-popup-close {
+  float: left;
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0 2px;
+  margin-left: 10px;
+  border: 1px solid &dtml-globalBorderColor;;
+  background: white;
+}
+
+#booking-popup-content a.context {
+  text-decoration: none;
+  border: 1px outset &dtml-globalBorderColor;;
+  padding: 0 4px 2px 20px;
+}
+
+
+#booking-popup-content dd {
+  margin: 0px;
+}
+
+#booking-popup-content .bookingField {
+  font-weight: bold
+}
+
+#booking-popup-content ul {
+  display: inline;
+  list-style-type: none;
+  list-style-image: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#booking-popup-content li {
+  display: inline;
+}
+
+#booking-popup label, .booking-popup label {
+  margin: 2px 0;
+}
+
+.wait,
+.wait * {
+	cursor: wait;
+}
+
+.wait #dateTitle,
+.wait #plonebooking-nav,
+.wait .bookingResults,
+.wait .bookingsListing,
+.wait .booking-popup {
+	opacity: 0.75;
+    filter: alpha(opacity=75);
+    -khtml-opacity: 0.75;
+}
+
+.booking-popup .popupHeading {
+  background-color: &dtml-globalBackgroundColor;;
+  border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+  margin-top: 0;
+  padding: 3px 0;
+  padding-right: 3em;
+  text-indent: 1em;
+  border-radius: 10px 10px 0 0;
+}
+
+.booking-popup .content {
+  padding: 0.5em;
+}
+
+fieldset.closed {
+	border-width: 0px;
+	height: 0 !important;
+	overflow: hidden;
+    padding: 0;
+    padding-left: 1em;
+    line-height: 1.5em;
+    height: 2em !important;
+    cursor: pointer;
+}
+
+fieldset.opened {
+	height: auto;
+	border-width: 1px;
+    padding: 1em;
+}
+
+fieldset.closed legend {
+	cursor: pointer;
+    padding-left: 12px;
+    background: url(&dtml-portal_url;/arrowRight.gif) no-repeat 2px 50%;
+}
+
+fieldset.opened legend {
+    cursor: pointer;
+	padding-left: 12px;
+	background: url(&dtml-portal_url;/arrowDown.gif) no-repeat 2px 50%;
+}
+
+fieldset.closed .calendar table {
+	display: none;
+}
+
+fieldset.closed p {
+    position: static !important;
+}
+
+
+.booking-popup #booking-popup-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 3px;
+}
+
+#popup-bookableobject-description ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#popup-bookableobject-description li {
+	margin: 0px;
+  padding: 0px;
+}
+
+#booking_form_ajax_errors {
+  display: none;
+  white-space: pre;
+}
+
+
+table.planning {
+  width: 100%;
+  margin: 5px 0;
+  text-align: left;
+  white-space: nowrap;
+}
+table.planning thead th {
+  padding-right: 5px;
+}
+table.planning thead td {
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  height: 5px;
+  line-height: 5px;
+}
+table.planning img {
+  width: 3em;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+table.planning .visualNoPrint {
+  display: block;
+  text-align: center;
+}
+
+.planning .timeline {
+  position: relative;
+  vertical-align: middle;
+}
+
+.planning .timeline a {
+  position: relative;
+  display: block;
+  float: none;
+  text-indent: 3px;
+  text-decoration: none;
+  margin: -1px -1px -1px -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 1px;
+}
+.planning .timeline a div {
+  border: 1px solid &dtml-globalBorderColor;;
+  margin-right: -1px;
+}
+.planning .timeline a:hover div {
+  border-color: black;
+}
+.planning .timeline div {
+  text-align: center;
+}
+table.planning tbody td {
+  border-bottom: 1px solid #ccc;
+/*  border-right: 1px solid #ccc;*/
+}
+
+table.planning tbody tr:hover {
+  background-color: #eee;
+}
+
+
+*.disabled {
+  background: #ddd;
+}
+
+
+/* BOOKING FILTER */
+
+#booking-filter select {
+	width: 250px;
+}
+
+#booking-filter .filter-fields {
+	float: left;
+}
+
+#booking-filter fieldset,
+#booking-filter .formControls {
+	clear: both;
+}
+
+#booking-filter #filter-calendar {
+	float: right;
+}
+
+#booking-filter #fieldset-filter {
+	height: 200px;
+}
+
+/*
+#booking-filter #fieldset-view {
+	height: 55px;
+}
+*/
+
+
+/* </dtml-with> */

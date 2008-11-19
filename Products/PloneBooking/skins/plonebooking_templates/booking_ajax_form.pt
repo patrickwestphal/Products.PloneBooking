@@ -1,0 +1,240 @@
+<tal:block define="utool      nocall:here/portal_url;
+                   portal     utool/getPortalObject;
+                   portal_url utool;
+                   Iterator python:modules['Products.CMFPlone'].IndexIterator;
+                   tabindex python:Iterator(pos=40000);
+                   uniqueItemIndex tabindex;
+                   ptool    nocall:portal/portal_properties;
+                   here_uid here/UID;
+                   lockable python:hasattr(here.aq_inner.aq_explicit, 'wl_isLocked');
+                   isLocked python:lockable and here.wl_isLocked();
+                   charset  ptool/site_properties/default_charset;
+                   dummy    python:request.RESPONSE.setHeader('Cache-Control', 'no-cache, no-store, max-age=0, private, must-revalidate, pre-check=0, post-check=0');
+                   dummy    python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset);
+
+                   bcenter             here/getBookingCenter;
+                   btool               here/portal_booking;
+                   ts                  python: request.get('start_ts', btool.getTodayTs());
+                   cal_start_ts        python: btool.setTsTime(ts, hour=here.getCalendarStartingHour());
+                   cal_end_ts          python: btool.setTsTime(ts, hour=here.getCalendarEndingHour());
+                   start_ts            python: int(request.get('start_ts', cal_start_ts));
+                   end_ts              python: int(request.get('end_ts', start_ts + 3600));
+                   interval_in_minutes python: 60;
+                   interval_in_seconds python: interval_in_minutes * 60;
+                   hours               python: btool.buildPeriodList(cal_start_ts, cal_end_ts, interval_in_seconds);
+                   day_length          python: cal_end_ts - cal_start_ts + 3600;
+                   querystring         string:start_ts=${start_ts}&end_ts=${end_ts}&ajax=yes;
+                   bookableobject      here/getBookableObject | nothing;"
+  i18n:domain="plonebooking">
+
+  <div style="width: 450px;"
+       tal:condition="not: nocall:bookableobject">
+    <a id="booking-popup-close" onclick="return Booking.closePopup()"
+       href="javascript: void(0);">X</a>       
+    <h3 class="popupHeading" i18n:translate="description_add_booking">Select one object to book.</h3>
+    <div class="content">
+    <dl id="bookable-objects"
+      	tal:define="btype            btype    | request/btype     | nothing;
+                    bcategory        bcategory | request/bcategory | nothing;
+                    filter_args      python:btool.buildFilter(getType=btype, getCategory=bcategory);
+                    btypes           python:here.getBookableObjectTypes(review_state='published', **filter_args);
+                    args             string:start_ts=${start_ts}&end_ts=${end_ts};">
+      <tal:block repeat="btype btypes">
+        <dt tal:content="btype">Type 1</dt>
+        <dd tal:define="dummy           python:filter_args.update(getType=btype);
+                        bookableobjects python:here.getBookableObjects(review_state='published', **filter_args);">
+          <ol>
+            <li tal:repeat="obj bookableobjects">
+              <a class="bookIt bookableObject"
+                 tal:define="obj_cat   obj/getCategory;
+                             obj_title python:test(obj_cat, '%s - %s' % (obj_cat, obj.title_or_id()), obj.title_or_id());"
+                 tal:attributes="href python: obj.absolute_url()+'/plonebooking_add?'+querystring;
+                                 onclick string: return Booking.editPopup(event);"
+                 tal:content="obj_title" />
+            </li>
+          </ol>
+        </dd>
+      </tal:block>
+    </dl>
+    </div>
+  </div>
+
+  <div style="width: 620px;"
+       tal:condition="nocall:bookableobject">
+    <a id="booking-popup-close" onclick="return Booking.closePopup()"
+       href="javascript: void(0);">X</a>       
+    <h3 class="popupHeading"
+        
+        tal:content="string:${bookableobject/getType} - ${bookableobject/title_or_id}">
+    </h3>
+    <div class="content">
+    <form name="booking_form_ajax"  id="periodicity-form"
+          method="get"
+          style="width: 600px;"
+          onsubmit="return Booking.submit(event);"
+          tal:define="obj_url      here/absolute_url;
+                      start_ts     python: here.getStartDate().millis() / 1000;
+                      end_ts       python: here.getEndDate().millis() / 1000;
+                      cal_start_ts python: btool.setTsTime(start_ts, hour=here.getCalendarStartingHour());
+                      cal_end_ts   python: btool.setTsTime(end_ts,   hour=here.getCalendarEndingHour());"
+
+          tal:attributes="action   string:${obj_url}/updateBooking">
+          <input type="hidden" name="obj_url"      tal:attributes="value obj_url" />
+          <input type="hidden" name="cal_start_ts" tal:attributes="value cal_start_ts" />
+          <input type="hidden" name="day_length"   tal:attributes="value day_length" />
+
+          <div class="portalMessage" id="booking_form_ajax_errors"></div>
+          <div class="field ArchetypesStringWidget">
+            <div>
+              <label for="fullName"
+                i18n:translate="label_booking_user_full_name">Full Name</label>
+              <span class="fieldRequired"
+                    title="Required"
+                    i18n:translate="label_required"
+                    i18n:attributes="title title_required;">
+                (Required)
+              </span>
+            </div>
+            <input type="text" name="fullName"
+                   tal:attributes="tabindex tabindex/next;
+                                   value    here/fullName;" />
+          </div>
+
+          <div class="field ArchetypesStringWidget">
+            <div>
+              <label for="phone"
+                i18n:translate="label_booking_user_phone">Phone</label>
+              <span class="fieldRequired"
+                    title="Required"
+                    i18n:translate="label_required"
+                    i18n:attributes="title title_required;">
+                (Required)
+              </span>
+            </div>
+            <input type="text" name="phone"
+                   tal:attributes="tabindex tabindex/next;
+                                   value    here/phone;" />
+          </div>
+
+          <div class="field ArchetypesStringWidget">
+            <div>
+              <label for="email"
+                i18n:translate="label_booking_user_email">Email</label>
+              <span class="fieldRequired"
+                    title="Required"
+                    i18n:translate="label_required"
+                    i18n:attributes="title title_required;">
+                (Required)
+              </span>
+            </div>
+            <input type="text" name="email"
+                   tal:attributes="tabindex tabindex/next;
+                                   value    here/email;"  />
+          </div>
+
+          <div class="field ArchetypesStringWidget">
+            <div>
+              <label for="title"
+                i18n:translate="label_booking_title">Booking title</label>
+            </div>
+            <input type="text" name="title"
+                   tal:attributes="tabindex tabindex/next;
+                                   value    here/Title;"  />
+          </div>
+
+          <div class="field ArchetypesStringWidget">
+            <div>
+              <label for="description"
+                i18n:translate="label_booking_description">Comment</label>
+            </div>
+            <textarea
+              name="description"
+              rows="4"
+              tal:attributes="tabindex tabindex/next;"
+              tal:content="here/Description">Description</textarea>
+            <input
+              type="hidden"
+              value="text/plain"
+              name="description_text_format"
+              originalvalue="text/plain" />
+          </div>
+
+          <h5 id="dateTitle" tal:content="python: btool.getFormatedDate(here.getStartDate())" />
+          <input
+            type="hidden"
+            class="doNotSubmit"
+            id="booking-edit-start-ts"
+            tal:attributes="value python:cal_start_ts" />
+          <input
+            type="hidden"
+            class="doNotSubmit"
+            id="booking-edit-start-date"
+            tal:attributes="value python:DateTime(cal_start_ts).strftime('%Y/%m/%d %H:%M:%S')" />
+          <input
+            type="hidden"
+            name="start_ts"
+            id="booking-start-ts"
+            tal:attributes="value python:start_ts" />
+          <input
+            type="hidden"
+            name="end_ts"
+            id="booking-end-ts"
+            tal:attributes="value python:end_ts" />
+
+          <table  class="planning" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th tal:repeat="hour hours">
+                    <span tal:replace="python: DateTime(hour).hour()" />h
+                </th>
+              </tr>
+              <tr>
+                <td tal:repeat="hour hours"><img /></td>
+              </tr>
+            </thead>
+            <tbody id="bookingPlanningEdit">
+              <tr tal:define="start_ts  python: int(start_ts) - cal_start_ts;
+                              end_ts    python: int(end_ts) - cal_start_ts;
+                              left      python: round(100 * start_ts / float(day_length), 3);
+                              width     python: round(100 * (end_ts - start_ts) / float(day_length), 3);
+                              state     string:pending;">
+                <td tal:attributes="colspan python:len(hours)" class="timeline">
+                  <a tal:attributes="style string:left: ${left}%;; width: ${width}%;;;
+                                     class string:booking-${state};
+                                     href  obj_url">
+    	           <div>&nbsp;</div>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <tal:block condition="not:here/isTemporary">
+			  <fieldset id="periodicitySetup">
+			    <legend i18n:translate="label_periodicity_configuration">Periodicity configuration</legend>          
+	            <metal:block use-macro="here/booking_periodicity_form/macros/periodicity_form" />
+			  </fieldset>	          
+          </tal:block>
+
+          <p i18n:domain="plone" class="formControls">
+            <input class="context"
+                   tabindex=""
+                   type="submit"
+                   name="form_submit"
+                   value="Save"
+                   i18n:attributes="value label_save;"
+                   tal:attributes="tabindex tabindex/next;
+                                   disabled python:test(isLocked, 'disabled', None);" />
+            <input class="standalone"
+                   tabindex=""
+                   type="button"
+                   name="form.button.cancel"
+                   value="Cancel"
+                   i18n:attributes="value label_cancel;"
+                   tal:attributes="tabindex tabindex/next;
+                                   onclick  string: Booking.closePopup();" />
+           </p>
+    </form>
+    </div>
+  </div>
+</tal:block>

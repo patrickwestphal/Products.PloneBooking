@@ -1,0 +1,109 @@
+2.2.1_SVN_UNRELEASED - 2008/11/19
+
+  * Plone 3.1 compliance : javascript don't use RegisterPloneFunction and
+    other old methods anymore, uses jquery instead.
+    
+  * Fix javascript error when there's  no category
+
+2.2.0 - 2008/04/08
+
+  * Full ajax to add bookings
+  
+  * Is Plone 3 compliant, Older release are not supported
+  
+  * Export is now available
+
+  * Added Czech translation (initial) by Lukas Zdych
+
+  * Does not display links to add booking when you don't have the permission
+
+  * Added german translation, thanks to Sebastian Stark (seb AT biskalar de)
+
+  * Changed plonebooking_macros.pt to only show the possibility of adding
+    bookings when this is permitted. (Suggested by Sebastian Stark (seb AT biskalar de))
+  
+2.0.12 - 2006/11/13
+
+  * Cleaned up .po files (Maik Röder)
+
+  * Fix for a translation issue where there was no month name in month view. (Maik Röder)
+  
+  * Added Dutch translation by Sander van Geloven
+  
+2.0.11 - 2006/04/19
+
+  * Add ajax to display booking information in a popup in calendar view
+
+  * Display "+" button on BookableObject calendar view for anonymous
+
+  * Fix a bug in plonebooking_add script when portal_factory is not activated 
+    on Booking objects
+
+2.0.10 - 2006/04/07
+
+  * Release on Plone.org
+  
+  * Make it compatible with Plone 2.1
+  
+  * Do not shows booking in the navtree anymore
+
+2.0.9 - 2006/03/23
+
+  * Check date when creating a new booking. End date must be later than 
+    start date.
+
+2.0.8 - 2006/03/09
+
+  * Only authenticated users can use plonebooking_add_form template
+
+2.0.7 - 2006/02/24
+
+  * Add progress bar when deleting or retracting bookings
+
+2.0.6 - 2006/02/13
+
+  * Add translations
+  
+  * Sort category and resources on the calendar view
+  
+  * Fix a bug on second type of periodicity. It was impossible to create bookings
+
+2.0.5 - 2006/02/08
+
+  * Add a progess bar when creating periodic bookings.
+
+2.0.4 - 2006/02/02
+
+  * Fix: Booking finishing at the same time a periodicity booking start and its 
+    opposite used to being shown as reserved
+
+2.0.3 - 2006/01/31
+
+  * Fix bug : when creating periodic bookings, engine was't looking for existing 
+    booking in the same periods.
+
+2.0.2 - 2006/01/26
+  
+  * Fixed bug with timezone changes
+
+2.0 - 2006/01/12
+
+  * When creating periodic booking display a waiting message for the user
+
+  * Display local date and not gmt date
+
+  * Use folder_workflow for BookingCenter
+  
+  * When adding a booking, round minutes to a multiple of 5
+  
+  * Big refactoring of version 1.0
+  
+1.0 - 2005/08/12
+
+  * Improve calendar views
+
+  * Add periodic bookings feature
+
+  * move tool properties (categories, types) to the BookingCenter
+
+  * add two properties "default_calendar_view" and "available_calendar_views" on BookingCenter

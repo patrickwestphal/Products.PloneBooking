@@ -1,0 +1,79 @@
+# Gettext Message File for PloneBooking product.
+#  <team@language.com>, 2003
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 1 June 2004 16:54:23 GMT\n"
+"PO-Revision-Date: Mon, 9 August 2004 21:00:00 GMT\n"
+"Last-Translator:  <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: en\n"
+"Language-name: English\n"
+"Preferred-encodings: latin1 utf-8\n"
+"Domain: plone\n"
+"X-Is-Fallback-For:\n"
+
+msgid "Booking center"
+msgstr "Booking center"
+
+msgid "Booking"
+msgstr "Booking"
+
+msgid "Bookable object"
+msgstr "Bookable object"
+
+msgid "canceled"
+msgstr "Canceled"
+
+msgid "booked"
+msgstr "Booked"
+
+msgid "cancel"
+msgstr "Cancel"
+
+msgid "book"
+msgstr "Book"
+
+# workflow transition
+msgid "Book"
+msgstr ""
+
+msgid "Periodicity"
+msgstr "Periodicity"
+
+msgid "periodicity"
+msgstr "periodicity"
+
+msgid "default"
+msgstr "Default"
+
+msgid "label_same_date_every_weeks"
+msgstr "Same Day and hour every week"
+
+msgid "label_same_date_every_x_weeks"
+msgstr "Same day and hour every x weeks"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Same hour every x day of the month (every 2nd monday of the month)"
+
+msgid "label_day"
+msgstr "Day"
+
+msgid "label_week"
+msgstr "Week"
+
+msgid "label_month"
+msgstr "Month"
+
+msgid "Your changes have been saved."
+msgstr "Your changes have been saved."
+
+msgid "Add New ${type}"
+msgstr "Add a new item of type ${type}"
+
+msgid "label_schema_display"
+msgstr "Display"

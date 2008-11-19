@@ -1,0 +1,22 @@
+<tal:block
+    define="
+           global utool       nocall:here/portal_url;
+           global portal      utool/getPortalObject;
+           global mtool       nocall:portal/portal_membership;
+           global here_url    here/absolute_url;
+           global portal_url  here/portal_url;
+           global member      mtool/getAuthenticatedMember;
+           global ptool       nocall:portal/portal_properties;
+           global template_id options/template_id|template_id|template/getId|nothing;
+           global Iterator    python:modules['Products.CMFPlone'].IndexIterator;
+           global tabindex    python:Iterator(pos=30000);
+           charset            ptool/site_properties/default_charset;
+           dummy              python:request.RESPONSE.setHeader('Cache-Control', 'no-cache, no-store, max-age=0, private, must-revalidate, pre-check=0, post-check=0');
+           dummy              python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset);">
+
+  <metal:content use-macro="here/plonebooking_macros/macros/defines">
+    <metal:fill fill-slot="content">
+      <metal:block metal:use-macro="here/plonebooking_macros/macros/booking_view" />
+    </metal:fill>
+  </metal:content>
+</tal:block>

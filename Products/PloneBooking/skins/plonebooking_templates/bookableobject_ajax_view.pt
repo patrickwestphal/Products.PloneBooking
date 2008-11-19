@@ -1,0 +1,66 @@
+<tal:block
+  i18n:domain="plonebooking">
+  <div id="popup-bookableobject-description">
+    <h3 class="popupHeading"
+        i18n:translate="description_bookable_object">Description of ressource: <span i18n:name="bookableobject" tal:content="here/title_or_id" /></h3>
+    <a id="booking-popup-close"
+       onclick="return Booking.closePopup()"
+       href="javascript: void(0);">X</a>
+
+    <a href=""
+       class="link-parent"
+       tal:attributes="href here/absolute_url"
+       i18n:translate="label_goto_bookable_object">
+      Goto this bookable objet
+    </a>
+
+    <div class="documentDescription"
+         tal:define="description here/Description"
+         tal:condition="description"
+         tal:content="description">
+      description
+    </div>
+
+    <div class="stx"
+         tal:define="len_text python:len(here.getText())"
+         tal:condition="len_text"
+         tal:attributes="class python:test(here.Format() in ('text/structured',
+                                               'text/x-rst', ), 'stx', 'plain')">
+      <div tal:replace="structure python:here.CookedBody(stx_level=2)" />
+    </div>
+
+    <ul>
+      <li tal:define="btype here/getType;
+                      vocab python:here.getTypeDisplayList();">
+        <strong>
+          <tal:block i18n:translate="description_bookable_object_type">
+          Type: <span i18n:name="type" tal:replace="python:vocab.getValue(btype)" />
+          </tal:block>
+        </strong>
+        &nbsp;
+        <a tal:attributes="href string:javascript:Booking.refreshType('${btype}');; Booking.closePopup();; void(0);"
+           i18n:translate="label_see_all_bookings_of_this_type">
+          See all bookings of this type
+        </a>
+      </li>
+
+      <li tal:define="bcategory here/getCategory;
+                      vocab python:here.getCategoryDisplayList();">
+        <strong>
+          <tal:block i18n:translate="description_bookable_object_category">
+          Category: <span i18n:name="category" tal:replace="python:vocab.getValue(bcategory)" />
+          </tal:block>
+        </strong>
+        &nbsp;
+        <a tal:attributes="href string:javascript:Booking.refreshCategory('${bcategory}');; Booking.closePopup();; void(0);"
+           i18n:translate="label_see_all_bookings_of_this_category">
+        See all bookings of this category
+        </a>
+      </li>
+    </ul>
+
+
+
+
+  </div>
+</tal:block>

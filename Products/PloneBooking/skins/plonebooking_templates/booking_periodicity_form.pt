@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonebooking">
+  
+  
+  <metal:block fill-slot="top_slot">
+    <!-- 
+      Disable border for role Manager ...
+    -->
+    <tal:test
+         define="utool nocall:here/portal_url;
+                 portal utool/getPortalObject;
+                 mtool nocall:portal/portal_membership;
+                 member mtool/getAuthenticatedMember;
+                 authorized_role python: 'Manager';"
+         condition="python: not authorized_role in member.getRoles()">
+        <tal:disable_border define="dummy python:request.set('disable_border', 1);" />
+        
+    </tal:test>
+  </metal:block>
+  
+  <head>
+    <metal:block fill-slot="head_slot">
+        <link rel="Stylesheet" type="text/css"  media="screen"
+          tal:attributes="href string:$portal_url/plonebooking_styles.css" />
+        <link rel="stylesheet" type="text/css" media="print" href=""
+          tal:attributes="href string:$portal_url/plonebooking_print.css" />
+    </metal:block>
+  </head>
+  
+  <metal:calendar fill-slot="javascript_head_slot">
+    <!-- ECMAScript calendar -->
+    <style type="text/css" media="all"
+      tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
+    <script type="text/javascript"
+      tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js"></script>
+    <script type="text/javascript" charset="iso-8859-1"
+      tal:condition="exists: portal/jscalendar/calendar-en.js"
+      tal:attributes="src string:$portal_url/jscalendar/calendar-en.js"></script>
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/plonebooking.js"></script>
+  </metal:calendar>
+  
+
+
+<body>
+<div metal:fill-slot="main"
+     tal:define="here_uid here/UID">
+  
+  
+  <h1 i18n:translate="heading_create_periodic_bookings">Create periodic bookings</h1>
+  
+  <metal:macro use-macro="here/plonebooking_macros/macros/booking_ref" />
+  <metal:macro use-macro="here/plonebooking_macros/macros/booking_menu" />
+
+  <form method="post" name="periodicity_form" id="periodicity-form" action="">
+
+  <fieldset id="periodicitySetup">
+    <legend i18n:translate="label_periodicity_configuration">Periodicity configuration</legend>
+
+    <metal:block define-macro="periodicity_form">
+	    <p i18n:translate="first_step_text"><strong>First step</strong>: select a periodicity type and a periodicity end date, click on "Display result" link.
+	       You can modify the field values and click again on "Display result", it will not create any bookings but just display a listing of items
+	       that will be create.</p>
+	
+	    <div class="field">
+	      <label i18n:translate="label_booking_periodicity_type">Periodicity type</label>
+	      <div class="formHelp"></div>
+	      <input class="noborder" type="radio" name="periodicity_type" value="1" checked="checked" />
+	      <tal:block i18n:translate="label_same_date_every_weeks">Same date every weeks</tal:block> <br />
+	      <input class="noborder" type="radio" name="periodicity_type" value="2" />
+	      <tal:block i18n:translate="label_same_date_every">Same date every</tal:block> 
+	      <input type="text" name="periodicity2_x" size="2" /> <tal:block i18n:translate="label_weeks">weeks</tal:block> <br />
+	      <input class="noborder" type="radio" name="periodicity_type" value="3" />
+	      <tal:block i18n:translate="label_same_date_every_x_weeks_of_the_month">Same date every x day of the month (every 2nd monday of the month)</tal:block>
+	    </div>
+	
+	    <div class="field">
+	      <label i18n:translate="label_booking_periodicity_end_date">Periodicity end date</label>
+	      <div class="formHelp" i18n:translate="help_booking_peridodicity_end_date">
+	        Enter the ending peridodicity date and time, or click the calendar icon and select it.
+	      </div>
+	      <div tal:define="inputname  string:periodicity_end_date;
+	                       formname   string:periodicity_form;
+	                       formvalue  request/periodicity_end_date | nothing;
+	                       inputvalue python:test(formvalue,formvalue,DateTime());
+	                       tabindex tabindex/next">
+	
+	        <div tal:replace="nothing">Validation error output</div>
+	
+	        <div metal:use-macro="here/calendar_macros/macros/calendarDatePickerBox">
+	          Gets the calendar code.
+	        </div>
+	      </div>
+	    </div>
+  
+	    <p class="formControls"
+	         tal:define="script_url string:${here/absolute_url}/getPeriodicityResult?uid=${here_uid};
+	                     alt_url template/absolute_url;
+	                     btool nocall:portal/portal_booking;
+	                     waiting_text python:here.translate(msgid='description_waiting_periodicity_results', default='Waiting ...', domain='plonebooking');
+	                     ewaiting_text python:btool.escapeText(waiting_text);">
+	      <input class="context" type="button"
+		      	 i18n:attributes="value label_display_result" value="Display result"
+		      	 tal:attributes="onclick string:showPeriodicityResult('${script_url}', '${alt_url}', 'periodicity-result', 'periodicity-form', '${ewaiting_text}')"/>
+	    </p>
+		
+	  <div id="periodicity-result">&nbsp;</div>	  
+    </metal:block>
+   
+  </fieldset>    
+  </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<tal:block i18n:domain="plonebooking"
+           tal:define="utool nocall:here/portal_url;
+                       portal utool/getPortalObject;
+                       btool nocall:portal/portal_booking;
+                       atool nocall:portal/archetype_tool;
+                       ptool nocall:portal/portal_properties;
+                       getZDateTimeFromts nocall:btool/getZDateTimeFromts;
+                       charset ptool/site_properties/default_charset;
+                       portal_url portal/absolute_url;
+                       periodicity_type options/periodicity_type;
+                       periodicity_end_date options/periodicity_end_date;
+                       periodicity_extras options/periodicity_extras;
+                       here_uid options/here_uid;
+                       here_obj python:atool.getObject(here_uid);
+                       infos python:here_obj.getPeriodicityInfos(periodicity_type, periodicity_end_date, **periodicity_extras);
+                       getFormatedLongDate nocall:btool/getFormatedLongDate;">
+                       
+    <metal:block tal:define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset)" />
+
+    <h2 i18n:translate="label_these_bookings_will_be_created">These bookings will be created</h2>
+    <br />
+	<a name="secondStep" id="secondStep"></a>
+    <p i18n:translate="second_step_text"><strong>Second step:</strong> if you are ok with the result below, click on "Create bookings" link.
+       It will create only items that are not already booked. You can modify the field "values" and click again on
+       "Display result" to see a new result.</p>
+
+    <ol tal:condition="infos" id="lstBookings">
+      <tal:loop tal:repeat="item infos">
+        <li tal:define="start_ts python:item[0];
+                        start_dt python:getZDateTimeFromts(start_ts);
+                        end_ts python:item[1];
+                        end_dt python:getZDateTimeFromts(end_ts);
+                        is_booked python:item[2];">
+          <input type="hidden" tal:attributes="value python: str(start_ts) + '_' + str(end_ts)" />
+          <tal:block i18n:translate="description_booking_duration">
+            From <span i18n:name="start_date" tal:content="python:getFormatedLongDate(start_dt)" /> to
+            <span i18n:name="end_date" tal:content="python:getFormatedLongDate(end_dt)" />
+          </tal:block>
+
+          <tal:block tal:condition="is_booked">
+            - <strong i18n:translate="label_already_booked">Already Booked</strong>
+          </tal:block>
+
+        </li>
+      </tal:loop>
+    </ol>
+    <p tal:condition="not:infos" i18n:translate="label_no_periodic_items">No periodic items found.</p>
+    <div class="formControls"
+         tal:condition="infos"
+         tal:define="obj_url here_obj/absolute_url;
+                     alt_url template/absolute_url;
+                     waiting_text python:here.translate(msgid='description_waiting_periodicity_creation', default='Waiting ...', domain='plonebooking');
+                     ewaiting_text python:btool.escapeText(waiting_text);">
+
+          <input class="context" type="button" id="createBookings"
+                 i18n:attributes="value label_create_bookings" value="Create bookings"
+             tal:attributes="onclick string:createThoseBookings('${obj_url}/createOnePeriodicityBooking')" />
+      <div style="display: none;">
+        <span tal:content="ewaiting_text">Waiting ...</span>
+        <div id="bookingProgressbar"><div></div><span>0%</span></div>
+      </div>
+      <div id="bookingsDone" class="portalMessage" i18n:translate="message_periodic_booking_creation_summary"  style="display: none;">
+        %created% item(s) created, %already_booked% already booked, %errors% error(s).
+      </div>
+      <p id="goto-booking">
+        <input  class="context"
+                type="button"
+                i18n:attributes="value view"
+                value="View"
+                tal:attributes="onclick string:document.location.href='${obj_url}'" />
+      </p>
+      <div>&nbsp;</div>
+    </div>
+    
+</tal:block>

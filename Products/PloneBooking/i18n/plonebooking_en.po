@@ -1,0 +1,525 @@
+# Gettext Message File for PloneBooking product.
+# Cyrille Lebeaupin <cyrille.lebeaupin@ingeniweb.com>, 2004
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 1 June 2004 16:54:23 GMT\n"
+"PO-Revision-Date: Mon, 9 August 2004 21:00:00 GMT\n"
+"Last-Translator: Cyrille Lebeaupin <cyrille.lebeaupin@ingeniweb.com>\n"
+"Language-Team: Cyrille Lebeaupin <cyrille.lebeaupin@ingeniweb.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plonebooking\n"
+"X-Is-Fallback-For: en-au en-bz en-ca en-ie en-jm en-nz en-ph en-za en-tt en-gb en-us en-zw\n"
+
+######################
+# Fields
+######################
+
+msgid "label_bookingcenter_categories"
+msgstr "Categories"
+
+msgid "label_bookingcenter_types"
+msgstr "Types of bookable objects"
+
+msgid "help_bookingcenter_types"
+msgstr "You can define a list of bookable object types (one per line)"
+
+msgid "label_bookingcenter_default_calendar_view"
+msgstr "Default calendar view"
+
+msgid "label_bookingcenter_available_calendar_views"
+msgstr "Available calendar views"
+
+msgid "label_booking_user_full_name"
+msgstr "Full name of the person booking"
+
+msgid "label_booking_user_phone"
+msgstr "Phone"
+
+msgid "label_booking_user_email"
+msgstr "Email"
+
+msgid "label_booking_objects"
+msgstr "Booking object(s):"
+
+msgid "label_booking_start_date"
+msgstr "Booking start date"
+
+msgid "help_booking_start_date"
+msgstr "Enter the starting date and time. You can click the calendar icon and select."
+
+msgid "label_booking_end_date"
+msgstr "Booking end date"
+
+msgid "help_booking_end_date"
+msgstr "Enter the ending date and time, or click the calendar icon and select it."
+
+msgid "label_booking_periodicity_end_date"
+msgstr "Periodicity end date"
+
+msgid "help_booking_peridodicity_end_date"
+msgstr "Enter the ending peridodicity date and time, or click the calendar icon and select it."
+
+msgid "label_booking_periodicity_type"
+msgstr "Periodicity type"
+
+msgid "label_bookableobject_type"
+msgstr "Bookable object type"
+
+msgid "label_bookableobject_text"
+msgstr "Text"
+
+msgid "label_bookableobject_category"
+msgstr "Category"
+
+msgid "label_same_date_every_weeks"
+msgstr "Same day and hour every week"
+
+msgid "label_same_date_every"
+msgstr "Same day and hour every"
+
+msgid "label_weeks"
+msgstr "weeks"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Same day and hour every month (e.g. every 2nd monday of the month)"
+
+msgid "label_pending_colors"
+msgstr "Text and background colors for bookings in the \"pending\" state"
+
+msgid "help_pending_colors"
+msgstr "You must seperate the two colors with a \":\" (e.g. \"red:white\" where \"red\" is the text color and \"white\" is he background color)"
+
+msgid "label_booked_colors"
+msgstr "Text and background colors for bookings in the \"booked\" state"
+
+msgid "help_booked_colors"
+msgstr "You must seperate the two colors with a \":\" (example \"red:white\" where \"red\" is the text color and \"white\" is the background color)"
+
+msgid "label_booking_title"
+msgstr "Booking title"
+
+msgid "label_booking_description"
+msgstr "Comment"
+
+msgid "help_booking_description"
+msgstr "Enter a comment."
+
+msgid "label_bookableobject_title"
+msgstr "Bookable object title"
+
+msgid "label_bookable_object_states"
+msgstr "States for which the reservation of a bookable object is allowed"
+
+msgid "help_bookable_object_states"
+msgstr "Define the workflow states of bookable objects. If a bookable object is in a workflow state that is not in this list, it will not appear in the list of bookable objects"
+
+# ###################
+# Views
+# ###################
+
+msgid "message_create_periodic_bookings"
+msgstr "${created} item(s) created, ${already_booked} already booked"
+
+msgid "label_booking"
+msgstr "Booking"
+
+msgid "label_new_booking"
+msgstr "New booking"
+
+msgid "label_edit_booking"
+msgstr "Edit booking"
+
+msgid "label_only_bookable_objects_of_type"
+msgstr "Only bookable objects of type:"
+
+msgid "label_only_bookable_objects_of_category"
+msgstr "Only bookable object of category:"
+
+msgid "label_all_categories"
+msgstr "All categories"
+
+msgid "label_see_bookable_object"
+msgstr "See bookable object:"
+
+msgid "label_filter_form"
+msgstr "Filter form"
+
+msgid "title_bookings_for_bookable_object_of_type"
+msgstr "Bookings for bookable objects of type ${type}"
+
+msgid "label_periodicity_configuration"
+msgstr "Periodicity configuration"
+
+msgid "first_step_text"
+msgstr "<strong>First step</strong>: select a periodicity type and a periodicity end date, and click on the \"Display result\" link. You can modify the field values and click again on \"Display result\", it will not create any bookings but just display a listing of items that will be created."
+
+msgid "label_display_result"
+msgstr "Display result"
+
+msgid "label_these_bookings_will_be_created"
+msgstr "These bookings will be created"
+
+msgid "second_step_text"
+msgstr "<strong>Second step:</strong> if you are ok with the result below, click on \"Create bookings\" link. It will create only items that are not already booked. You can modify the field \"values\" and click again on \"Display result\" to see a new result."
+
+msgid "label_create_bookings"
+msgstr "Create bookings"
+
+#####################
+# misc
+#####################
+
+msgid "label_dynamic_booking_title"
+msgstr "Booking from ${start_date} au ${end_date}"
+
+msgid "description_no_bookable_object"
+msgstr "No object can be booked."
+
+msgid "Booking center"
+msgstr "Booking center"
+
+msgid "Bookable object"
+msgstr "Bookable object"
+
+msgid "label_booking_date"
+msgstr "Date:"
+
+msgid "description_booking_duration"
+msgstr "From ${start_date} to ${end_date}"
+
+msgid "description_no_bookings_found"
+msgstr "No bookings found."
+
+msgid "label_previous_day"
+msgstr "Previous day"
+
+msgid "label_previous_week"
+msgstr "Previous week"
+
+msgid "label_next_day"
+msgstr "Next day"
+
+msgid "label_next_week"
+msgstr "Next week"
+
+msgid "label_previous_4_weeks"
+msgstr "Previous 4 weeks"
+
+msgid "label_next_4_weeks"
+msgstr "Next 4 weeks"
+
+msgid "label_next_month"
+msgstr "Next month"
+
+msgid "label_next_3_months"
+msgstr "Next 3 months"
+
+msgid "label_previous_month"
+msgstr "Previous month"
+
+msgid "label_previous_3_months"
+msgstr "Previous 3 months"
+
+msgid "label_next_year"
+msgstr "Next year"
+
+msgid "label_next_3_years"
+msgstr "Next 3 years"
+
+msgid "label_previous_year"
+msgstr "Previous year"
+
+msgid "label_previous_3_years"
+msgstr "Previous 3 years"
+
+msgid "label_hour"
+msgstr "Hour"
+
+msgid "label_booked_by"
+msgstr "Booked by"
+
+msgid "heading_create_periodic_bookings"
+msgstr "Create periodic bookings"
+
+msgid "label_already_booked"
+msgstr "Already Booked"
+
+msgid "label_no_periodic_items"
+msgstr "Can't create any periodic."
+
+# Date format
+msgid "date_format"
+msgstr "${weekdayname}, ${monthname} ${day} ${year}"
+
+msgid "date_long_format"
+msgstr "${year}/${month}/${day} ${hour}"
+
+msgid "date_format_without_year"
+msgstr "${weekdayname} ${monthname} ${day}"
+
+msgid "week_date_format"
+msgstr "${year}, week ${week}"
+
+msgid "month_date_format"
+msgstr "${year}, ${monthname}"
+
+msgid "year_date_format"
+msgstr "${year}"
+
+# Weekdays
+msgid "calendar_weekday_0"
+msgstr "Monday"
+
+msgid "calendar_weekday_1"
+msgstr "Tuesday"
+
+msgid "calendar_weekday_2"
+msgstr "Wednesday"
+
+msgid "calendar_weekday_3"
+msgstr "Thursday"
+
+msgid "calendar_weekday_4"
+msgstr "Friday"
+
+msgid "calendar_weekday_5"
+msgstr "Saturday"
+
+msgid "calendar_weekday_6"
+msgstr "Sunday"
+
+msgid "Monday"
+msgstr "Monday"
+
+msgid "Tuesday"
+msgstr "Tuesday"
+
+msgid "Wednesday"
+msgstr "Wednesday"
+
+msgid "Thursday"
+msgstr "Thursday"
+
+msgid "Friday"
+msgstr "Friday"
+
+msgid "Saturday"
+msgstr "Saturday"
+
+msgid "Sunday"
+msgstr "Sunday"
+
+# Months
+msgid "calendar_month_1"
+msgstr "January"
+
+msgid "calendar_month_2"
+msgstr "February"
+
+msgid "calendar_month_3"
+msgstr "March"
+
+msgid "calendar_month_4"
+msgstr "April"
+
+msgid "calendar_month_5"
+msgstr "May"
+
+msgid "calendar_month_6"
+msgstr "June"
+
+msgid "calendar_month_7"
+msgstr "July"
+
+msgid "calendar_month_8"
+msgstr "August"
+
+msgid "calendar_month_9"
+msgstr "September"
+
+msgid "calendar_month_10"
+msgstr "October"
+
+msgid "calendar_month_11"
+msgstr "November"
+
+msgid "calendar_month_12"
+msgstr "December"
+
+msgid "label_bookable_object_category"
+msgstr "Category"
+
+msgid "show_day"
+msgstr "Show the day"
+
+msgid "show_more_infos"
+msgstr "Show more booking infos"
+
+msgid "link_title_book_it"
+msgstr "Book it"
+
+msgid "title_periodic_items"
+msgstr "Periodic Items"
+
+msgid "head_from"
+msgstr "from"
+
+msgid "head_to"
+msgstr "to"
+
+msgid "head_review_state"
+msgstr "Review state"
+
+msgid "label_no_category"
+msgstr "No category"
+
+msgid "label_calendar"
+msgstr "Calendar"
+
+msgid "label_listing"
+msgstr "Listing"
+
+msgid "label_year"
+msgstr "Year"
+
+msgid "label_bookingcenter_default_view_mode"
+msgstr "Default view mode"
+
+msgid "label_bookingcenter_available_view_modes"
+msgstr "Available view modes"
+
+msgid "label_bookingcenter_default_listing_view"
+msgstr "Default listing view"
+
+msgid "label_bookingcenter_available_listing_views"
+msgstr "Available listing views"
+
+msgid "label_day"
+msgstr "Day"
+
+msgid "label_week"
+msgstr "Week"
+
+msgid "label_month"
+msgstr "Month"
+
+msgid "label_bookingcenter_calendar_starting_hour"
+msgstr "Start hour"
+
+msgid "help_bookingcenter_calendar_starting_hour"
+msgstr "This is used in day and week calendar views"
+                           
+msgid "label_bookingcenter_calendar_ending_hour"
+msgstr "End hour"
+
+msgid "help_bookingcenter_calendar_ending_hour"
+msgstr "This is used in day and week calendar views"
+
+msgid "label_all_types"
+msgstr "All types"
+
+msgid "label_up_to_booking_center"
+msgstr "Up to booking center"
+
+msgid "label_see_all_bookings_of_this_type"
+msgstr "See all bookings of this type"
+
+msgid "label_see_all_bookings_of_this_category"
+msgstr "See all bookings of this category"
+
+msgid "label_add_new_booking"
+msgstr "add new booking"
+
+msgid "description_add_new_booking"
+msgstr "Select a view, search for availability and ${add_new_booking}"
+
+msgid "description_add_new_booking_in_calendar_view"
+msgstr "On the calendar view, add a new booking by clicking on \"+\""
+
+msgid "heading_add_booking"
+msgstr "Add a booking"
+
+msgid "description_add_booking"
+msgstr "Select an object to book."
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "label_up_to_booked_object"
+msgstr "Up to booked object"
+
+msgid "label_review_bookings"
+msgstr "Review Bookings"
+
+msgid "label_publish_automatically_bookings"
+msgstr "Publish bookings automatically"
+
+msgid "label_default_booking_review_mode"
+msgstr "Default (Booking center)"
+
+msgid "label_booking_review_mode"
+msgstr "Booking mode"
+
+msgid "message_date_already_booked"
+msgstr "An object is already booked at this date."
+
+msgid "message_no_booking_created"
+msgstr "No booking created."
+
+msgid "Retract"
+msgstr "Retract"
+
+msgid "Retract All"
+msgstr "Retract all"
+
+msgid "Book"
+msgstr "Book"
+
+msgid "Book All"
+msgstr "Book all"
+
+msgid "description_waiting_periodicity_results"
+msgstr "Please wait: Calculating periodicity results ..."
+
+msgid "description_waiting_periodicity_creation"
+msgstr "Please wait: Creating periodicity ..."
+
+msgid "message_give_number_for_periodicity"
+msgstr "You must give a number for the periodicity."
+
+msgid "message_periodicity_end_date_not_valid"
+msgstr "The periodicity end date is not valid."
+
+msgid "message_object_not_found"
+msgstr "No object found."
+
+msgid "message_periodic_booking_creation_summary"
+msgstr "%created% item(s) created, %already_booked% already booked, %errors% error(s)."
+
+msgid "description_waiting_booking_process"
+msgstr "Wait while processing booking items ..."
+
+msgid "message_booking_process_summary"
+msgstr "%processed% booking(s) processed, %errors% error(s)."
+
+msgid "label_view"
+msgstr "View"
+
+msgid "label_edit"
+msgstr "Edit"
+
+msgid "label_retract"
+msgstr "Retract"
+
+msgid "label_book"
+msgstr "Book"

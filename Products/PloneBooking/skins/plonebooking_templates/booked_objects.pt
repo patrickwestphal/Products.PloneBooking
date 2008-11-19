@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonebooking">
+
+  <head>
+    <metal:block fill-slot="head_slot">
+        <link rel="Stylesheet" type="text/css"  media="screen"
+          tal:attributes="href string:$portal_url/plonebooking_styles.css" />
+    </metal:block>
+  </head>
+
+  <body>
+    <metal:fill fill-slot="main">
+      <metal:main_macro define-macro="main">
+
+        <metal:body_macro metal:define-macro="body_macro"
+                          tal:define="base_macros here/plonebooking_macros/macros;
+                                      all_objects_bookings base_macros/all_objects_bookings;">
+          <h1>Objects booked</h1>
+          <metal:macro use-macro="all_objects_bookings" />
+          
+          
+        </metal:body_macro>
+
+      </metal:main_macro>
+    </metal:fill>
+  </body>
+</html>

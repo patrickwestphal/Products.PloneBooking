@@ -1,0 +1,101 @@
+# Translation to Dutch
+# Atopia <info@atopia.nl>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 1 June 2004 16:54:23 GMT\n"
+"PO-Revision-Date: 2006-07-28 11:51+0100\n"
+"Last-Translator: Atopia <info@atopia.nl>\n"
+"Language-Team: Atopia <info@atopia.nl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: nl\n"
+"Language-name: Nederlands\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plonebooking\n"
+"X-Poedit-Language: Dutch\n"
+"X-Is-Fallback-For: nl-be\n"
+
+# Date format
+msgid "date_format"
+msgstr "${weekdayname}, ${monthname} ${day} ${year}"
+
+msgid "date_long_format"
+msgstr "${year}/${month}/${day} ${hour}"
+
+msgid "date_format_without_year"
+msgstr "${weekdayname} ${monthname} ${day}"
+
+msgid "week_date_format"
+msgstr "${year}, week ${week}"
+
+msgid "month_date_format"
+msgstr "${year}, ${monthname}"
+
+# Weekdays
+msgid "calendar_weekday_0"
+msgstr "maandag"
+
+msgid "calendar_weekday_1"
+msgstr "dinsdag"
+
+msgid "calendar_weekday_2"
+msgstr "woensdag"
+
+msgid "calendar_weekday_3"
+msgstr "donderdag"
+
+msgid "calendar_weekday_4"
+msgstr "vrijdag"
+
+msgid "calendar_weekday_5"
+msgstr "zaterdag"
+
+msgid "calendar_weekday_6"
+msgstr "zondag"
+
+# Months
+msgid "calendar_month_1"
+msgstr "januari"
+
+msgid "calendar_month_2"
+msgstr "februari"
+
+msgid "calendar_month_3"
+msgstr "maart"
+
+msgid "calendar_month_4"
+msgstr "april"
+
+msgid "calendar_month_5"
+msgstr "mei"
+
+msgid "calendar_month_6"
+msgstr "juni"
+
+msgid "calendar_month_7"
+msgstr "juli"
+
+msgid "calendar_month_8"
+msgstr "augustus"
+
+msgid "calendar_month_9"
+msgstr "september"
+
+msgid "calendar_month_10"
+msgstr "oktober"
+
+msgid "calendar_month_11"
+msgstr "november"
+
+msgid "calendar_month_12"
+msgstr "december"
+
+msgid "description_waiting_periodicity_results"
+msgstr "Moment geduld: periodiciteit resultaten aan het ophalen..."
+
+msgid "description_waiting_periodicity_creation"
+msgstr "Moment geduld: periodiciteit aan het aanmaken..."
+

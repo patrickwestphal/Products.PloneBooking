@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonebooking">
+
+  <head>
+    <metal:block fill-slot="head_slot">
+        <link rel="Stylesheet" type="text/css"  media="screen"
+          tal:attributes="href string:$portal_url/plonebooking_styles.css" />
+    </metal:block>
+  </head>
+
+  <body>
+    <metal:fill fill-slot="main">
+      <metal:main_macro define-macro="main"
+                        tal:define="base_macros here/plonebooking_macros/macros;">
+
+        <metal:body_macro metal:define-macro="body_macro"
+                          tal:define="type python:request.get('type', '');
+                                      category python:request.get('category', '');">
+        
+        <h1 tal:content="here/title_or_id">
+        Bookable object container
+        </h1>
+        
+        <div metal:use-macro="here/document_actions/macros/document_actions">
+            Document actions (print, sendto etc)
+        </div>
+    
+        <div class="documentDescription"
+             tal:define="description here/Description"
+             tal:condition="description"
+             tal:content="description">
+            description
+        </div>
+        
+        <div tal:define="types python:here.portal_booking.getTypes();">
+          Types : 
+          <tal:loop repeat="t types">
+          <a href="#" tal:attributes="href string:${here/absolute_url}/${template_id}?type=${t}" tal:content="t">
+            Type
+          </a>
+          </tal:loop>
+        </div>
+        
+        <div tal:define="results python: here.portal_catalog.searchResults(portal_type='BookableObject', getType=type, sort_on='getCategory');
+                         global catego python:'';">
+          
+          <div tal:repeat="result results"> 
+              <dt>
+                <tal:test condition="python: not catego == result['getCategory']">
+                  <span tal:replace="result/getCategory" />
+                  <tal:register_category define="global catego python: result['getCategory'];" />
+                </tal:test>
+                
+              </dt>
+              <dd>
+                <a href="#" 
+                   tal:attributes="href result/getURL" 
+                   tal:content="result/Title">
+                  category
+                </a>
+                <span tal:content="result/Description" />
+              </dd>
+          </div>
+        </div>
+        </metal:body_macro>
+      </metal:main_macro>
+    </metal:fill>
+  </body>
+</html>

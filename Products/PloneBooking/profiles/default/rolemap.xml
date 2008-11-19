@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="PloneBooking: Add booking center"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Owner"/>
+    </permission>
+
+    <permission name="PloneBooking: Add booking"
+		acquire="True">
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="Member"/>
+    </permission>
+
+    <permission name="PloneBooking: Add bookable object"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Owner"/>
+    </permission>
+  </permissions>
+</rolemap>

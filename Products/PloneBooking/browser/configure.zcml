@@ -1,0 +1,35 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   xmlns:five="http://namespaces.zope.org/five"
+   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+   xmlns:plone="http://namespaces.plone.org/plone"
+   i18n_domain="plonebooking">
+
+  <browser:page
+      for="Products.PloneBooking.interfaces.IBookingCenter"
+      name="filter_select_options"
+      template="templates/filter_select_options.pt"
+      class=".filter.SelectOptions"
+      permission="zope.Public"
+      allowed_attributes="
+          getTypeVocabulary
+          getCategoryVocabulary
+          getResourceVocabulary"
+      />
+
+  <browser:pages
+    for="Products.PloneBooking.interfaces.IBookableObject"
+    class=".export.Export"
+    permission="cmf.ModifyPortalContent"
+  >
+    <page name="export_form" template="templates/export_form.pt" />
+  </browser:pages>
+
+  <utility
+    factory=".export.BookingExporter"
+    provides="Products.PloneBooking.interfaces.IBookingExporter"
+    permission="cmf.ModifyPortalContent"
+  />
+
+</configure>

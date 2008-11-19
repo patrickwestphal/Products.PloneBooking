@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="booking_workflow"
+             title="Default Workflow  for Booking"
+             state_variable="review_state"
+             initial_state="pending">
+ <permission>Access contents information</permission>
+ <permission>Modify portal content</permission>
+ <permission>View</permission>
+ <state state_id="booked" title="Booked">
+  <exit-transition transition_id="cancel"/>
+  <permission-map name="Access contents information"
+                  acquired="True">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="True">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="canceled" title="Canceled">
+  <exit-transition transition_id="submit"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="pending" title="Waiting for reviewer">
+  <exit-transition transition_id="auto_book"/>
+  <exit-transition transition_id="book"/>
+  <exit-transition transition_id="cancel"/>
+  <permission-map name="Access contents information"
+                  acquired="True">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="True">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+ </state>
+ <transition transition_id="auto_book"
+             title="automatic book" new_state="booked"
+             trigger="AUTOMATIC" before_script=""
+             after_script="">
+
+  <guard>
+   <guard-role>Owner</guard-role>
+   <guard-role>Member</guard-role>
+   <guard-expression>python: not here.isTemporary() and here.publishAutomatically()</guard-expression>
+  </guard>
+ </transition>
+ <transition transition_id="book" title="Book"
+             new_state="booked" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Book</action>
+  <guard>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="cancel"
+             title="Member retracts booking"
+             new_state="canceled" trigger="USER"
+             before_script="" after_script="delete">
+  <action url="%(content_url)s/content_retract_form"
+          category="workflow">Retract</action>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="submit"
+             title="Member requests booking"
+             new_state="pending" trigger="USER"
+             before_script="" after_script="">
+  <action url="%(content_url)s/content_submit_form"
+          category="workflow">Submit</action>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+  </guard>
+ </transition>
+ <worklist worklist_id="reviewer_queue" title="">
+  <description>Reviewer tasks</description>
+  <action url="%(portal_url)s/search?review_state=pending"
+          category="global">Pending (%(count)d)</action>
+  <guard>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+  <match name="review_state" values="pending"/>
+ </worklist>
+ <variable variable_id="action" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The last transition</description>
+  <default>
+
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The ID of the user who performed the last transition</description>
+  <default>
+
+   <expression>user/getId</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Comments about the last transition</description>
+  <default>
+
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False"
+           for_status="False" update_always="False">
+  <description>Provides access to workflow history</description>
+  <default>
+
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Time of the last transition</description>
+  <default>
+
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <script script_id="delete" type="Script (Python)"
+         filename="workflows/booking_workflow/scripts/delete.py"
+         module="" function=""/>
+ <script script_id="notify" type="Script (Python)"
+         filename="workflows/booking_workflow/scripts/notify.py"
+         module="" function=""/>
+</dc-workflow>

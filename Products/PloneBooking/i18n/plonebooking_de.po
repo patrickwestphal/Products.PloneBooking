@@ -1,0 +1,526 @@
+# Gettext Message File for PloneBooking product.
+# Sebastian Stark <stark@tuebingen.mpg.de>, 2006
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 15 November 2006 14:00:00 GMT\n"
+"PO-Revision-Date: Tue, 15 November 2006 14:00:00 GMT\n"
+"Last-Translator: Sebastian Stark <stark@tuebingen.mpg.de>\n"
+"Language-Team: Sebastian Stark <stark@tuebingen.mpg.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plonebooking\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+######################
+# Fields
+######################
+
+msgid "label_bookingcenter_categories"
+msgstr "Kategorien"
+
+msgid "label_bookingcenter_types"
+msgstr "Objekttypen"
+
+msgid "help_bookingcenter_types"
+msgstr "Sie können eine Liste von reservierbaren Objekten definieren (ein Objekt pro Zeile)"
+
+msgid "label_bookingcenter_default_calendar_view"
+msgstr "Vorgabe-Kalenderansicht"
+
+msgid "label_bookingcenter_available_calendar_views"
+msgstr "Verfügbare Kalenderansichten"
+
+msgid "label_booking_user_full_name"
+msgstr "Voller Name der reservierenden Person"
+
+msgid "label_booking_user_phone"
+msgstr "Telefon"
+
+msgid "label_booking_user_email"
+msgstr "E-Mail"
+
+msgid "label_booking_objects"
+msgstr "Reservierbare Objekte:"
+
+msgid "label_booking_start_date"
+msgstr "Beginn der Reservierung"
+
+msgid "help_booking_start_date"
+msgstr "Geben Sie Anfangsdatum und -zeit der Reservierung ein. Sie können auch auf das Kalendericon klicken und einen Zeitpunkt auswählen."
+
+msgid "label_booking_end_date"
+msgstr "Ende der Reservierung"
+
+msgid "help_booking_end_date"
+msgstr "Geben Sie Enddatum und -zeit der Reservierung ein. Sie können auch auf das Kalendericon klicken und einen Zeitpunkt auswählen."
+
+msgid "label_booking_periodicity_end_date"
+msgstr "Enddatum der regelmäßigen Wiederholung"
+
+msgid "help_booking_peridodicity_end_date"
+msgstr "Geben Sie Enddatum und -zeit der regelmäßigen Wiederholung ein. Sie können auch auf das Kalendericon klicken und einen Zeitpunkt auswählen"
+
+msgid "label_booking_periodicity_type"
+msgstr "Art der regelmäßigen Wiederholung"
+
+msgid "label_bookableobject_type"
+msgstr "Reservierungstyp"
+
+msgid "label_bookableobject_text"
+msgstr "Text"
+
+msgid "label_bookableobject_category"
+msgstr "Kategorie"
+
+msgid "label_same_date_every_weeks"
+msgstr "Fester Tag und Stunde wöchentlich"
+
+msgid "label_same_date_every"
+msgstr "Fester Tag und Stunde jede(n)"
+
+msgid "label_weeks"
+msgstr "Wochen"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Fester Tag und Stunde monatlich (z. B. jeden zweiten Montag des Monats)"
+
+msgid "label_pending_colors"
+msgstr "Text- und Hintergrundfarbe für Reservierungen im Zustand \"offen\""
+
+msgid "help_pending_colors"
+msgstr "Sie müssen die beiden Farben mit einem \":\" voneinander abtrennen (z. B. \"red:white\", wobei \"red\" die Textfarbe und \"white\" die Hintergrundfarbe ist)"
+
+msgid "label_booked_colors"
+msgstr "Text- und Hintergrundfarbe für Reservierungen im \"reserviert\" Zustand"
+
+msgid "help_booked_colors"
+msgstr "Sie müssen die beiden Farben mit einem \":\" voneinander abtrennen (z. B. \"red:white\", wobei \"red\" die Textfarbe und \"white\" die Hintergrundfarbe ist)"
+
+msgid "label_booking_title"
+msgstr "Titel der Reservierung"
+
+msgid "label_booking_description"
+msgstr "Kommentar"
+
+msgid "help_booking_description"
+msgstr "Geben Sie einen Kommentar ein."
+
+msgid "label_bookableobject_title"
+msgstr "Titel des reservierbaren Objekts"
+
+msgid "label_bookable_object_states"
+msgstr "Zustände, für die die Reservierung eines reservierbaren Objekts erlaubt ist"
+
+msgid "help_bookable_object_states"
+msgstr "Definieren Sie die Workflow-Zustände von reservierbaren Objekten. Befindet sich ein reservierbares Objekt in einem Workflow-Zustand, der hier nicht aufgelistet ist, dann erscheint es nicht in der Liste der reservierbaren Objekte."
+
+
+# ###################
+# Views
+# ###################
+
+msgid "message_create_periodic_bookings"
+msgstr "${created} Einträge erzeugt, ${already_booked} bereits reserviert"
+
+msgid "label_booking"
+msgstr "Reservierung"
+
+msgid "label_new_booking"
+msgstr "Neue Reservierung"
+
+msgid "label_edit_booking"
+msgstr "Reservierung ändern"
+
+msgid "label_only_bookable_objects_of_type"
+msgstr "Nur reservierbare Objekte des Typs:"
+
+msgid "label_only_bookable_objects_of_category"
+msgstr "Nur reservierbare Objekte der Kategorie:"
+
+msgid "label_all_categories"
+msgstr "Alle Kategorien"
+
+msgid "label_see_bookable_object"
+msgstr "Reservierbares Objekt einsehen:"
+
+msgid "label_filter_form"
+msgstr "Filter"
+
+msgid "title_bookings_for_bookable_object_of_type"
+msgstr "Reservierungen für Objekte des Typs ${type}"
+
+msgid "label_periodicity_configuration"
+msgstr "Konfiguration der regelmäßigen Wiederholung"
+
+msgid "first_step_text"
+msgstr "<string>Erster Schritt:</strong> Wählen Sie eine Art von regelmäßiger Wiederholung und ein Enddatum für die Wiederholung aus und klicken Sie auf \"Ergebnisse anzeigen\". Sie können die Werte der Felder verändern und wiederum auf \"Ergebnisse anzeigen\" klicken. Dadurch werden noch keine Reservierungen erstellt sondern nur eine Liste der zu erstellenden Einträge angezeigt."
+
+msgid "label_display_result"
+msgstr "Ergebnisse anzeigen"
+
+msgid "label_these_bookings_will_be_created"
+msgstr "Diese Reservierungen werden erzeugt werden"
+
+msgid "second_step_text"
+msgstr "<strong>Zweiter Schritt:</strong> Wenn Sie mit dem untenstehenden Ergebnis zufrieden sind, klicken Sie auf \"Reservierungen erstellen\". Es werden nur Reservierungen erstellt, die nicht bereits vorher erstellt wurden."
+
+msgid "label_create_bookings"
+msgstr "Reservierungen erstellen"
+
+#####################
+# misc
+#####################
+
+msgid "label_dynamic_booking_title"
+msgstr "Reservierungen von ${stark_date} bis ${end_date}"
+
+msgid "description_no_bookable_object"
+msgstr "Kein Objekt kann reserviert werden."
+
+msgid "Booking center"
+msgstr "Reservierungen"
+
+msgid "Bookable object"
+msgstr "Reservierbares Objekt"
+
+msgid "label_booking_date"
+msgstr "Datum:"
+
+msgid "description_booking_duration"
+msgstr "Von ${start_date} bis ${end_date}"
+
+msgid "description_no_bookings_found"
+msgstr "Keine Reservierungen gefunden."
+
+msgid "label_previous_day"
+msgstr "Voriger Tag"
+
+msgid "label_previous_week"
+msgstr "Vorige Woche"
+
+msgid "label_next_day"
+msgstr "Nächster Tag"
+
+msgid "label_next_week"
+msgstr "Nächste Woche"
+
+msgid "label_previous_4_weeks"
+msgstr "Vorige 4 Wochen"
+
+msgid "label_next_4_weeks"
+msgstr "Nächste 4 Wochen"
+
+msgid "label_next_month"
+msgstr "Nächster Monat"
+
+msgid "label_next_3_months"
+msgstr "Nächste 3 Monate"
+
+msgid "label_previous_month"
+msgstr "Voriger Monat"
+
+msgid "label_previous_3_months"
+msgstr "Vorige 3 Monate"
+
+msgid "label_next_year"
+msgstr "Nächstes Jahr"
+
+msgid "label_next_3_years"
+msgstr "Nächste 3 Jahre"
+
+msgid "label_previous_year"
+msgstr "Voriges Jahr"
+
+msgid "label_previous_3_years"
+msgstr "Vorige 3 Jahre"
+
+msgid "label_hour"
+msgstr "Stunde"
+
+msgid "label_booked_by"
+msgstr "Reserviert von"
+
+msgid "heading_create_periodic_bookings"
+msgstr "Reservierung mit regelmäßiger Wiederholung erstellen"
+
+msgid "label_already_booked"
+msgstr "Bereits reserviert"
+
+msgid "label_no_periodic_items"
+msgstr "Kann keine regelmäßige Wiederholung erstellen."
+
+# Date format
+msgid "date_format"
+msgstr "${weekdayname}, ${day} ${monthname} ${year}"
+
+msgid "date_long_format"
+msgstr "${year}/${month}/${day} ${hour}"
+
+msgid "date_format_without_year"
+msgstr "${weekdayname} ${day} ${monthname}"
+
+msgid "week_date_format"
+msgstr "${year}, week ${week}"
+
+msgid "month_date_format"
+msgstr "${year}, ${monthname}"
+
+msgid "year_date_format"
+msgstr "${year}"
+
+# Weekdays
+msgid "calendar_weekday_0"
+msgstr "Montag"
+
+msgid "calendar_weekday_1"
+msgstr "Dienstag"
+
+msgid "calendar_weekday_2"
+msgstr "Mittwoch"
+
+msgid "calendar_weekday_3"
+msgstr "Donnerstag"
+
+msgid "calendar_weekday_4"
+msgstr "Freitag"
+
+msgid "calendar_weekday_5"
+msgstr "Samstag"
+
+msgid "calendar_weekday_6"
+msgstr "Sonntag"
+
+msgid "Monday"
+msgstr "Montag"
+
+msgid "Tuesday"
+msgstr "Dienstag"
+
+msgid "Wednesday"
+msgstr "Mittwoch"
+
+msgid "Thursday"
+msgstr "Donnerstag"
+
+msgid "Friday"
+msgstr "Freitag"
+
+msgid "Saturday"
+msgstr "Samstag"
+
+msgid "Sunday"
+msgstr "Sonntag"
+
+# Months
+msgid "calendar_month_1"
+msgstr "Januar"
+
+msgid "calendar_month_2"
+msgstr "Februar"
+
+msgid "calendar_month_3"
+msgstr "März"
+
+msgid "calendar_month_4"
+msgstr "April"
+
+msgid "calendar_month_5"
+msgstr "Mai"
+
+msgid "calendar_month_6"
+msgstr "Juni"
+
+msgid "calendar_month_7"
+msgstr "Juli"
+
+msgid "calendar_month_8"
+msgstr "August"
+
+msgid "calendar_month_9"
+msgstr "September"
+
+msgid "calendar_month_10"
+msgstr "Oktober"
+
+msgid "calendar_month_11"
+msgstr "November"
+
+msgid "calendar_month_12"
+msgstr "Dezember"
+
+msgid "label_bookable_object_category"
+msgstr "Kategorie"
+
+msgid "show_day"
+msgstr "Tag anzeigen"
+
+msgid "show_more_infos"
+msgstr "Mehr Infos zur Reservierung anzeigen"
+
+msgid "link_title_book_it"
+msgstr "Reservierung durchführen"
+
+msgid "title_periodic_items"
+msgstr "Regelmäßige Wiederholungen"
+
+msgid "head_from"
+msgstr "von"
+
+msgid "head_to"
+msgstr "bis"
+
+msgid "head_review_state"
+msgstr "Review Zustand"
+
+msgid "label_no_category"
+msgstr "Keine Kategorie"
+
+msgid "label_calendar"
+msgstr "Kalendar"
+
+msgid "label_listing"
+msgstr "Liste"
+
+msgid "label_year"
+msgstr "Jahr"
+
+msgid "label_bookingcenter_default_view_mode"
+msgstr "Vorgabe-Ansichtsmodus"
+
+msgid "label_bookingcenter_available_view_modes"
+msgstr "Verfügbare Ansichtsmodi"
+
+msgid "label_bookingcenter_default_listing_view"
+msgstr "Vorgabe-Listenansicht"
+
+msgid "label_bookingcenter_available_listing_views"
+msgstr "Verfügbare Listenansichten"
+
+msgid "label_day"
+msgstr "Tag"
+
+msgid "label_week"
+msgstr "Woche"
+
+msgid "label_month"
+msgstr "Monat"
+
+msgid "label_bookingcenter_calendar_starting_hour"
+msgstr "Tagesbeginn (Stunde)"
+
+msgid "help_bookingcenter_calendar_starting_hour"
+msgstr "Wird in Tages- und Wochenansichten verwendet"
+                           
+msgid "label_bookingcenter_calendar_ending_hour"
+msgstr "Tagesende (Stunde)"
+
+msgid "help_bookingcenter_calendar_ending_hour"
+msgstr "Wird in Tages- und Wochenansichten verwendet"
+
+msgid "label_all_types"
+msgstr "Alle Typen"
+
+msgid "label_up_to_booking_center"
+msgstr "Hoch zu den Reservierungen"
+
+msgid "label_see_all_bookings_of_this_type"
+msgstr "Zeige alle Reservierungen dieses Typs an"
+
+msgid "label_see_all_bookings_of_this_category"
+msgstr "Zeige alle Reservierungen dieser Kategorie an"
+
+msgid "label_add_new_booking"
+msgstr "fügen Sie eine neue Reservierung hinzu"
+
+msgid "description_add_new_booking"
+msgstr "Wählen Sie eine Ansicht aus, stellen Sie die Verfügbarkeit fest und ${add_new_booking}"
+
+msgid "description_add_new_booking_in_calendar_view"
+msgstr "In der Kalenderansicht fügen Sie eine Reservierung hinzu, indem Sie auf \"+\" klicken"
+
+msgid "heading_add_booking"
+msgstr "Reservierung hinzufügen"
+
+msgid "description_add_booking"
+msgstr "Wählen Sie ein Objekt zur Reservierung aus."
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Cancel"
+msgstr "Widerrufen"
+
+msgid "label_up_to_booked_object"
+msgstr "Hoch zum reservierbaren Objekt"
+
+msgid "label_review_bookings"
+msgstr "Reservierungen überprüfen"
+
+msgid "label_publish_automatically_bookings"
+msgstr "Reservierungen automatisch veröffentlichen"
+
+msgid "label_default_booking_review_mode"
+msgstr "Vorgabe (Reservierungen)"
+
+msgid "label_booking_review_mode"
+msgstr "Reservierungsmodus"
+
+msgid "message_date_already_booked"
+msgstr "Ein Objekt ist zu diesem Zeitpunkt bereits reserviert."
+
+msgid "message_no_booking_created"
+msgstr "Keine Reservierung erstellt."
+
+msgid "Retract"
+msgstr "Zurückziehen"
+
+msgid "Retract All"
+msgstr "Alle zurückziehen"
+
+msgid "Book"
+msgstr "Buchen"
+
+msgid "Book All"
+msgstr "Alle buchen"
+
+msgid "description_waiting_periodicity_results"
+msgstr "Bitte warten: Regelmäßige Wiederholungen werden berechnet ..."
+
+msgid "description_waiting_periodicity_creation"
+msgstr "Bitte warten: Regelmäßige Wiederholungen werden erstellt ..."
+
+msgid "message_give_number_for_periodicity"
+msgstr "Sie müssen eine Anzahl von Wiederholungen angeben."
+
+msgid "message_periodicity_end_date_not_valid"
+msgstr "Das Enddatum der regelmäßigen Wiederholungen ist ungültig."
+
+msgid "message_object_not_found"
+msgstr "Kein Objekt gefunden."
+
+msgid "message_periodic_booking_creation_summary"
+msgstr "%created Einträge erzeugt, %already_booked% bereits reserviert, %errors% Fehler."
+
+msgid "description_waiting_booking_process"
+msgstr "Bitte warten, Reservierungen werden bearbeitet ..."
+
+msgid "message_booking_process_summary"
+msgstr "%processed% Reservierung(en) bearbeitet, %errors% Fehler."
+
+msgid "label_view"
+msgstr "Ansicht"
+
+msgid "label_edit"
+msgstr "Bearbeiten"
+
+msgid "label_retract"
+msgstr "Zurückziehen"
+
+msgid "label_book"
+msgstr "Buchen"

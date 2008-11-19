@@ -1,0 +1,103 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xml:lang="en-US"
+  lang="en-US"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="plonebooking"
+  metal:use-macro="here/main_template/macros/master"
+>
+
+  <head>
+    <metal:css fill-slot="head_slot">
+      <link rel="Stylesheet" type="text/css"  media="screen"
+      tal:attributes="href string:$portal_url/jscalendar/calendar-system.css" />
+      <style type="text/css">
+        span.inlinedCalendar div.calendar {
+          display: inline !important;
+          border: 0px solid black;
+        }
+      </style>
+    </metal:css>
+    <metal:javascriptslot fill-slot="javascript_head_slot">
+
+      <script type="text/javascript" src="jscalendar/calendar_stripped.js"></script>
+      <script type="text/javascript"
+            charset="iso-8859-15"
+          tal:define="boundLanguages here/portal_languages/getLanguageBindings;
+              prefLang python:boundLanguages[0].split('-')[0];
+              src string:jscalendar/calendar-$prefLang.js;"
+          tal:condition="exists:src"
+          tal:attributes="src src">
+      </script>
+      <script type="text/javascript" src="jscalendar/calendar_formfield.js"></script>
+        <script type="text/javascript"
+              tal:attributes="src string:$portal_url/plonebooking.js">
+        </script>
+    </metal:javascriptslot>
+
+
+  </head>
+
+  <body>
+    <div metal:fill-slot="main">
+      <h1 i18n:translate="title_booking_export">
+        Bookings export of
+        <span tal:replace="context/Title" i18n:name="bookable_name" />
+      </h1>
+      <form id="booking-export-form">
+        <fieldset>
+          <legend i18n:translate="label_export_range">Range</legend>
+      
+          <input type="hidden" name="ts_start" value="0"/>
+          <input type="hidden" name="ts_end" value="0"/>
+          <span id="export-start-calendar" class="inlinedCalendar" style="float:left;"></span>
+          <span id="export-end-calendar" class="inlinedCalendar" style="float:right;"></span>
+        </fieldset>
+        <fieldset>
+          <legend i18n:translate="label_export_type">Type</legend>
+          
+          <input
+            type="radio"
+            name="export_type"
+            value="html"
+            id="radioHTML"
+            checked="checked"
+          />
+          <label for="radioHTML">HTML</label>
+          <input
+            type="radio"
+            name="export_type"
+            value="csv"
+            id="radioCSV"
+          />
+          <label for="radioCSV">CSV</label> (Excel)
+        </fieldset>
+        <input type="submit" value="Export" i18n:attributes="value button_export;"/>
+      </form>
+      <tal:ifResults condition="view/values">
+        <h1 i18n:translate="title_booking_export_results">
+          Existing bookings for
+          <span tal:replace="context/Title" i18n:name="bookable_name" />
+        </h1>
+        <table class="listing">
+          <thead>
+            <tr>
+              <th tal:repeat="fieldName view/getFields">
+                <span tal:replace="fieldName" />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr tal:repeat="values view/getValues">
+              <td tal:repeat="value values">
+                <span tal:replace="value" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </tal:ifResults>
+    </div>
+  </body>
+</html>

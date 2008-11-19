@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonebooking">
+
+  <head>
+    <metal:block fill-slot="head_slot">
+    	<link rel="Stylesheet" type="text/css"  media="screen"
+		  tal:attributes="href string:$portal_url/jscalendar/calendar-system.css" />
+        <link rel="Stylesheet" type="text/css"  media="screen"
+          tal:attributes="href string:$portal_url/plonebooking_styles.css" />
+        <link rel="stylesheet" type="text/css" media="print" href=""
+          tal:attributes="href string:$portal_url/plonebooking_print.css" />
+
+    </metal:block>
+    <metal:javascriptslot fill-slot="javascript_head_slot">
+
+    	<script type="text/javascript" src="jscalendar/calendar_stripped.js"></script>
+
+      <tal:block tal:define="pref_lang here/portal_languages/getPreferredLanguage;">
+     		<script
+          type="text/javascript"
+  		    charset="iso-8859-15"
+  			  tal:define="src string:jscalendar/calendar-${pref_lang}.js;"
+  			  tal:condition="exists:src"
+  			  tal:attributes="src src">
+		    </script>
+        <script
+          type="text/javascript"
+          charset="iso-8859-15"
+          tal:define="src string:jscalendar/plonebooking_calendar-${pref_lang}.js;"
+          tal:condition="exists:src"
+          tal:attributes="src src">
+        </script>
+      </tal:block>
+    	<script type="text/javascript" src="jscalendar/calendar_formfield.js"></script>
+      	<script type="text/javascript"
+              tal:attributes="src string:$portal_url/plonebooking.js">
+      	</script>
+    </metal:javascriptslot>
+  </head>
+  <body>
+
+
+    <metal:fill fill-slot="main">
+      <div metal:define-macro="main"
+           id="booking-center-view">
+
+        <h1 tal:content="here/title_or_id"></h1>
+        <div class="documentDescription"
+             tal:define="description here/Description"
+             tal:condition="description"
+             tal:content="description">
+            description
+        </div>
+
+        <metal:block metal:use-macro="here/plonebooking_macros/macros/main_view">
+          Calendar view
+        </metal:block>
+      </div>
+    </metal:fill>
+  </body>
+</html>

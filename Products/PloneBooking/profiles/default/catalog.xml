@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+
+ <index name="getType" meta_type="FieldIndex">
+  <indexed_attr value="getType"/>
+ </index>
+
+ <index name="getCategory" meta_type="FieldIndex">
+  <indexed_attr value="getCategory"/>
+ </index>
+
+ <index name="getStartDate" meta_type="FieldIndex">
+  <indexed_attr value="getStartDate"/>
+ </index>
+
+ <index name="getEndDate" meta_type="FieldIndex">
+  <indexed_attr value="getEndDate"/>
+ </index>
+
+ <index name="getBookedObjectUID" meta_type="FieldIndex">
+  <indexed_attr value="getBookedObjectUID"/>
+ </index>
+
+ <index name="getPeriodicityUID" meta_type="FieldIndex">
+  <indexed_attr value="getPeriodicityUID"/>
+ </index>
+
+
+
+ <column value="getType"/>
+ <column value="getCategory"/>
+ <column value="getStartDate"/>
+ <column value="getEndDate"/>
+ <column value="getBookedObjectUID" />
+ <column value="getPeriodicityUID" />
+
+</object>

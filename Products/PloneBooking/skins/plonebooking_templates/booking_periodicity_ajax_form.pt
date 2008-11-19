@@ -1,0 +1,23 @@
+<tal:block define="utool           nocall:here/portal_url;
+                   portal          utool/getPortalObject;
+                   portal_url      utool;
+                   Iterator        python:modules['Products.CMFPlone'].IndexIterator;
+                   tabindex        python:Iterator(pos=40000);
+                   uniqueItemIndex tabindex;
+                   here_uid         here/UID"
+           i18n:domain="plonebooking">
+
+    
+    
+    <div style="width: 600px;">
+        <a id="booking-popup-close" onclick="return Booking.closePopup()"
+           href="javascript: void(0);">X</a>
+        <h3 class="popupHeading"
+            i18n:translate="label_periodicity_configuration">Periodicity</h3>
+        <div class="content">       
+		    <form method="post" name="periodicity_form" id="periodicity-form" action="">     	        
+		    	<metal:block use-macro="here/booking_periodicity_form/macros/periodicity_form" />
+			</form>
+		</div>
+	</div>
+</tal:block>

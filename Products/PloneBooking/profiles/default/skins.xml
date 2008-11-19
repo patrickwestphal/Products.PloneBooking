@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<object name="portal_skins" meta_type="Plone Skins Tool" allow_any="False"
+   cookie_persistence="False" default_skin="Plone Default"
+   request_varname="plone_skin">
+ <object name="plonebooking_images" meta_type="Filesystem Directory View"
+    directory="Products.PloneBooking:skins/plonebooking_images"/>
+ <object name="plonebooking_javascripts" meta_type="Filesystem Directory View"
+    directory="Products.PloneBooking:skins/plonebooking_javascripts"/>
+ <object name="plonebooking_scripts" meta_type="Filesystem Directory View"
+    directory="Products.PloneBooking:skins/plonebooking_scripts"/>
+ <object name="plonebooking_styles" meta_type="Filesystem Directory View"
+    directory="Products.PloneBooking:skins/plonebooking_styles"/>
+ <object name="plonebooking_templates" meta_type="Filesystem Directory View"
+    directory="Products.PloneBooking:skins/plonebooking_templates"/>
+ 
+ <skin-path name="Plone Default">
+  <layer name="plonebooking_images"/>
+  <layer name="plonebooking_javascripts"/>
+  <layer name="plonebooking_scripts"/>
+  <layer name="plonebooking_styles"/>
+  <layer name="plonebooking_templates"/>
+ </skin-path>
+</object>

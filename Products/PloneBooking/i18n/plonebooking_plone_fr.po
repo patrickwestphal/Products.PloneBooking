@@ -1,0 +1,97 @@
+# Gettext Message File for PloneBooking product.
+# Cyrille Lebeaupin <cyrille.lebeaupin@ingeniweb.com>, 2004
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 1 June 2004 16:54:23 GMT\n"
+"PO-Revision-Date: 2005-01-24 17:30+0100\n"
+"Last-Translator: Cyrille Lebeaupin <cyrille.lebeaupin@ingeniweb.com>\n"
+"Language-Team: Cyrille Lebeaupin <cyrille.lebeaupin@ingeniweb.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: fr\n"
+"Language-name: Français\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For:\n"
+
+msgid "refresh"
+msgstr "rafraîchir la Clendrier"
+
+msgid "Resource"
+msgstr "Ressource"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "label_Calender_refresh"
+msgstr "label en français"
+
+msgid "label_description_calender_refresh"
+msgstr "description en français"
+
+msgid "Booking center"
+msgstr "Centre de réservation"
+
+msgid "Booking container"
+msgstr "Conteneur des réservations"
+
+msgid "Bookable object container"
+msgstr "Conteneur des ressources"
+
+msgid "Booking"
+msgstr "Réservation"
+
+msgid "Bookable object"
+msgstr "Ressource"
+
+msgid "canceled"
+msgstr "Annulé"
+
+msgid "booked"
+msgstr "Réservé"
+
+msgid "cancel"
+msgstr "annuler"
+
+msgid "Periodicity"
+msgstr "Périodicité"
+
+msgid "book"
+msgstr "Réserver"
+
+# workflow transition
+msgid "Book"
+msgstr "Réserver"
+
+msgid "default"
+msgstr "défaut"
+
+msgid "label_same_date_every_weeks"
+msgstr "même jour et même heure chaque semaine"
+
+msgid "label_same_date_every_x_weeks"
+msgstr "même jour et même heure chaque x semaines"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "même heure chaque jour x du mois (par exemple le troisième mardi de chaque mois)"
+
+msgid "label_day"
+msgstr "Jour"
+
+msgid "label_week"
+msgstr "Semaine"
+
+msgid "label_month"
+msgstr "Mois"
+
+msgid "Your changes have been saved."
+msgstr "Vos modifications ont été sauvegardées."
+
+msgid "Add New ${type}"
+msgstr "Ajouter un élément du type ${type}"
+
+msgid "label_schema_display"
+msgstr "Affichage"

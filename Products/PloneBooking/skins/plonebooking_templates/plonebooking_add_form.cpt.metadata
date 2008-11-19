@@ -1,0 +1,14 @@
+[security]
+View=0:Authenticated
+
+[default]
+title=Add new booking
+
+[validators]
+validators=
+
+[actions]
+action.success=redirect_to_action:string:view
+action.success..Add=traverse_to:string:plonebooking_add
+action.success..Cancel=redirect_to_action:string:view
+action.failure=traverse_to:string:plonebooking_add_form

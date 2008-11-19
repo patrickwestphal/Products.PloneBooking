@@ -1,0 +1,80 @@
+# Gettext Message File for PloneBooking product.
+#  <team@language.com>, 2003
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneBooking\n"
+"POT-Creation-Date: Tue, 1 June 2004 16:54:23 GMT\n"
+"PO-Revision-Date: 2006-08-09 16:28-0300\n"
+"Last-Translator: Érico Andrei <erico@simplesconsultoria.com.br>\n"
+"Language-Team: Simples Consultoria\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-code: pt-br\n"
+"Language-name: Português do Brasil\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: pt\n"
+
+msgid "Booking center"
+msgstr "Central de Reservas"
+
+msgid "Booking container"
+msgstr "Pasta de reservas"
+
+msgid "Bookable object container"
+msgstr "Pasta de recursos"
+
+msgid "Booking"
+msgstr "Reserva"
+
+msgid "Bookable object"
+msgstr "Recurso"
+
+msgid "canceled"
+msgstr "cancelado"
+
+msgid "booked"
+msgstr "reservado"
+
+msgid "cancel"
+msgstr "cancelado"
+
+msgid "book"
+msgstr "reservar"
+
+# workflow transition
+msgid "Book"
+msgstr "Reservar"
+
+msgid "Periodicity"
+msgstr "Periodicidade"
+
+msgid "periodicity"
+msgstr "periodicidade"
+
+msgid "default"
+msgstr "padrão"
+
+msgid "label_same_date_every_weeks"
+msgstr "Mesma data (semanal)"
+
+msgid "label_same_date_every_x_weeks"
+msgstr "Mesma data(a cada n semanas)"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Mesma data (A cada n semanas do mês)"
+
+msgid "label_day"
+msgstr "Dia"
+
+msgid "label_week"
+msgstr "Semana"
+
+msgid "label_month"
+msgstr "Mês"
+
+msgid "Add New ${type}"
+msgstr "Adicionar novo ${type}"
+
