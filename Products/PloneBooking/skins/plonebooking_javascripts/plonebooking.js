@@ -457,8 +457,7 @@ Booking.init = function(){
                   || a_node.className == 'BookingThumb')
                 a_node.onclick = Booking.infoPopup;
             else if (   a_node.className.match(/(^|\s)bookIt($|\s)/))
-                // temp removed (not really practice)
-                // a_node.onclick = Booking.editPopup;
+                a_node.onclick = Booking.editPopup;
             else if (a_node.parentNode.className == 'monthBookingCell'
                       || a_node.className == "WeekNumber")
                 a_node.onclick = Booking.gotoURL;
