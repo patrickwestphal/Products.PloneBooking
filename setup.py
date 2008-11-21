@@ -6,7 +6,8 @@ version = '2.2.1'
 setup(name='Products.PloneBooking',
       version=version,
       description="A booking center for Plone",
-      long_description = open(os.path.join("Products", "PloneBooking", "README.txt")).read(),
+      long_description = open(os.path.join("Products", "PloneBooking", "README.txt")).read() + "\n" +
+                         open(os.path.join("Products", "PloneBooking", "CHANGES")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",

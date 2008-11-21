@@ -1,5 +1,11 @@
-2.2.1_SVN_UNRELEASED - 2008/11/19
+CHANGELOG
+=========
 
+
+2.2.1 - 2008/11/21
+
+  * Product is eggified
+  
   * Plone 3.1 compliance : javascript don't use RegisterPloneFunction and
     other old methods anymore, uses jquery instead.
     
