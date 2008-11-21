@@ -1,21 +1,31 @@
-Required products :
+PloneBooking Documentation
+==========================
 
- * Zope 2.10.x
+
+Required products
+-----------------
    
- * Plone 3.x
+ * Plone 3.1.x
    
- * Archetypes 1.3.3+
    
 
 Installing PloneBooking
+-----------------------
 
- * Unpack it into your Zope Products Folder
+ * with easy install::
+   
+   easy_install Products.PloneBooking  
   
- * Restart Zope
+ * with buildout, just add Products.PloneBooking in your egg list then::
+ 
+   bin\buildout 
   
  * Use portal_quickinstaller to install the PloneBooking in ZMI (or use plone_setup in pmi)
 
+ 
+
 Overview
+--------
 
  PloneBooking proposes several content types for Plone: a booking center that
  contains bookable objects and bookings.
