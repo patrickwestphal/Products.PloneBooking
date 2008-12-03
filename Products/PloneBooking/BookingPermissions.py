@@ -35,6 +35,6 @@ AddBooking = 'PloneBooking: Add booking'
 AddBookableObject = 'PloneBooking: Add bookable object'
 
 # Set up default roles for permissions
-setDefaultRoles(AddBookingCenter, ('Manager', 'Owner',))
-setDefaultRoles(AddBooking, ('Manager', 'Owner', 'Member',))
-setDefaultRoles(AddBookableObject, ('Manager', 'Owner',))
+setDefaultRoles(AddBookingCenter, ('Manager', 'Owner', 'Editor',))
+setDefaultRoles(AddBooking, ('Manager', 'Owner', 'Member','Editor','Contributor'))
+setDefaultRoles(AddBookableObject, ('Manager', 'Owner', 'Editor','Contributor'))

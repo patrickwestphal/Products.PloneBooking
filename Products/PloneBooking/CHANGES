@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+2.2.2 - 2008/12/02
+
+  * Permissions to Add Bookable Object added for Editor, Contributor (new Plone Roles)
+
 
 2.2.1 - 2008/11/21
 
