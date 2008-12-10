@@ -836,7 +836,9 @@
 
 <metal:block metal:define-macro="booking_menu">
   <div id="booking-menu"
-       tal:define="transitions       workflow_actions;
+       tal:define="atool here/portal_actions;
+                   actions python:atool.listFilteredActionsFor(context);
+                   transitions python: actions['workflow'];
                    can_modify        python:checkPermission('Modify portal content', here);
                    actions           python:actions.get('object', []);
                    displayed_actions python:('view', 'edit', 'periodicity')"
@@ -862,11 +864,12 @@
         <a href="#"
            class="context"
            i18n:translate=""
-           tal:content="transition/name"
+           tal:content="transition/title"
+           tal:condition="transition/allowed"
            i18n:domain="plone"
            i18n:attributes="title"
            tal:attributes="href string:${here/absolute_url}/content_status_modify?workflow_action=${transition/id};
-                           title transition/name">File Menu Item 1</a>
+                           title transition/title">File Menu Item 1</a>
       </tal:loop>
   </div>
 </metal:block>

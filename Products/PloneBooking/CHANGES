@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+SVN
+---
+
+  *  workflow_actions doesn't work in Plone 3
+     quick correction in plone_booking macros.pt to get available transitions (i know it's not a wonderful code)  
+     macadames - 2008/12/10
+
 2.2.3 - 2008/12/08
 
   *  contentViews and contentActions must not appear on edit forms
