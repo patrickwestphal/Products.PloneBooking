@@ -11,380 +11,53 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plonebooking\n"
 "Language-code: pt-br\n"
 "Language-name: Português do Brasil\n"
 "Preferred-encodings: utf-8 latin-1\n"
-"Domain: plonebooking\n"
 "X-Is-Fallback-For: pt\n"
 
-######################
-# Fields
-######################
-msgid "label_bookingcenter_categories"
-msgstr "Categorias"
+msgid "Add"
+msgstr "Adicionar"
 
-msgid "label_bookingcenter_types"
-msgstr "Tipos"
+msgid "Book"
+msgstr "Reservar"
 
-msgid "help_bookingcenter_types"
-msgstr "Descreva os tipos possíveis"
-
-msgid "label_bookingcenter_default_calendar_view"
-msgstr "Visualização padrão de calendário"
-
-msgid "label_bookingcenter_available_calendar_views"
-msgstr "Visualizações de calendário disponíveis"
-
-msgid "label_booking_user_full_name"
-msgstr "Nome Completo"
-
-msgid "label_booking_user_phone"
-msgstr "Telefone"
-
-msgid "label_booking_user_email"
-msgstr "Email"
-
-msgid "label_booking_objects"
-msgstr "Recursos"
-
-msgid "label_booking_start_date"
-msgstr "Data inicial"
-
-msgid "help_booking_start_date"
-msgstr "Informe a data inicial"
-
-msgid "label_booking_end_date"
-msgstr "Data de término"
-
-msgid "help_booking_end_date"
-msgstr "Informe a data de término"
-
-msgid "label_booking_periodicity_end_date"
-msgstr "Data final da periodicidade"
-
-msgid "help_booking_peridodicity_end_date"
-msgstr "Informe a data final da periodicidade"
-
-msgid "label_booking_periodicity_type"
-msgstr "Tipo de periodicidade"
-
-msgid "label_bookableobject_type"
-msgstr "Tipo de recurso reservável"
-
-msgid "label_bookableobject_text"
-msgstr "Corpo"
-
-msgid "label_bookableobject_category"
-msgstr "Categoria"
-
-msgid "label_same_date_every_weeks"
-msgstr "Semanalmente (mesma data)"
-
-msgid "label_same_date_every"
-msgstr "Mesma data"
-
-msgid "label_weeks"
-msgstr "Semanas"
-
-msgid "label_same_date_every_x_weeks_of_the_month"
-msgstr "Mesma data a cada n semanas no mês"
-
-msgid "label_pending_colors"
-msgstr "Cores (Pendentes)"
-
-msgid "help_pending_colors"
-msgstr "Escolha as cores para reservas pendentes"
-
-msgid "label_booked_colors"
-msgstr "Cores (Reservados)"
-
-msgid "help_booked_colors"
-msgstr "Escolha as cores para reservas confirmados"
-
-msgid "label_booking_title"
-msgstr "Título"
-
-msgid "label_booking_description"
-msgstr "Descrição"
-
-msgid "help_booking_description"
-msgstr "Digite uma descrição clara sobre este reserva"
-
-msgid "label_bookableobject_title"
-msgstr "Título"
-
-msgid "label_bookable_object_states"
-msgstr "Estado dos recursos"
-
-msgid "help_bookable_object_states"
-msgstr "Informe os estados dos recursos"
-
-# ###################
-# Views
-# ###################
-msgid "message_create_periodic_bookings"
-msgstr "Criar reservas periódicos"
-
-msgid "label_booking"
-msgstr "Reserva"
-
-msgid "label_new_booking"
-msgstr "Novo reserva"
-
-msgid "label_edit_booking"
-msgstr "Editar reserva"
-
-msgid "label_only_bookable_objects_of_type"
-msgstr "Apenas objetos do tipo"
-
-msgid "label_only_bookable_objects_of_category"
-msgstr "Apenas objetos da categoria"
-
-msgid "label_all_categories"
-msgstr "Todas as categorias"
-
-msgid "label_see_bookable_object"
-msgstr "Ver recursos"
-
-msgid "label_filter_form"
-msgstr "Filtros"
-
-msgid "title_bookings_for_bookable_object_of_type"
-msgstr "Reservas para recursos do tipo "
-
-msgid "label_periodicity_configuration"
-msgstr "Configuração de periodicidade"
-
-msgid "first_step_text"
-msgstr "Primeiro passo"
-
-msgid "label_display_result"
-msgstr "Exibir resultados"
-
-msgid "label_these_bookings_will_be_created"
-msgstr "Estas reservas serão criados"
-
-msgid "second_step_text"
-msgstr "Segundo passo"
-
-msgid "label_create_bookings"
-msgstr "Criar reservas"
-
-#####################
-# misc
-#####################
-
-msgid "label_dynamic_booking_title"
-msgstr "Reserva de ${start_date} até ${end_date}"
-
-msgid "description_no_bookable_object"
-msgstr "Este objeto não pode ser reservado"
-
-msgid "Booking center"
-msgstr "Central de reservas"
-
-msgid "Booking container"
-msgstr "Pasta de reservas"
-
-msgid "Bookable object container"
-msgstr "Pasta dos recursos"
-
-msgid "Booking"
-msgstr "Reserva"
+msgid "Book All"
+msgstr "Reservar todas"
 
 msgid "Bookable object"
 msgstr "Recurso"
 
-msgid "label_booking_user_information"
-msgstr "Informações de usuário"
-
-msgid "label_booked_objects"
-msgstr "Recursos reservados"
-
-msgid "label_booking_duration"
-msgstr "Duração do reserva"
-
-msgid "Add booking"
-msgstr "Efetuar um reserva"
-
-msgid "Display all bookings listing"
-msgstr "Ver a lista de todos os recursos"
-
-msgid "Add bookable object"
-msgstr "Adicionar recurso"
-
-msgid "Display all bookable objects"
-msgstr "Exibir todos os recursos"
-
-msgid "label_all_bookable_objects"
-msgstr "Lista de todos os recursos"
-
-msgid "label_bookablecontainer_title"
-msgstr "Recursos"
-
-msgid "label_bookingcontainer_title"
-msgstr "Reservas"
-
-msgid "label_booking_date"
-msgstr "Data :"
-
-msgid "description_booking_duration"
-msgstr "De ${start_date} até ${end_date}"
-
-msgid "description_no_bookings_found"
-msgstr "Nenhum reserva encontrado"
-
-msgid "link_previous"
-msgstr "Anterior"
-
-msgid "link_next"
-msgstr "Próximo"
-
-msgid "label_group_by"
-msgstr "Agrupado por "
-
-msgid "Day"
-msgstr "Dia"
-
-msgid "Week"
-msgstr "Semana"
-
-msgid "Month"
-msgstr "Mês"
-
-msgid "Year"
-msgstr "Ano"
-
-msgid "label_previous_day"
-msgstr "Ontem"
-
-msgid "label_previous_week"
-msgstr "Semana passada"
-
-msgid "label_next_day"
-msgstr "Amanhã"
-
-msgid "label_next_week"
-msgstr "Próxima semana"
-
-msgid "label_previous_4_weeks"
-msgstr "4 últimas semanas"
-
-msgid "label_next_4_weeks"
-msgstr "4 próximas semanas"
-
-msgid "label_next_month"
-msgstr "Próximo mês"
-
-msgid "label_next_3_months"
-msgstr "Próximos 3 meses"
-
-msgid "label_previous_month"
-msgstr "Mês anterior"
-
-msgid "label_previous_3_months"
-msgstr "3 últimos meses"
-
-msgid "label_next_year"
-msgstr "Próximo ano"
-
-msgid "label_next_3_years"
-msgstr "Próximos 3 meses"
-
-msgid "label_previous_year"
-msgstr "Ano anterior"
-
-msgid "label_previous_3_years"
-msgstr "3 últimos anos"
-
-msgid "label_hour"
-msgstr "hora"
-
-msgid "label_by"
-msgstr "por"
-
-msgid "label_booked_by"
-msgstr "Reservado por"
-
-msgid "label_group_by_category"
-msgstr "Agrupar por categorias"
-
-msgid "label_see_all_types"
-msgstr "Ver todos os tipos"
-
-msgid "heading_create_periodic_bookings"
-msgstr "Criar reservas periódicos"
-
-msgid "link_return_to_booking_view"
-msgstr "Voltar para os dados do reserva"
-
-msgid "label_periodicity_deactivated"
-msgstr "A opção de periodicidade está desativada"
-
-msgid "label_already_booked"
+msgid "Booked"
 msgstr "Reservado"
 
-msgid "Create objects"
-msgstr "Criar as reservas"
+msgid "Booking center"
+msgstr "Central de reservas"
 
-msgid "label_no_periodic_items"
-msgstr "Nenhum item periódico foi criado"
+msgid "Cancel"
+msgstr "Cancelar"
 
-# Date format
-msgid "date_format"
-msgstr "${weekdayname}, ${day} de ${monthname} de ${year}"
+msgid "Category"
+msgstr "Categoria"
 
-msgid "date_long_format"
-msgstr "${day}/${month}/${year} ${hour}"
-
-msgid "date_format_without_year"
-msgstr "${weekdayname}, ${day} de ${monthname}"
-
-msgid "week_date_format"
-msgstr "Semana ${week} de ${year}"
-
-msgid "month_date_format"
-msgstr "${monthname} ${year}"
-
-msgid "year_date_format"
-msgstr "${year}"
-
-# Weekdays
-msgid "calendar_weekday_0"
-msgstr "Segunda-feira"
-
-msgid "calendar_weekday_1"
-msgstr "Terça-feira"
-
-msgid "calendar_weekday_2"
-msgstr "Quarta-feira"
-
-msgid "calendar_weekday_3"
-msgstr "Quinta-feira"
-
-msgid "calendar_weekday_4"
+msgid "Friday"
 msgstr "Sexta-feira"
-
-msgid "calendar_weekday_5"
-msgstr "Sábado"
-
-msgid "calendar_weekday_6"
-msgstr "Domingo"
 
 msgid "Monday"
 msgstr "Segunda-feira"
 
-msgid "Tuesday"
-msgstr "Terça-feira"
+msgid "Resource"
+msgstr "Recurso"
 
-msgid "Wednesday"
-msgstr "Quarta-feira"
+msgid "Retract"
+msgstr "Retrair"
 
-msgid "Thursday"
-msgstr "Quinta-feira"
-
-msgid "Friday"
-msgstr "Sexta-feira"
+msgid "Retract All"
+msgstr "Retrair todas"
 
 msgid "Saturday"
 msgstr "Sábado"
@@ -392,9 +65,34 @@ msgstr "Sábado"
 msgid "Sunday"
 msgstr "Domingo"
 
+msgid "Thursday"
+msgstr "Quinta-feira"
+
+msgid "Tuesday"
+msgstr "Terça-feira"
+
+msgid "Wednesday"
+msgstr "Quarta-feira"
+
+msgid "booked"
+msgstr "reservado"
+
+#. Export
+msgid "button_export"
+msgstr "Exportar"
+
 # Months
 msgid "calendar_month_1"
 msgstr "Janeiro"
+
+msgid "calendar_month_10"
+msgstr "Outubro"
+
+msgid "calendar_month_11"
+msgstr "Novembro"
+
+msgid "calendar_month_12"
+msgstr "Dezembro"
 
 msgid "calendar_month_2"
 msgstr "Fevereiro"
@@ -420,101 +118,40 @@ msgstr "Agosto"
 msgid "calendar_month_9"
 msgstr "Setembro"
 
-msgid "calendar_month_10"
-msgstr "Outubro"
+# Weekdays
+msgid "calendar_weekday_0"
+msgstr "Segunda-feira"
 
-msgid "calendar_month_11"
-msgstr "Novembro"
+msgid "calendar_weekday_1"
+msgstr "Terça-feira"
 
-msgid "calendar_month_12"
-msgstr "Dezembro"
+msgid "calendar_weekday_2"
+msgstr "Quarta-feira"
 
-msgid "label_bookable_object_category"
-msgstr "Categoria"
+msgid "calendar_weekday_3"
+msgstr "Quinta-feira"
 
-msgid "show_day"
-msgstr "Ver dia"
+msgid "calendar_weekday_4"
+msgstr "Sexta-feira"
 
-msgid "show_more_infos"
-msgstr "Ver informações adicionais da reserva"
+msgid "calendar_weekday_5"
+msgstr "Sábado"
 
-msgid "link_title_book_it"
-msgstr "Faça uma reserva"
+msgid "calendar_weekday_6"
+msgstr "Domingo"
 
-msgid "text_week_number"
-msgstr "Semana"
+# Date format
+msgid "date_format"
+msgstr "${weekdayname}, ${day} de ${monthname} de ${year}"
 
-msgid "title_periodic_items"
-msgstr "Itens periódicos"
+msgid "date_format_without_year"
+msgstr "${weekdayname}, ${day} de ${monthname}"
 
-msgid "head_from"
-msgstr "de"
+msgid "date_long_format"
+msgstr "${day}/${month}/${year} ${hour}"
 
-msgid "head_to"
-msgstr "até"
-
-msgid "head_review_state"
-msgstr "estado"
-
-msgid "label_no_category"
-msgstr "Sem categoria"
-
-msgid "label_calendar"
-msgstr "Calendário"
-
-msgid "label_listing"
-msgstr "Listagem"
-
-msgid "label_year"
-msgstr "Ano"
-
-msgid "label_bookingcenter_default_view_mode"
-msgstr "Visão padrão"
-
-msgid "label_bookingcenter_available_view_modes"
-msgstr "Visões disponíveis"
-
-msgid "label_bookingcenter_default_listing_view"
-msgstr "Ver tipos de listagem padrões"
-
-msgid "label_bookingcenter_available_listing_views"
-msgstr "Ver tipos de visualizações disponíveis"
-
-msgid "label_day"
-msgstr "Dia"
-
-msgid "label_week"
-msgstr "Semana"
-
-msgid "label_month"
-msgstr "Mês"
-
-msgid "label_bookingcenter_calendar_starting_hour"
-msgstr "Hora de início"
-
-msgid "help_bookingcenter_calendar_starting_hour"
-msgstr "Informa a hora inicial para os dias da semana no calendário"
-
-msgid "label_bookingcenter_calendar_ending_hour"
-msgstr "Hora final"
-
-msgid "help_bookingcenter_calendar_ending_hour"
-msgstr "Informa a hora final para os dias da semana no calendário"
-
-msgid "label_all_types"
-msgstr "Todos os tipos"
-
-msgid "label_up_to_booking_center"
-msgstr "Voltar à Central de Reservas"
-
-msgid "label_see_all_bookings_of_this_type"
-msgstr "Visualizar todas as reservas deste tipo"
-
-msgid "label_see_all_bookings_of_this_category"
-msgstr "Visualizar todas as reservas desta categoria"
-
-msgid "label_add_new_booking"
-msgstr "adiciona uma nova reserva"
+msgid "description_add_booking"
+msgstr "Adicionar uma nova reserva"
 
 msgid "description_add_new_booking"
 msgstr "Selecione um dia, verifique as disponibilidades e ${add_new_booking}"
@@ -522,62 +159,407 @@ msgstr "Selecione um dia, verifique as disponibilidades e ${add_new_booking}"
 msgid "description_add_new_booking_in_calendar_view"
 msgstr "Na visão de calendário você pode adicionar uma nova reserva ao clicar em \"+\"."
 
-msgid "heading_add_booking"
-msgstr "Adicionar uma reserva"
+msgid "description_bookable_object"
+msgstr "Descrição do recurso : ${bookableobject}"
 
-msgid "description_add_booking"
-msgstr "Adicionar uma nova reserva"
+msgid "description_bookable_object_category"
+msgstr "Categoria : ${category}"
 
-msgid "Add"
-msgstr "Adicionar"
+msgid "description_bookable_object_type"
+msgstr "Tipo : ${type}"
 
-msgid "Cancel"
-msgstr "Cancelar"
+msgid "description_booking_duration"
+msgstr "De ${start_date} até ${end_date}"
 
-msgid "label_up_to_booked_object"
-msgstr "Voltar ao recurso reservado"
+msgid "description_no_bookable_object"
+msgstr "Este objeto não pode ser reservado"
 
-msgid "label_review_bookings"
-msgstr "Revisar as reservas"
+msgid "description_no_bookings_found"
+msgstr "Nenhum reserva encontrado"
 
-msgid "label_publish_automatically_bookings"
-msgstr "Autorizar automaticamente as reservas"
-
-msgid "label_default_booking_review_mode"
-msgstr "Padrão (Central de Reservas)"
-
-msgid "label_booking_review_mode"
-msgstr "Forma de reserva"
-
-msgid "message_date_already_booked"
-msgstr "Data já reservada"
-
-msgid "message_no_booking_created"
-msgstr "Nenhuma reserva criada"
-
-msgid "Retract"
-msgstr "Retrair"
-
-msgid "Retract All"
-msgstr "Retrair todas"
-
-msgid "Book"
-msgstr "Reservar"
-
-msgid "Book All"
-msgstr "Reservar todas"
-
-msgid "description_waiting_periodicity_results"
-msgstr "Por favor aguarde: cálculo das periodicidades em curso..."
+msgid "description_waiting_booking_process"
+msgstr "Por favor aguarde: Processo de reserva em curso..."
 
 msgid "description_waiting_periodicity_creation"
 msgstr "Por favor aguarde: criação das periodicidades em curso..."
 
+msgid "description_waiting_periodicity_results"
+msgstr "Por favor aguarde: cálculo das periodicidades em curso..."
+
+msgid "edit"
+msgstr "editar"
+
+msgid "first_step_text"
+msgstr "Primeiro passo"
+
+msgid "head_from"
+msgstr "de"
+
+msgid "head_review_state"
+msgstr "estado"
+
+msgid "head_to"
+msgstr "até"
+
+msgid "heading_add_booking"
+msgstr "Adicionar uma reserva"
+
+msgid "heading_create_periodic_bookings"
+msgstr "Criar reservas periódicos"
+
+msgid "help_bookable_object_states"
+msgstr "Informe os estados dos recursos"
+
+msgid "help_booked_colors"
+msgstr "Escolha as cores para reservas confirmados"
+
+msgid "help_booking_description"
+msgstr "Digite uma descrição clara sobre este reserva"
+
+msgid "help_booking_end_date"
+msgstr "Informe a data de término"
+
+msgid "help_booking_peridodicity_end_date"
+msgstr "Informe a data final da periodicidade"
+
+msgid "help_booking_start_date"
+msgstr "Informe a data inicial"
+
+msgid "help_bookingcenter_calendar_ending_hour"
+msgstr "Informa a hora final para os dias da semana no calendário"
+
+msgid "help_bookingcenter_calendar_starting_hour"
+msgstr "Informa a hora inicial para os dias da semana no calendário"
+
+msgid "help_bookingcenter_types"
+msgstr "Descreva os tipos possíveis"
+
+msgid "help_pending_colors"
+msgstr "Escolha as cores para reservas pendentes"
+
+msgid "label_Calender_refresh"
+msgstr "atualizar"
+
+msgid "label_add_new_booking"
+msgstr "adiciona uma nova reserva"
+
+msgid "label_all_categories"
+msgstr "Todas as categorias"
+
+msgid "label_all_types"
+msgstr "Todos os tipos"
+
+msgid "label_already_booked"
+msgstr "Reservado"
+
+msgid "label_book"
+msgstr "Reservar"
+
+msgid "label_bookable_object_states"
+msgstr "Estado dos recursos"
+
+msgid "label_bookableobject_category"
+msgstr "Categoria"
+
+msgid "label_bookableobject_text"
+msgstr "Corpo"
+
+msgid "label_bookableobject_title"
+msgstr "Título"
+
+msgid "label_bookableobject_type"
+msgstr "Tipo de recurso reservável"
+
+msgid "label_booked_by"
+msgstr "Reservado por"
+
+msgid "label_booked_colors"
+msgstr "Cores (Reservados)"
+
+msgid "label_booking"
+msgstr "Reserva"
+
+msgid "label_booking_date"
+msgstr "Data :"
+
+msgid "label_booking_description"
+msgstr "Descrição"
+
+msgid "label_booking_end_date"
+msgstr "Data de término"
+
+msgid "label_booking_objects"
+msgstr "Recursos"
+
+msgid "label_booking_periodicity_end_date"
+msgstr "Data final da periodicidade"
+
+msgid "label_booking_periodicity_type"
+msgstr "Tipo de periodicidade"
+
+msgid "label_booking_review_mode"
+msgstr "Forma de reserva"
+
+msgid "label_booking_start_date"
+msgstr "Data inicial"
+
+msgid "label_booking_title"
+msgstr "Título"
+
+msgid "label_booking_user_email"
+msgstr "Email"
+
+msgid "label_booking_user_full_name"
+msgstr "Nome Completo"
+
+msgid "label_booking_user_phone"
+msgstr "Telefone"
+
+msgid "label_bookingcenter_available_calendar_views"
+msgstr "Visualizações de calendário disponíveis"
+
+msgid "label_bookingcenter_available_listing_views"
+msgstr "Ver tipos de visualizações disponíveis"
+
+msgid "label_bookingcenter_available_view_modes"
+msgstr "Visões disponíveis"
+
+msgid "label_bookingcenter_calendar_ending_hour"
+msgstr "Hora final"
+
+msgid "label_bookingcenter_calendar_starting_hour"
+msgstr "Hora de início"
+
+######################
+# Fields
+######################
+msgid "label_bookingcenter_categories"
+msgstr "Categorias"
+
+msgid "label_bookingcenter_default_calendar_view"
+msgstr "Visualização padrão de calendário"
+
+msgid "label_bookingcenter_default_listing_view"
+msgstr "Ver tipos de listagem padrões"
+
+msgid "label_bookingcenter_default_view_mode"
+msgstr "Visão padrão"
+
+msgid "label_bookingcenter_types"
+msgstr "Tipos"
+
+msgid "label_calendar"
+msgstr "Calendário"
+
+msgid "label_click_calendar"
+msgstr "Veuillez cliquez sur OK pour voir le calendrier des réservations."
+
+msgid "label_create_bookings"
+msgstr "Criar reservas"
+
+msgid "label_day"
+msgstr "Dia"
+
+msgid "label_default_booking_review_mode"
+msgstr "Padrão (Central de Reservas)"
+
+msgid "label_description"
+msgstr "Descrição"
+
+msgid "label_description_calender_refresh"
+msgstr ""
+
+msgid "label_display_result"
+msgstr "Exibir resultados"
+
+#####################
+# misc
+#####################
+msgid "label_dynamic_booking_title"
+msgstr "Reserva de ${start_date} até ${end_date}"
+
+msgid "label_edit"
+msgstr "Editar"
+
+msgid "label_edit_booking"
+msgstr "Editar reserva"
+
+#. Range
+msgid "label_export_range"
+msgstr "Período"
+
+# Export type (csv, html, whatever), like type in file type
+#. Type
+msgid "label_export_type"
+msgstr "Tipo"
+
+msgid "label_filter_form"
+msgstr "Filtros"
+
+msgid "label_goto_bookable_object"
+msgstr "Voir cette ressource"
+
+msgid "label_hour"
+msgstr "hora"
+
+msgid "label_listing"
+msgstr "Listagem"
+
+msgid "label_month"
+msgstr "Mês"
+
+msgid "label_new_booking"
+msgstr "Novo reserva"
+
+msgid "label_next_3_months"
+msgstr "Próximos 3 meses"
+
+msgid "label_next_3_years"
+msgstr "Próximos 3 meses"
+
+msgid "label_next_4_weeks"
+msgstr "4 próximas semanas"
+
+msgid "label_next_day"
+msgstr "Amanhã"
+
+msgid "label_next_month"
+msgstr "Próximo mês"
+
+msgid "label_next_week"
+msgstr "Próxima semana"
+
+msgid "label_next_year"
+msgstr "Próximo ano"
+
+msgid "label_no_category"
+msgstr "Sem categoria"
+
+msgid "label_no_periodic_items"
+msgstr "Nenhum item periódico foi criado"
+
+######################
+# Fields
+######################
+msgid "label_not_click_calendar"
+msgstr "Sélectionner une vue et rechercher des disponibilités"
+
+msgid "label_only_bookable_objects_of_category"
+msgstr "Apenas objetos da categoria"
+
+msgid "label_only_bookable_objects_of_type"
+msgstr "Apenas objetos do tipo"
+
+msgid "label_pending_colors"
+msgstr "Cores (Pendentes)"
+
+msgid "label_periodicity_configuration"
+msgstr "Configuração de periodicidade"
+
+msgid "label_previous_3_months"
+msgstr "3 últimos meses"
+
+msgid "label_previous_3_years"
+msgstr "3 últimos anos"
+
+msgid "label_previous_4_weeks"
+msgstr "4 últimas semanas"
+
+msgid "label_previous_day"
+msgstr "Ontem"
+
+msgid "label_previous_month"
+msgstr "Mês anterior"
+
+msgid "label_previous_week"
+msgstr "Semana passada"
+
+msgid "label_previous_year"
+msgstr "Ano anterior"
+
+msgid "label_publish_automatically_bookings"
+msgstr "Autorizar automaticamente as reservas"
+
+msgid "label_refresh_auto"
+msgstr "Automático"
+
+msgid "label_refresh_manual"
+msgstr "Manual"
+
+msgid "label_refresh_mode"
+msgstr "Modo de atualização"
+
+msgid "label_required_filters"
+msgstr "Filtros necessários"
+
+msgid "label_retract"
+msgstr "Retrair"
+
+msgid "label_review_bookings"
+msgstr "Revisar as reservas"
+
+msgid "label_same_date_every"
+msgstr "Mesma data"
+
+msgid "label_same_date_every_weeks"
+msgstr "Semanalmente (mesma data)"
+
+msgid "label_same_date_every_x_weeks_of_the_month"
+msgstr "Mesma data a cada n semanas no mês"
+
+msgid "label_see_all_bookings_of_this_category"
+msgstr "Visualizar todas as reservas desta categoria"
+
+msgid "label_see_all_bookings_of_this_type"
+msgstr "Visualizar todas as reservas deste tipo"
+
+msgid "label_see_bookable_object"
+msgstr "Ver recursos"
+
+msgid "label_these_bookings_will_be_created"
+msgstr "Estas reservas serão criados"
+
+msgid "label_up_to_booked_object"
+msgstr "Voltar ao recurso reservado"
+
+msgid "label_up_to_booking_center"
+msgstr "Voltar à Central de Reservas"
+
+msgid "label_view"
+msgstr "Visualizar"
+
+msgid "label_view_form"
+msgstr "Visualizar"
+
+msgid "label_week"
+msgstr "Semana"
+
+msgid "label_weeks"
+msgstr "Semanas"
+
+msgid "label_year"
+msgstr "Ano"
+
+msgid "link_title_book_it"
+msgstr "Faça uma reserva"
+
+msgid "message_booking_process_summary"
+msgstr "%processed% pedidos de reserva, %errors% erro(s)."
+
+####################
+# Views
+####################
+msgid "message_create_periodic_bookings"
+msgstr "Criar reservas periódicos"
+
+msgid "message_date_already_booked"
+msgstr "Data já reservada"
+
 msgid "message_give_number_for_periodicity"
 msgstr "Você deve informar um número para a periodicidade"
 
-msgid "message_periodicity_end_date_not_valid"
-msgstr "A data final da periodicidade não é válida"
+msgid "message_no_booking_created"
+msgstr "Nenhuma reserva criada"
 
 msgid "message_object_not_found"
 msgstr "Objeto não encontrado"
@@ -585,21 +567,59 @@ msgstr "Objeto não encontrado"
 msgid "message_periodic_booking_creation_summary"
 msgstr "%created% reservas criadas, %already_booked% já reservadas."
 
-msgid "description_waiting_booking_process"
-msgstr "Por favor aguarde: Processo de reserva em curso..."
+msgid "message_periodicity_end_date_not_valid"
+msgstr "A data final da periodicidade não é válida"
 
-msgid "message_booking_process_summary"
-msgstr "%processed% pedidos de reserva, %errors% erro(s)."
+msgid "month_date_format"
+msgstr "${monthname} ${year}"
 
-msgid "label_view"
-msgstr "Visualizar"
+msgid "pending"
+msgstr "pendente"
 
-msgid "label_edit"
-msgstr "Editar"
+msgid "periodicity"
+msgstr "periodicidade"
 
-msgid "label_retract"
-msgstr "Retrair"
+msgid "refresh"
+msgstr "atualizar o calendário"
 
-msgid "label_book"
-msgstr "Reservar"
+msgid "second_step_text"
+msgstr "Segundo passo"
+
+msgid "show_day"
+msgstr "Ver dia"
+
+msgid "show_more_infos"
+msgstr "Ver informações adicionais da reserva"
+
+#####################
+# export
+#####################
+#. Bookings export of ${bookable_name}
+msgid "title_booking_export"
+msgstr "Exportar reservas de ${bookable_name}"
+
+#. Existing bookings for ${bookable_name}
+msgid "title_booking_export_results"
+msgstr "Reservas existente para ${bookable_name}"
+
+msgid "title_bookings_for_bookable_object"
+msgstr "Reservas para o recurso : ${bookableobject}"
+
+msgid "title_bookings_for_bookable_object_of_type"
+msgstr "Reservas para recursos do tipo "
+
+msgid "title_bookings_for_bookable_objects"
+msgstr "Reserva de recursos"
+
+msgid "title_periodic_items"
+msgstr "Itens periódicos"
+
+msgid "view"
+msgstr "visão"
+
+msgid "week_date_format"
+msgstr "Semana ${week} de ${year}"
+
+msgid "year_date_format"
+msgstr "${year}"
 
