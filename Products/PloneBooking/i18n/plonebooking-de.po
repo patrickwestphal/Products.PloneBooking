@@ -120,6 +120,11 @@ msgstr "Zustände, für die die Reservierung eines reservierbaren Objekts erlaub
 msgid "help_bookable_object_states"
 msgstr "Definieren Sie die Workflow-Zustände von reservierbaren Objekten. Befindet sich ein reservierbares Objekt in einem Workflow-Zustand, der hier nicht aufgelistet ist, dann erscheint es nicht in der Liste der reservierbaren Objekte."
 
+msgid "label_required_filters"
+msgstr "Benötigte Filter"
+
+msgid "label_refresh_mode"
+msgstr "Aktualisierungsmodus"
 
 # ###################
 # Views
