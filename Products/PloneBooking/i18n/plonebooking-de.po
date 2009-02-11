@@ -21,6 +21,27 @@ msgstr ""
 # Fields
 ######################
 
+msgid "refresh"
+msgstr "aktualisieren"
+
+msgid "Booked"
+msgstr "gebucht"
+
+msgid "booked"
+msgstr "gebucht"
+
+msgid "pending"
+msgstr "eingereicht"
+
+msgid "view"
+msgstr "Anzeigen"
+
+msgid "edit"
+msgstr "Bearbeiten"
+
+msgid "periodicity"
+msgstr "Wiederholung"
+
 msgid "label_bookingcenter_categories"
 msgstr "Kategorien"
 
@@ -529,3 +550,6 @@ msgstr "Zurückziehen"
 
 msgid "label_book"
 msgstr "Buchen"
+
+msgid "message_end_date_before_start"
+msgstr "Das Enddatum muss später als das Anfangsdatum sein."

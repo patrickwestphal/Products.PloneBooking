@@ -600,3 +600,6 @@ msgstr ""
 
 msgid "label_goto_bookable_object"
 msgstr ""
+
+msgid "message_end_date_before_start"
+msgstr ""
