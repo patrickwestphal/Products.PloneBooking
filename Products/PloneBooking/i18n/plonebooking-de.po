@@ -286,7 +286,7 @@ msgid "date_format"
 msgstr "${weekdayname}, ${day} ${monthname} ${year}"
 
 msgid "date_long_format"
-msgstr "${year}/${month}/${day} ${hour}"
+msgstr "${day}. ${month}. ${year} ${hour}"
 
 msgid "date_format_without_year"
 msgstr "${weekdayname} ${day} ${monthname}"
