@@ -295,7 +295,7 @@ msgid "week_date_format"
 msgstr "${year}, week ${week}"
 
 msgid "month_date_format"
-msgstr "${year}, ${monthname}"
+msgstr "${monthname} ${year}"
 
 msgid "year_date_format"
 msgstr "${year}"
