@@ -1,10 +1,10 @@
 # Gettext Message File for PloneBooking product.
-#  <team@language.com>, 2003
+# <team@language.com>, 2003
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneBooking\n"
 "POT-Creation-Date: Tue, 1 June 2004 16:54:23 GMT\n"
-"PO-Revision-Date: 2006-08-09 16:28-0300\n"
+"PO-Revision-Date: 2009-06-10 00:22-0300\n"
 "Last-Translator: Érico Andrei <erico@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria\n"
 "MIME-Version: 1.0\n"
@@ -17,23 +17,30 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: pt\n"
 
-msgid "Booking center"
-msgstr "Central de Reservas"
+msgid "Add New ${type}"
+msgstr "Adicionar novo ${type}"
 
-msgid "Booking container"
-msgstr "Pasta de reservas"
-
-msgid "Bookable object container"
-msgstr "Pasta de recursos"
-
-msgid "Booking"
-msgstr "Reserva"
+# workflow transition
+msgid "Book"
+msgstr "Reservar"
 
 msgid "Bookable object"
 msgstr "Recurso"
 
-msgid "canceled"
-msgstr "cancelado"
+msgid "Booking"
+msgstr "Reserva"
+
+msgid "Booking center"
+msgstr "Central de Reservas"
+
+msgid "Periodicity"
+msgstr "Periodicidade"
+
+msgid "Your changes have been saved."
+msgstr "Your changes have been saved."
+
+msgid "book"
+msgstr "reservar"
 
 msgid "booked"
 msgstr "reservado"
@@ -41,21 +48,17 @@ msgstr "reservado"
 msgid "cancel"
 msgstr "cancelado"
 
-msgid "book"
-msgstr "reservar"
-
-# workflow transition
-msgid "Book"
-msgstr "Reservar"
-
-msgid "Periodicity"
-msgstr "Periodicidade"
-
-msgid "periodicity"
-msgstr "periodicidade"
+msgid "canceled"
+msgstr "cancelado"
 
 msgid "default"
 msgstr "padrão"
+
+msgid "label_day"
+msgstr "Dia"
+
+msgid "label_month"
+msgstr "Mês"
 
 msgid "label_same_date_every_weeks"
 msgstr "Mesma data (semanal)"
@@ -66,15 +69,12 @@ msgstr "Mesma data(a cada n semanas)"
 msgid "label_same_date_every_x_weeks_of_the_month"
 msgstr "Mesma data (A cada n semanas do mês)"
 
-msgid "label_day"
-msgstr "Dia"
+msgid "label_schema_display"
+msgstr "Display"
 
 msgid "label_week"
 msgstr "Semana"
 
-msgid "label_month"
-msgstr "Mês"
-
-msgid "Add New ${type}"
-msgstr "Adicionar novo ${type}"
+msgid "periodicity"
+msgstr "periodicidade"
 

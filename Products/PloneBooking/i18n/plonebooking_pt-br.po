@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneBooking\n"
-"POT-Creation-Date: Tue, 1 June 2004 16:54:23 GMT\n"
-"PO-Revision-Date: 2006-08-09 17:37-0300\n"
+"POT-Creation-Date: 2009-06-10 03:19+0000\n"
+"PO-Revision-Date: 2009-06-10 00:22-0300\n"
 "Last-Translator: Érico Andrei <erico@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria\n"
 "MIME-Version: 1.0\n"
@@ -20,574 +20,330 @@ msgstr ""
 "Preferred-encodings: utf-8 latin-1\n"
 "X-Is-Fallback-For: pt\n"
 
-msgid "Add"
-msgstr "Adicionar"
+#. Default: "OK"
+#: ./skins/plonebooking_templates/booking_filter.pt:183
+msgid "OK"
+msgstr "Ok"
 
-msgid "Book"
-msgstr "Reservar"
-
-msgid "Book All"
-msgstr "Reservar todas"
-
-msgid "Bookable object"
-msgstr "Recurso"
-
-msgid "Booked"
-msgstr "Reservado"
-
-msgid "Booking center"
-msgstr "Central de reservas"
-
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgid "Category"
-msgstr "Categoria"
-
-msgid "Friday"
-msgstr "Sexta-feira"
-
-msgid "Monday"
-msgstr "Segunda-feira"
-
-msgid "Resource"
-msgstr "Recurso"
-
-msgid "Retract"
-msgstr "Retrair"
-
-msgid "Retract All"
-msgstr "Retrair todas"
-
-msgid "Saturday"
-msgstr "Sábado"
-
-msgid "Sunday"
-msgstr "Domingo"
-
-msgid "Thursday"
-msgstr "Quinta-feira"
-
-msgid "Tuesday"
-msgstr "Terça-feira"
-
-msgid "Wednesday"
-msgstr "Quarta-feira"
-
-msgid "booked"
-msgstr "reservado"
+#. Default: "alt"
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:168
+msgid "alt"
+msgstr "alt"
 
 #. Export
+#. Default: "Export"
+#: ./browser/templates/export_form.pt:77
 msgid "button_export"
 msgstr "Exportar"
 
-# Months
-msgid "calendar_month_1"
-msgstr "Janeiro"
-
-msgid "calendar_month_10"
-msgstr "Outubro"
-
-msgid "calendar_month_11"
-msgstr "Novembro"
-
-msgid "calendar_month_12"
-msgstr "Dezembro"
-
-msgid "calendar_month_2"
-msgstr "Fevereiro"
-
-msgid "calendar_month_3"
-msgstr "Março"
-
-msgid "calendar_month_4"
-msgstr "Abril"
-
-msgid "calendar_month_5"
-msgstr "Maio"
-
-msgid "calendar_month_6"
-msgstr "Junho"
-
-msgid "calendar_month_7"
-msgstr "Julho"
-
-msgid "calendar_month_8"
-msgstr "Agosto"
-
-msgid "calendar_month_9"
-msgstr "Setembro"
-
-# Weekdays
-msgid "calendar_weekday_0"
-msgstr "Segunda-feira"
-
-msgid "calendar_weekday_1"
-msgstr "Terça-feira"
-
-msgid "calendar_weekday_2"
-msgstr "Quarta-feira"
-
-msgid "calendar_weekday_3"
-msgstr "Quinta-feira"
-
-msgid "calendar_weekday_4"
-msgstr "Sexta-feira"
-
-msgid "calendar_weekday_5"
-msgstr "Sábado"
-
-msgid "calendar_weekday_6"
-msgstr "Domingo"
-
-# Date format
-msgid "date_format"
-msgstr "${weekdayname}, ${day} de ${monthname} de ${year}"
-
-msgid "date_format_without_year"
-msgstr "${weekdayname}, ${day} de ${monthname}"
-
-msgid "date_long_format"
-msgstr "${day}/${month}/${year} ${hour}"
-
+#. Default: "Select one object to book."
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:34
 msgid "description_add_booking"
 msgstr "Adicionar uma nova reserva"
 
-msgid "description_add_new_booking"
-msgstr "Selecione um dia, verifique as disponibilidades e ${add_new_booking}"
-
-msgid "description_add_new_booking_in_calendar_view"
-msgstr "Na visão de calendário você pode adicionar uma nova reserva ao clicar em \"+\"."
-
+#. Default: "Description of ressource: ${bookableobject}"
+#: ./skins/plonebooking_templates/bookableobject_ajax_view.pt:5
 msgid "description_bookable_object"
 msgstr "Descrição do recurso : ${bookableobject}"
 
+#. Default: "Category: ${category}"
+#: ./skins/plonebooking_templates/bookableobject_ajax_view.pt:51
 msgid "description_bookable_object_category"
-msgstr "Categoria : ${category}"
+msgstr "Categoria: ${category}"
 
+#. Default: "Type: ${type}"
+#: ./skins/plonebooking_templates/bookableobject_ajax_view.pt:37
 msgid "description_bookable_object_type"
-msgstr "Tipo : ${type}"
+msgstr "Tipo: ${type}"
 
+#. Default: "From ${start_date} to ${end_date}"
+#: ./skins/plonebooking_templates/booking_info_popup.pt:32
 msgid "description_booking_duration"
 msgstr "De ${start_date} até ${end_date}"
 
-msgid "description_no_bookable_object"
-msgstr "Este objeto não pode ser reservado"
-
+#. Default: "No bookings found."
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:485
 msgid "description_no_bookings_found"
 msgstr "Nenhum reserva encontrado"
 
-msgid "description_waiting_booking_process"
-msgstr "Por favor aguarde: Processo de reserva em curso..."
+#. Default: "Please enter a range that fits into 2 monthes."
+#: ./browser/export.py:165
+msgid "error_range_too_large"
+msgstr "Por favor informe um período que seja contido ento de dois meses."
 
-msgid "description_waiting_periodicity_creation"
-msgstr "Por favor aguarde: criação das periodicidades em curso..."
-
-msgid "description_waiting_periodicity_results"
-msgstr "Por favor aguarde: cálculo das periodicidades em curso..."
-
-msgid "edit"
-msgstr "editar"
-
+#. Default: "<strong>First step</strong>: select a periodicity type and a periodicity end date, click on \"Display result\" link. You can modify the field values and click again on \"Display result\", it will not create any bookings but just display a listing of items that will be create."
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:62
 msgid "first_step_text"
 msgstr "Primeiro passo"
 
-msgid "head_from"
-msgstr "de"
+#. Default: "<!-- week / days --> week number"
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:369
+msgid "head_week_number"
+msgstr "<!-- semana / dias --> semana número"
 
-msgid "head_review_state"
-msgstr "estado"
-
-msgid "head_to"
-msgstr "até"
-
-msgid "heading_add_booking"
-msgstr "Adicionar uma reserva"
-
+#. Default: "Create periodic bookings"
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:51
 msgid "heading_create_periodic_bookings"
 msgstr "Criar reservas periódicos"
 
-msgid "help_bookable_object_states"
-msgstr "Informe os estados dos recursos"
-
-msgid "help_booked_colors"
-msgstr "Escolha as cores para reservas confirmados"
-
-msgid "help_booking_description"
-msgstr "Digite uma descrição clara sobre este reserva"
-
-msgid "help_booking_end_date"
-msgstr "Informe a data de término"
-
+#. Default: "Enter the ending peridodicity date and time, or click the calendar icon and select it."
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:80
 msgid "help_booking_peridodicity_end_date"
 msgstr "Informe a data final da periodicidade"
 
-msgid "help_booking_start_date"
-msgstr "Informe a data inicial"
+#. Default: "There is no booking matching your criteria."
+#: ./browser/export.py:112
+msgid "info_no_results"
+msgstr "Nenhum agendamento encontrado para estes critérios."
 
-msgid "help_bookingcenter_calendar_ending_hour"
-msgstr "Informa a hora final para os dias da semana no calendário"
-
-msgid "help_bookingcenter_calendar_starting_hour"
-msgstr "Informa a hora inicial para os dias da semana no calendário"
-
-msgid "help_bookingcenter_types"
-msgstr "Descreva os tipos possíveis"
-
-msgid "help_pending_colors"
-msgstr "Escolha as cores para reservas pendentes"
-
-msgid "label_Calender_refresh"
-msgstr "atualizar"
-
-msgid "label_add_new_booking"
-msgstr "adiciona uma nova reserva"
-
+#. Default: "All categories"
+#: ./skins/plonebooking_templates/booking_filter.pt:121
 msgid "label_all_categories"
 msgstr "Todas as categorias"
 
+#. Default: "All types"
+#: ./skins/plonebooking_templates/booking_filter.pt:94
 msgid "label_all_types"
 msgstr "Todos os tipos"
 
+#. Default: "Already Booked"
+#: ./skins/plonebooking_templates/booking_periodicity_result.pt:41
 msgid "label_already_booked"
 msgstr "Reservado"
 
+#. Default: "Book"
+#: ./skins/plonebooking_templates/booking_info_popup.pt:112
 msgid "label_book"
 msgstr "Reservar"
 
-msgid "label_bookable_object_states"
-msgstr "Estado dos recursos"
+#. Default: "Description"
+#: ./skins/plonebooking_templates/booking_filter.pt:156
+msgid "label_bookableobject_description"
+msgstr "Descrição"
 
-msgid "label_bookableobject_category"
-msgstr "Categoria"
-
-msgid "label_bookableobject_text"
-msgstr "Corpo"
-
-msgid "label_bookableobject_title"
-msgstr "Título"
-
-msgid "label_bookableobject_type"
-msgstr "Tipo de recurso reservável"
-
+#. Default: "Booked by"
+#: ./skins/plonebooking_templates/booking_info_popup.pt:52
 msgid "label_booked_by"
 msgstr "Reservado por"
 
-msgid "label_booked_colors"
-msgstr "Cores (Reservados)"
-
-msgid "label_booking"
-msgstr "Reserva"
-
-msgid "label_booking_date"
-msgstr "Data :"
-
+#. Default: "Comment"
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:147
 msgid "label_booking_description"
 msgstr "Descrição"
 
+#. Default: "Booking end date"
+#: ./browser/export.py:57
 msgid "label_booking_end_date"
 msgstr "Data de término"
 
+#. Default: "Booking object(s) :"
+#: ./skins/plonebooking_templates/booking_info_popup.pt:40
 msgid "label_booking_objects"
 msgstr "Recursos"
 
+#. Default: "Periodicity end date"
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:79
 msgid "label_booking_periodicity_end_date"
 msgstr "Data final da periodicidade"
 
+#. Default: "Periodicity type"
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:67
 msgid "label_booking_periodicity_type"
 msgstr "Tipo de periodicidade"
 
-msgid "label_booking_review_mode"
-msgstr "Forma de reserva"
-
+#. Default: "Booking start date"
+#: ./browser/export.py:56
 msgid "label_booking_start_date"
 msgstr "Data inicial"
 
+#. Default: "Booking title"
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:137
 msgid "label_booking_title"
 msgstr "Título"
 
+#. Default: "Email"
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:121
 msgid "label_booking_user_email"
 msgstr "Email"
 
+#. Default: "Full Name"
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:89
 msgid "label_booking_user_full_name"
 msgstr "Nome Completo"
 
+#. Default: "Phone"
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:105
 msgid "label_booking_user_phone"
 msgstr "Telefone"
 
-msgid "label_bookingcenter_available_calendar_views"
-msgstr "Visualizações de calendário disponíveis"
-
-msgid "label_bookingcenter_available_listing_views"
-msgstr "Ver tipos de visualizações disponíveis"
-
-msgid "label_bookingcenter_available_view_modes"
-msgstr "Visões disponíveis"
-
-msgid "label_bookingcenter_calendar_ending_hour"
-msgstr "Hora final"
-
-msgid "label_bookingcenter_calendar_starting_hour"
-msgstr "Hora de início"
-
-######################
-# Fields
-######################
-msgid "label_bookingcenter_categories"
-msgstr "Categorias"
-
-msgid "label_bookingcenter_default_calendar_view"
-msgstr "Visualização padrão de calendário"
-
-msgid "label_bookingcenter_default_listing_view"
-msgstr "Ver tipos de listagem padrões"
-
-msgid "label_bookingcenter_default_view_mode"
-msgstr "Visão padrão"
-
-msgid "label_bookingcenter_types"
-msgstr "Tipos"
-
-msgid "label_calendar"
-msgstr "Calendário"
-
-msgid "label_click_calendar"
-msgstr "Veuillez cliquez sur OK pour voir le calendrier des réservations."
-
+#. Default: "Create bookings"
+#: ./skins/plonebooking_templates/booking_periodicity_result.pt:55
 msgid "label_create_bookings"
 msgstr "Criar reservas"
 
-msgid "label_day"
-msgstr "Dia"
-
-msgid "label_default_booking_review_mode"
-msgstr "Padrão (Central de Reservas)"
-
-msgid "label_description"
-msgstr "Descrição"
-
-msgid "label_description_calender_refresh"
-msgstr ""
-
+#. Default: "Display result"
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:103
 msgid "label_display_result"
 msgstr "Exibir resultados"
 
 #####################
 # misc
 #####################
+#. Default: "Booking from ${start_date} to ${end_date}"
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:505
 msgid "label_dynamic_booking_title"
 msgstr "Reserva de ${start_date} até ${end_date}"
 
+#. Default: "Edit"
+#: ./skins/plonebooking_templates/booking_info_popup.pt:89
 msgid "label_edit"
 msgstr "Editar"
 
-msgid "label_edit_booking"
-msgstr "Editar reserva"
-
 #. Range
+#. Default: "Range"
+#: ./browser/templates/export_form.pt:51
 msgid "label_export_range"
 msgstr "Período"
 
 # Export type (csv, html, whatever), like type in file type
 #. Type
+#. Default: "Type"
+#: ./browser/templates/export_form.pt:59
 msgid "label_export_type"
 msgstr "Tipo"
 
+#. Default: "Filter"
+#: ./skins/plonebooking_templates/booking_filter.pt:36
 msgid "label_filter_form"
 msgstr "Filtros"
 
+#. Default: "Goto this bookable objet"
+#: ./skins/plonebooking_templates/bookableobject_ajax_view.pt:10
 msgid "label_goto_bookable_object"
 msgstr "Voir cette ressource"
 
+#. Default: "Hour"
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:198
 msgid "label_hour"
 msgstr "hora"
 
-msgid "label_listing"
-msgstr "Listagem"
-
-msgid "label_month"
-msgstr "Mês"
-
-msgid "label_new_booking"
-msgstr "Novo reserva"
-
-msgid "label_next_3_months"
-msgstr "Próximos 3 meses"
-
-msgid "label_next_3_years"
-msgstr "Próximos 3 meses"
-
-msgid "label_next_4_weeks"
-msgstr "4 próximas semanas"
-
-msgid "label_next_day"
-msgstr "Amanhã"
-
-msgid "label_next_month"
-msgstr "Próximo mês"
-
-msgid "label_next_week"
-msgstr "Próxima semana"
-
-msgid "label_next_year"
-msgstr "Próximo ano"
-
-msgid "label_no_category"
-msgstr "Sem categoria"
-
+#. Default: "No periodic items found."
+#: ./skins/plonebooking_templates/booking_periodicity_result.pt:47
 msgid "label_no_periodic_items"
 msgstr "Nenhum item periódico foi criado"
 
-######################
-# Fields
-######################
-msgid "label_not_click_calendar"
-msgstr "Sélectionner une vue et rechercher des disponibilités"
-
+#. Default: "Only bookable object of category:"
+#: ./skins/plonebooking_templates/booking_filter.pt:107
 msgid "label_only_bookable_objects_of_category"
 msgstr "Apenas objetos da categoria"
 
+#. Default: "Only bookable objects of type:"
+#: ./skins/plonebooking_templates/booking_filter.pt:80
 msgid "label_only_bookable_objects_of_type"
 msgstr "Apenas objetos do tipo"
 
-msgid "label_pending_colors"
-msgstr "Cores (Pendentes)"
-
+#. Default: "Periodicity configuration"
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:214
 msgid "label_periodicity_configuration"
 msgstr "Configuração de periodicidade"
 
-msgid "label_previous_3_months"
-msgstr "3 últimos meses"
+#. Default: "(Required)"
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:91
+msgid "label_required"
+msgstr "(Obrigatório)"
 
-msgid "label_previous_3_years"
-msgstr "3 últimos anos"
-
-msgid "label_previous_4_weeks"
-msgstr "4 últimas semanas"
-
-msgid "label_previous_day"
-msgstr "Ontem"
-
-msgid "label_previous_month"
-msgstr "Mês anterior"
-
-msgid "label_previous_week"
-msgstr "Semana passada"
-
-msgid "label_previous_year"
-msgstr "Ano anterior"
-
-msgid "label_publish_automatically_bookings"
-msgstr "Autorizar automaticamente as reservas"
-
-msgid "label_refresh_auto"
-msgstr "Automático"
-
-msgid "label_refresh_manual"
-msgstr "Manual"
-
-msgid "label_refresh_mode"
-msgstr "Modo de atualização"
-
-msgid "label_required_filters"
-msgstr "Filtros necessários"
-
+#. Default: "Retract"
+#: ./skins/plonebooking_templates/booking_info_popup.pt:106
 msgid "label_retract"
 msgstr "Retrair"
 
-msgid "label_review_bookings"
-msgstr "Revisar as reservas"
-
+#. Default: "Same date every"
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:72
 msgid "label_same_date_every"
 msgstr "Mesma data"
 
+#. Default: "Same date every weeks"
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:70
 msgid "label_same_date_every_weeks"
 msgstr "Semanalmente (mesma data)"
 
+#. Default: "Same date every x day of the month (every 2nd monday of the month)"
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:75
 msgid "label_same_date_every_x_weeks_of_the_month"
 msgstr "Mesma data a cada n semanas no mês"
 
+#. Default: "See all bookings of this category"
+#: ./skins/plonebooking_templates/bookableobject_ajax_view.pt:55
 msgid "label_see_all_bookings_of_this_category"
 msgstr "Visualizar todas as reservas desta categoria"
 
+#. Default: "See all bookings of this type"
+#: ./skins/plonebooking_templates/bookableobject_ajax_view.pt:41
 msgid "label_see_all_bookings_of_this_type"
 msgstr "Visualizar todas as reservas deste tipo"
 
+#. Default: "See bookable object:"
+#: ./skins/plonebooking_templates/booking_filter.pt:134
 msgid "label_see_bookable_object"
 msgstr "Ver recursos"
 
+#. Default: "These bookings will be created"
+#: ./skins/plonebooking_templates/booking_periodicity_result.pt:20
 msgid "label_these_bookings_will_be_created"
 msgstr "Estas reservas serão criados"
 
+#. Default: "Up to booked object"
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:887
 msgid "label_up_to_booked_object"
 msgstr "Voltar ao recurso reservado"
 
+#. Default: "Up to booking center"
+#: ./skins/plonebooking_templates/bookableobject_view.pt:78
 msgid "label_up_to_booking_center"
 msgstr "Voltar à Central de Reservas"
 
+#. Default: "View"
+#: ./skins/plonebooking_templates/booking_info_popup.pt:84
 msgid "label_view"
 msgstr "Visualizar"
 
+#. Default: "View"
+#: ./skins/plonebooking_templates/booking_filter.pt:167
 msgid "label_view_form"
 msgstr "Visualizar"
 
-msgid "label_week"
-msgstr "Semana"
-
+#. Default: "weeks"
+#: ./skins/plonebooking_templates/booking_periodicity_form.pt:73
 msgid "label_weeks"
 msgstr "Semanas"
 
-msgid "label_year"
-msgstr "Ano"
-
+#. Default: "Book it"
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:218
 msgid "link_title_book_it"
 msgstr "Faça uma reserva"
 
-msgid "message_booking_process_summary"
-msgstr "%processed% pedidos de reserva, %errors% erro(s)."
-
-####################
-# Views
-####################
-msgid "message_create_periodic_bookings"
-msgstr "Criar reservas periódicos"
-
-msgid "message_date_already_booked"
-msgstr "Data já reservada"
-
-msgid "message_give_number_for_periodicity"
-msgstr "Você deve informar um número para a periodicidade"
-
-msgid "message_no_booking_created"
-msgstr "Nenhuma reserva criada"
-
-msgid "message_object_not_found"
-msgstr "Objeto não encontrado"
-
+#. Default: "%created% item(s) created, %already_booked% already booked, %errors% error(s)."
+#: ./skins/plonebooking_templates/booking_periodicity_result.pt:62
 msgid "message_periodic_booking_creation_summary"
 msgstr "%created% reservas criadas, %already_booked% já reservadas."
 
-msgid "message_periodicity_end_date_not_valid"
-msgstr "A data final da periodicidade não é válida"
-
-msgid "month_date_format"
-msgstr "${monthname} ${year}"
-
-msgid "pending"
-msgstr "pendente"
-
+#. Default: "Periodicity"
+#: ./skins/plonebooking_templates/booking_info_popup.pt:100
 msgid "periodicity"
 msgstr "periodicidade"
 
-msgid "refresh"
-msgstr "atualizar o calendário"
-
+#. Default: "<strong>Second step:</strong> if you are ok with the result below, click on \"Create bookings\" link. It will create only items that are not already booked. You can modify the field \"values\" and click again on \"Display result\" to see a new result."
+#: ./skins/plonebooking_templates/booking_periodicity_result.pt:23
 msgid "second_step_text"
 msgstr "Segundo passo"
 
+#. Default: "Show the day"
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:408
 msgid "show_day"
 msgstr "Ver dia"
 
+#. Default: "Show more booking infos"
+#: ./skins/plonebooking_templates/plonebooking_macros.pt:316
 msgid "show_more_infos"
 msgstr "Ver informações adicionais da reserva"
 
@@ -595,31 +351,25 @@ msgstr "Ver informações adicionais da reserva"
 # export
 #####################
 #. Bookings export of ${bookable_name}
+#. Default: "Bookings export of ${bookable_name}"
+#: ./browser/templates/export_form.pt:47
 msgid "title_booking_export"
 msgstr "Exportar reservas de ${bookable_name}"
 
 #. Existing bookings for ${bookable_name}
+#. Available bookings for ${bookable_name}
+#. Default: "Existing bookings for ${bookable_name}"
+#: ./browser/templates/export_form.pt:82
 msgid "title_booking_export_results"
 msgstr "Reservas existente para ${bookable_name}"
 
-msgid "title_bookings_for_bookable_object"
-msgstr "Reservas para o recurso : ${bookableobject}"
+#. Default: "Required"
+#: ./skins/plonebooking_templates/booking_ajax_form.pt:91
+msgid "title_required"
+msgstr "Obrigatório"
 
-msgid "title_bookings_for_bookable_object_of_type"
-msgstr "Reservas para recursos do tipo "
-
-msgid "title_bookings_for_bookable_objects"
-msgstr "Reserva de recursos"
-
-msgid "title_periodic_items"
-msgstr "Itens periódicos"
-
+#. Default: "View"
+#: ./skins/plonebooking_templates/booking_periodicity_result.pt:66
 msgid "view"
 msgstr "visão"
-
-msgid "week_date_format"
-msgstr "Semana ${week} de ${year}"
-
-msgid "year_date_format"
-msgstr "${year}"
 
