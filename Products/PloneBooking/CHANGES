@@ -6,13 +6,13 @@ SVN
 
 2.2.3 - 2010/04
 
-  * Brazilian and Portugese translations added
+  * Brazilian and Portugese translations added / modified
     Thx to erico_andrei
 
   * German translations modified
     Thx to floydthebarber and fsprenger
 
-  * workflow_actions doesn't work in Plone 3
+  * Fixed : workflow_actions doesn't work in Plone 3
     quick correction in plone_booking macros.pt to get available transitions
     macadames - 2008/12/10
 
