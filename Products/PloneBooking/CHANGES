@@ -4,18 +4,24 @@ CHANGELOG
 SVN
 ---
 
-  *  workflow_actions doesn't work in Plone 3
-     quick correction in plone_booking macros.pt to get available transitions (i know it's not a wonderful code)  
-     macadames - 2008/12/10
+2.2.3 - 2010/04
 
-2.2.3 - 2008/12/08
+  * Brazilian and Portugese translations added
+    Thx to erico_andrei
 
-  *  contentViews and contentActions must not appear on edit forms
-     plonebooking_add_form is fixed (disable border in top slot)  
+  * German translations modified
+    Thx to floydthebarber and fsprenger
 
-2.2.2 - 2008/12/02
+  * workflow_actions doesn't work in Plone 3
+    quick correction in plone_booking macros.pt to get available transitions
+    macadames - 2008/12/10
+
+  * contentViews and contentActions must not appear on edit forms
+    plonebooking_add_form is fixed (disable border in top slot)  
+    macadames - 2008/12/10
 
   * Permissions to Add Bookable Object added for Editor, Contributor (new Plone Roles)
+    macadames - 2008/12/10
 
 
 2.2.1 - 2008/11/21
