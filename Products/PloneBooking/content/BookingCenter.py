@@ -44,20 +44,19 @@ except ImportError:
     from Products.Archetypes.public import *
 
 
-from Products.ATContentTypes.content.folder import (
-    ATFolder,
-    ATFolderSchema)
+from Products.ATContentTypes.content.folder import    ATFolder
+from Products.ATContentTypes.content.folder import ATFolderSchema
 
-from Products.PloneBooking.content.vocabulary import (
-    REQUIRED_FILTERS,
-    CALENDAR_VIEWS,
-    VIEW_MODES,
-    LISTING_VIEWS,
-    GLOBAL_BOOKING_REVIEW_MODES,
-    CALENDAR_REFRESH_MODES)
+from Products.PloneBooking.content.vocabulary import REQUIRED_FILTERS
+from Products.PloneBooking.content.vocabulary import CALENDAR_VIEWS
+from Products.PloneBooking.content.vocabulary import VIEW_MODES
+from Products.PloneBooking.content.vocabulary import LISTING_VIEWS
+from Products.PloneBooking.content.vocabulary import GLOBAL_BOOKING_REVIEW_MODES
+from Products.PloneBooking.content.vocabulary import CALENDAR_REFRESH_MODES
 from Products.PloneBooking.config import PROJECTNAME, I18N_DOMAIN
 from Products.PloneBooking.interfaces import IBookingCenter
 from Products.PloneBooking import BookingPermissions
+from Products.PloneBooking import _
 
 DISPLAY_SCHEMATA = 'display'
 
@@ -66,74 +65,95 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         'types',
         required=True,
         widget=LinesWidget(
-            label='Types',
-            description='You can define here a list of bookable object types (1 by line)',
-            description_msgid='help_bookingcenter_types',
-            label_msgid='label_bookingcenter_types',
-            i18n_domain= I18N_DOMAIN,
+            label=_(
+                    'label_types',
+                    'Types'
+            ),
+            description= _(
+                    'label_bookingcenter_types',
+                    'You can define here a list of bookable object types '\
+                            '(1 by line)'
             ),
         ),
+    ),
     LinesField(
         'categories',
         required=False,
         widget=LinesWidget(
-            label='Categories',
-            description=' ',
-            description_msgid='help_bookingcenter_categories',
-            label_msgid='label_bookingcenter_categories',
-            i18n_domain=I18N_DOMAIN,
+            label=_(
+                    'label_categories',
+                    'Categories'
+            ),
+            description=_(
+                    'help_bookingcenter_categories',
+                    'help_bookingcenter_categories'
             ),
         ),
+    ),
     LinesField(
         'bookableObjectStates',
         default=('published',),
         widget=LinesWidget(
-            label='Bookable object allowed states for book',
-            description='Define here the workflow states of bookable objects you can book. If a bookable object is in a workflow\
-                         state that is not in this list, it will not appear in available bookable objects.',
-            label_msgid='label_bookable_object_states',
-            description_msgid='help_bookable_object_states',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_bookable_object_states',
+                    'Bookable object allowed states for book'
+            ),
+            description = _(
+                    'help_bookable_object_states',
+                    'Define here the workflow states of bookable objects you'\
+                            ' can book. If a bookable object is in a workflow'\
+                            ' state that is not in this list, it will not'\
+                            ' appear in available bookable objects.'
             ),
         ),
+    ),
     LinesField(
         'requiredFilters',
         vocabulary=REQUIRED_FILTERS,
         widget=MultiSelectionWidget(
             default=tuple(),
             format='select',
-            label='Required filters',
-            description='',
-            label_msgid='label_required_filters',
-            description_msgid='',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_required_filters',
+                    'Required filters'
+            ),
+            description=_(
+                    'help_required_filter',
+                    ''
             ),
         ),
+    ),
     StringField(
         'calendarRefreshMode',
         default="auto",
         vocabulary=CALENDAR_REFRESH_MODES,
         widget=SelectionWidget(
-            default=False,
-            label='Refresh mode',
-            description='',
-            label_msgid='label_refresh_mode',
-            description_msgid='',
-            i18n_domain=I18N_DOMAIN,
+            default = False,
+            label = _(
+                    'label_refresh_mode',
+                    'Refresh mode'
+            ),
+            description = _(
+                    'help_calendar_refresh_mode',
+                    ''
             ),
         ),
+    ),
     StringField(
         'bookingReviewMode',
         default='review',
         vocabulary=GLOBAL_BOOKING_REVIEW_MODES,
         widget=SelectionWidget(
-            label='Booking review mode',
-            description='',
-            label_msgid='label_booking_review_mode',
-            description_msgid='',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_booking_review_mode',
+                    'Booking review mode'
+            ),
+            description = _(
+                    'help_booking_review_mode',
+                    ''
             ),
         ),
+    ),
     StringField(
         'defaultViewMode',
         schemata=DISPLAY_SCHEMATA,
@@ -142,11 +162,16 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         vocabulary=VIEW_MODES,
         widget=SelectionWidget(
             format='radio',
-            label='Default view mode',
-            label_msgid='label_bookingcenter_default_view_mode',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_bookingcenter_default_view_mode',
+                    'Default view mode'
+            ),
+            description = _(
+                    'help_bookingcenter_default_view_mode',
+                    ''
             ),
         ),
+    ),
     LinesField(
         'availableViewModes',
         schemata=DISPLAY_SCHEMATA,
@@ -155,11 +180,16 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         vocabulary=VIEW_MODES,
         widget=MultiSelectionWidget(
             format='select',
-            label='Available view modes',
-            label_msgid='label_bookingcenter_available_view_modes',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_bookingcenter_available_view_modes',
+                    'Available view modes'
+            ),
+            description = _(
+                    'help_bookingcenter_available_view_modes',
+                    ''
             ),
         ),
+    ),
     StringField(
         'defaultListingView',
         schemata=DISPLAY_SCHEMATA,
@@ -168,11 +198,16 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         vocabulary=LISTING_VIEWS,
         widget=SelectionWidget(
             format='select',
-            label='Default listing view',
-            label_msgid='label_bookingcenter_default_listing_view',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_bookingcenter_default_listing_view',
+                    'Default listing view'
+            ),
+            description = _(
+                    'help_bookingcenter_default_listing_view',
+                    ''
             ),
         ),
+    ),
     LinesField(
         'availableListingViews',
         schemata=DISPLAY_SCHEMATA,
@@ -181,11 +216,16 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         vocabulary=LISTING_VIEWS,
         widget=MultiSelectionWidget(
             format='select',
-            label='Available listing views',
-            label_msgid='label_bookingcenter_available_listing_views',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_bookingcenter_available_listing_views',
+                    'Available listing views'
+            ),
+            description = _(
+                    'help_bookingcenter_available_listing_views',
+                    ''
             ),
         ),
+    ),
     StringField(
         'defaultCalendarView',
         schemata=DISPLAY_SCHEMATA,
@@ -194,11 +234,16 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         vocabulary=CALENDAR_VIEWS,
         widget=SelectionWidget(
             format='select',
-            label='Default calendar view',
-            label_msgid='label_bookingcenter_default_calendar_view',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_bookingcenter_default_calendar_view',
+                    'Default calendar view'
+            ),
+            description = _(
+                    'help_bookingcenter_default_calendar_view',
+                    ''
             ),
         ),
+    ),
     LinesField(
         'availableCalendarViews',
         schemata=DISPLAY_SCHEMATA,
@@ -207,38 +252,49 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         vocabulary=CALENDAR_VIEWS,
         widget=MultiSelectionWidget(
             format='select',
-            label='Available calendar views',
-            label_msgid='label_bookingcenter_available_calendar_views',
-            i18n_domain=I18N_DOMAIN,
+            labe = _(
+                    'label_bookingcenter_available_calendar_views',
+                    'Available calendar views'
+            ),
+            description = _(
+                    'help_bookingcenter_available_calendar_views',
+                    ''
             ),
         ),
+    ),
     IntegerField(
         'calendarStartingHour',
         schemata=DISPLAY_SCHEMATA,
         required=True,
         default=8,
         widget=IntegerWidget(
-            label='Starting hour',
-            description='This is used in day and week calendar views',
-            label_msgid='label_bookingcenter_calendar_starting_hour',
-            description_msgid='help_bookingcenter_calendar_starting_hour',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_bookingcenter_calendar_starting_hour',
+                    'Starting hour'
+            ),
+            description = _(
+                    'help_bookingcenter_calendar_starting_hour',
+                    'This is used in day and week calendar views'
             ),
         ),
+    ),
     IntegerField(
         'calendarEndingHour',
         schemata=DISPLAY_SCHEMATA,
         required=True,
         default=19,
         widget=IntegerWidget(
-            label='Ending hour',
-            description='This is used in day and week calendar views',
-            label_msgid='label_bookingcenter_calendar_ending_hour',
-            description_msgid='help_bookingcenter_calendar_ending_hour',
-            i18n_domain=I18N_DOMAIN,
+            label = _(
+                    'label_bookingcenter_calendar_ending_hour',
+                    'Ending hour'
+            ),
+            description = _(
+                    'help_bookingcenter_calendar_ending_hour',
+                    'This is used in day and week calendar views'
             ),
         ),
-    ))
+    ),
+))
 
 
 BookingCenterSchema['description'].schemata = 'default'

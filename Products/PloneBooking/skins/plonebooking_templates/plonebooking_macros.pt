@@ -228,7 +228,7 @@
                  tal:define="state booking/review_state;
                              state python:test(state == 'booked', 'booked', 'pending');
                              booked_obj_uid booking/bookedObjectUID;
-                             booked_obj python:get_object(booked_obj_uid);
+                             booked_obj python:here.reference_catalog.lookupObject(booked_obj_uid);
                              booked_obj_title python:booked_obj.title_or_id();"
                  tal:attributes="href booking/url;
                                  class string:booking-${state};">
@@ -318,7 +318,7 @@
                    tal:define="state booking/review_state;
                                state python:test(state == 'booked', 'booked', 'pending');
                                booked_obj_uid booking/bookedObjectUID;
-                               booked_obj python:get_object(booked_obj_uid);
+                               booked_obj python:here.reference_catalog.lookupObject(booked_obj_uid);
                                booked_obj_title python:booked_obj.title_or_id();"
                    tal:attributes="href booking/url;
                                    class string:booking-${state};"
@@ -415,7 +415,7 @@
                         <a  tal:define="state booking/review_state;
                                         state python:test(state == 'booked', 'booked', 'pending');
                                         booked_obj_uid booking/bookedObjectUID;
-                                        booked_obj python:get_object(booked_obj_uid);
+                                        booked_obj python:here.reference_catalog.lookupObject(booked_obj_uid);
                                         booked_obj_title python:booked_obj.title_or_id();"
                             tal:attributes="class string:booking-${state};
                                             href booking/url;"
@@ -649,7 +649,7 @@
                         state            booking/review_state;
                         state            python: test(state == 'booked', 'booked', 'pending');
                         booked_obj_uid   booking/bookedObjectUID;
-                        booked_obj       python:get_object(booked_obj_uid);
+                        booked_obj       python: here.reference_catalog.lookupObject(booked_obj_uid);
                         booked_obj_title python:booked_obj.title_or_id();">
           <td width="100%">
             <span tal:replace="booking/creator" /> -
@@ -696,8 +696,7 @@
 <metal:block define-macro="defines"
              i18n:domain="plonebooking"
              tal:define="btool              here/portal_booking;
-                         atool              nocall:portal/archetype_tool;
-                         get_object         nocall:atool/getObject;
+                         portal             context/@@plone_portal_state/portal;
                          macro_def          nocall:here/plonebooking_macros/macros;
                          getDatetimeFromTs  nocall:btool/getDatetimeFromTs;
                          getZDateTimeFromts nocall:btool/getZDateTimeFromts;
@@ -730,6 +729,7 @@
                          ts                 python:request.get('ts', btool.getTodayTs());
                          dt                 python:getZDateTimeFromts(ts);
                          cal_start_ts       python:btool.setTsTime(ts, hour=here.getCalendarStartingHour());
+                         member             context/@@plone_portal_state/member;
                          member_fullname    python:member and member.getProperty('fullname', '');
                          member_email       python:member and member.getProperty('email', '');
                          member_phone       python:member and member.getProperty('phone', '');
@@ -740,6 +740,7 @@
                          nav_base_url       python:bcategory and (nav_base_url + '&bcategory=' + bcategory) or nav_base_url;
                          nav_base_url       python:bookableobject and (nav_base_url + '&bookableobject=' + bookableobject) or nav_base_url;
                          bookingClass       python:test(bookableobject, 'bookableObject', '');
+                         mtool              context/portal_membership;
                          can_add_booking    python:mtool.checkPermission('PloneBooking: Add booking', here);
                          can_modify         python:mtool.checkPermission('Modify portal content', here);
                          refresh_mode       here/getCalendarRefreshMode;
@@ -762,7 +763,7 @@
         <input type="hidden" name="dview"          tal:attributes="value dview" />
         <input type="hidden" name="start_ts"       tal:attributes="value cal_start_ts | nothing" />
         <input type="hidden" name="length_ts"      tal:attributes="value day_length   | nothing" />
-        <input type="hidden" name="isAnon"         tal:attributes="value isAnon" />
+        <input type="hidden" name="isAnon"         tal:attributes="value context/@@plone_portal_state/anonymous" />
         <input type="hidden" name="portal_url"     tal:attributes="value string:${portal_url}" />
 
         <tal:block tal:condition="not:btypes">
@@ -878,7 +879,8 @@
 Link to booking reference types
 -->
 <metal:block define-macro="booking_ref"
-             i18n:domain="plonebooking">
+             i18n:domain="plonebooking"
+             tal:define="portal context/@@plone_portal_state/portal;">
  <span style="padding : 0px 0px 10px 0px;">
   <img src=""
        style="float:left; padding : 4px 5px 10px 0px;"

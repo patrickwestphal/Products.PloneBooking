@@ -59,6 +59,7 @@
            						 bcenter_url bcenter/absolute_url;
            						 btype here/getType;
            						 bcategory here/getCategory;
+           			   portal    context/@@plone_portal_state/portal;
                        ts python:request.get('ts', portal.portal_booking.getTodayTs());
                        default_mode python:bcenter.getDefaultViewMode();
              					 dmode python:request.get('dmode', default_mode);

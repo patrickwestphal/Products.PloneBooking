@@ -1,7 +1,7 @@
 <tal:block define="utool      nocall:here/portal_url;
                    portal     utool/getPortalObject;
                    portal_url utool;
-                   Iterator python:modules['Products.CMFPlone'].IndexIterator;
+                   Iterator python:modules['Products.CMFPlone.utils'].RealIndexIterator;
                    tabindex python:Iterator(pos=40000);
                    uniqueItemIndex tabindex;
                    ptool    nocall:portal/portal_properties;

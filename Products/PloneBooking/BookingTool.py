@@ -37,6 +37,9 @@ from OFS.SimpleItem import SimpleItem
 from AccessControl import getSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SpecialUsers import emergency_user
+from zope.interface import implements
+from zope.interface import implementedBy
+
         
 #from OFS.PropertyManager import PropertyManager
 from DateTime import DateTime
@@ -55,9 +58,9 @@ from Products.Archetypes.public import Vocabulary
 # PloneBooking imports
 from Products.PloneBooking.BookingPermissions import AddBooking
 from Products.PloneBooking.DateManager import DateManager
-from Products.generator import i18n
 from Products.PloneBooking.content.vocabulary import CALENDAR_VIEWS, VIEW_MODES, LISTING_VIEWS
 from Products.PloneBooking.config import I18N_DOMAIN
+from Products.PloneBooking import _
 
 # Constants
 ESCAPE_CHARS_RE = r'[\t\r\n\"\']'
@@ -73,8 +76,10 @@ class BookingTool(DateManager, UniqueObject, SimpleItem, ActionProviderBase):
     title = "Misc utilities for PloneBooking application"
     meta_type = "BookingTool"
     
-    __implements__ = (ActionProviderBase.__implements__,
-                      SimpleItem.__implements__, )
+    implements(
+            implementedBy(ActionProviderBase),
+            implementedBy(SimpleItem)
+    )
 
     
     manage_options = (ActionProviderBase.manage_options + SimpleItem.manage_options)
@@ -151,7 +156,7 @@ class BookingTool(DateManager, UniqueObject, SimpleItem, ActionProviderBase):
         
         msg_id = "label_booking"
         msg_default = "Booking"
-        return i18n.translate(I18N_DOMAIN, msg_id, context=self, default=msg_default)
+        return _(msg_default, msg_id)
         
     security.declarePublic('buildFilter')
     def buildFilter(self, **kwargs):

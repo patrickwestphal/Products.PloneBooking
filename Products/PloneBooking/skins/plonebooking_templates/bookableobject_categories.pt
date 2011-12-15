@@ -41,7 +41,7 @@
         <div tal:define="types python:here.portal_booking.getTypes();">
           Types : 
           <tal:loop repeat="t types">
-          <a href="#" tal:attributes="href string:${here/absolute_url}/${template_id}?type=${t}" tal:content="t">
+          <a href="#" tal:attributes="href string:${here/absolute_url}/${template/getId}?type=${t}" tal:content="t">
             Type
           </a>
           </tal:loop>

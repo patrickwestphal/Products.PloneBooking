@@ -25,13 +25,13 @@
                    required_filters here/getRequiredFilters;
                    refresh_mode     here/getCalendarRefreshMode;
                    manual_refresh   python:refresh_mode == 'manual' or required_filters;
-                   Iterator 	      python:modules['Products.CMFPlone'].IndexIterator;
-                   tabindex		      python:Iterator(pos=30000, mainSlot=False);
                    charset          here/getCharset;
                    dummy            python:request.RESPONSE.setHeader('Cache-Control', 'no-cache, no-store, max-age=0, private, must-revalidate, pre-check=0, post-check=0');
                    dummy            python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset);">
 <metal:block define-macro="main"
-             i18n:domain="plonebooking">
+             i18n:domain="plonebooking"
+             tal:define="Iterator         python:modules['Products.CMFPlone.utils'].RealIndexIterator;
+                         tabindex           python:Iterator(pos=30000);">
   <fieldset id="fieldset-filter" class="opened">
     <legend i18n:translate="label_filter_form">Filter</legend>
 
@@ -155,7 +155,7 @@
           <tal:block tal:condition="bookableobject">
             <a href=""
                class="bookableobjectDescriptionLink"
-               tal:attributes="href string:javascript:Booking.openPopup(this, {href: '${here_url}/${bookableobject}/bookableobject_ajax_view'});; void(0);;"
+               tal:attributes="href string:javascript:Booking.openPopup(this, {href: '${context/@@plone_context_state/object_url}/${bookableobject}/bookableobject_ajax_view'});; void(0);;"
                i18n:translate="label_bookableobject_description">Description</a>
           </tal:block>
         </div>

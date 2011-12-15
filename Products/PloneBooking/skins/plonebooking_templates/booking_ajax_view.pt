@@ -7,8 +7,8 @@
            global portal_url  here/portal_url;
            global member      mtool/getAuthenticatedMember;
            global ptool       nocall:portal/portal_properties;
-           global template_id options/template_id|template_id|template/getId|nothing;
-           global Iterator    python:modules['Products.CMFPlone'].IndexIterator;
+           global template_id options/template_id|template/getId|nothing;
+           global Iterator    python:modules['Products.CMFPlone.utils'].RealIndexIterator;
            global tabindex    python:Iterator(pos=30000);
            charset            ptool/site_properties/default_charset;
            dummy              python:request.RESPONSE.setHeader('Cache-Control', 'no-cache, no-store, max-age=0, private, must-revalidate, pre-check=0, post-check=0');

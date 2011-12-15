@@ -32,7 +32,7 @@ from Products.CMFCore.utils import getToolByName
 
 # from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from Products.PloneBooking.interfaces import IBookingExporter
-from Products.PloneBooking import PloneBookingFactory as _
+from Products.PloneBooking import _
 
 from zope.i18n.interfaces import ITranslationDomain, INegotiator
 

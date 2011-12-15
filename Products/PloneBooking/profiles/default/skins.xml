@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_skins" meta_type="Plone Skins Tool" allow_any="False"
-   cookie_persistence="False" default_skin="Plone Default"
+   cookie_persistence="False" default_skin="Sunburst Theme"
    request_varname="plone_skin">
  <object name="plonebooking_images" meta_type="Filesystem Directory View"
     directory="Products.PloneBooking:skins/plonebooking_images"/>
@@ -13,11 +13,11 @@
  <object name="plonebooking_templates" meta_type="Filesystem Directory View"
     directory="Products.PloneBooking:skins/plonebooking_templates"/>
  
- <skin-path name="Plone Default">
-  <layer name="plonebooking_images"/>
-  <layer name="plonebooking_javascripts"/>
-  <layer name="plonebooking_scripts"/>
-  <layer name="plonebooking_styles"/>
-  <layer name="plonebooking_templates"/>
+ <skin-path name="*">
+  <layer name="plonebooking_images" insert-after="custom"/>
+  <layer name="plonebooking_javascripts" insert-after="plonebooking_images"/>
+  <layer name="plonebooking_scripts" inster-after="plonebooking_javascripts"/>
+  <layer name="plonebooking_styles" insert-after="plonebooking_scripts"/>
+  <layer name="plonebooking_templates" insert-after="plonebooking_styles"/>
  </skin-path>
 </object>

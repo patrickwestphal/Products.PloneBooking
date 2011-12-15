@@ -28,7 +28,8 @@
     </metal:block>
   </head>
   
-  <metal:calendar fill-slot="javascript_head_slot">
+  <metal:calendar fill-slot="javascript_head_slot"
+      tal:define="portal context/@@plone_portal_state/portal;">
     <!-- ECMAScript calendar -->
     <style type="text/css" media="all"
       tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);"></style>
@@ -97,6 +98,7 @@
 	    <p class="formControls"
 	         tal:define="script_url string:${here/absolute_url}/getPeriodicityResult?uid=${here_uid};
 	                     alt_url template/absolute_url;
+	                     portal  context/@@plone_portal_state/portal;
 	                     btool nocall:portal/portal_booking;
 	                     waiting_text python:here.translate(msgid='description_waiting_periodicity_results', default='Waiting ...', domain='plonebooking');
 	                     ewaiting_text python:btool.escapeText(waiting_text);">

@@ -20,10 +20,9 @@
 """
 
 __version__ = "$Revision: 1.13 $"
-__author__  = ''
+__author__ = ''
 __docformat__ = 'restructuredtext'
 
-from zope.interface import implements
 
 # Python imports
 from types import DictionaryType
@@ -48,13 +47,11 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 
-from Products.generator import i18n
-
 #PloneBooking imports
 from Products.PloneBooking.config import PROJECTNAME, I18N_DOMAIN
 from Products.PloneBooking.content.schemata import BookingSchema
 from Products.PloneBooking.interfaces import IBooking
-
+from Products.PloneBooking import _
 
 class Booking(BaseContent):
     """
@@ -83,29 +80,32 @@ class Booking(BaseContent):
         return: DateTime (%y/%m/%d)
         """
         month_number = date.month()
-        ref_date = DateTime('%s/%s/01'%(date.year(), date.month()))
+        ref_date = DateTime('%s/%s/01' % (date.year(), date.month()))
         while pos >= 0:
-          # decrease pos when the day name is found
-          if ref_date.Day() == day_name:
-             pos = pos - 1
+            # decrease pos when the day name is found
+            if ref_date.Day() == day_name:
+                pos = pos - 1
 
-          #verify that we do not change the month
-          if ref_date.month() != month_number:
-            return 0
+            #verify that we do not change the month
+            if ref_date.month() != month_number:
+                return 0
 
-          #cool, we find the day
-          if ref_date.Day() == day_name and pos == 0:
-            return ref_date
+            #cool, we find the day
+            if ref_date.Day() == day_name and pos == 0:
+                return ref_date
 
-          ref_date = ref_date + 1
+            ref_date = ref_date + 1
 
         return 0
 
     security.declareProtected('View', 'getXthDayOfMonth')
-    def getXthDayOfMonth(self, start_date, end_date, final_date, periodicity_variable):
+    def getXthDayOfMonth(self, start_date, end_date,
+            final_date, periodicity_variable):
         """
-        return all dates corresponding to the x day of month, between "date" and "end_date"
-        For example all the "third tuesday of month" between "date" and "end_date"
+        return all dates corresponding to the x day of month, between "date"
+        and "end_date"
+        For example all the "third tuesday of month" between "date" and
+        "end_date"
         """
         btool = getToolByName(self, 'portal_booking')
         ref_day_name = start_date.Day()
@@ -113,15 +113,20 @@ class Booking(BaseContent):
 
         end_hour = end_date.TimeMinutes()
         start_hour = start_date.TimeMinutes()
+
         # get the number of day between end and start
         diff = DateTime(end_date.Date()) - DateTime(start_date.Date())
         result = []
         while ref_date <= final_date:
-            result_date = self.findXthDayOfMonth(ref_date, ref_day_name, periodicity_variable)
+            result_date = self.findXthDayOfMonth(ref_date, ref_day_name,
+                    periodicity_variable)
+
             # sometimes the month hasn't a fifth monday :)
             if result_date:
                 new_start_date = DateTime('%s %s' % (result_date, start_hour))
-                new_end_date = DateTime('%s %s' % (result_date + diff, end_hour))
+                new_end_date = DateTime('%s %s' % (
+                        result_date + diff, end_hour)
+                )
                 if new_start_date <= final_date:
                     result.append((new_start_date, new_end_date))
                 ref_date = self.getNewDate(new_start_date)
@@ -142,12 +147,15 @@ class Booking(BaseContent):
         if month_number == 12:
             new_date = DateTime('%s/%s/%s %s' % (year + 1, '01', '01', hour))
         else:
-            new_date = DateTime('%s/%s/%s %s' % (year, month_number + 1, '01', hour))
+            new_date = DateTime('%s/%s/%s %s' % (
+                    year, month_number + 1, '01', hour)
+            )
         return new_date
 
-
-    security.declareProtected(permissions.ModifyPortalContent, 'getPeriodicityInfos')
-    def getPeriodicityInfos(self, periodicity_type, periodicity_end_date, **kwargs):
+    security.declareProtected(permissions.ModifyPortalContent,
+            'getPeriodicityInfos')
+    def getPeriodicityInfos(self, periodicity_type,
+                periodicity_end_date, **kwargs):
         """
         Returns a list of tuple (start_ts, end_ts, already_booked)
 
@@ -159,12 +167,19 @@ class Booking(BaseContent):
         # A booking could be more than one day
         btool = getToolByName(self, 'portal_booking')
         start_dt = self.start()
-        end_dt =  self.end()
+        end_dt = self.end()
         start_ts = btool.zdt2ts(start_dt)
         end_ts = btool.zdt2ts(end_dt)
         booked_object_uid = self.getBookedObjectUID()
-        booking_brains = self.getBookingBrains(start_date=start_dt, end_date=periodicity_end_date, getBookedObjectUID=booked_object_uid, review_state=('pending', 'booked'))
-        booking_infos_ts = [(btool.zdt2ts(DateTime(x.start)), btool.zdt2ts(DateTime(x.end))) for x in booking_brains]
+        booking_brains = self.getBookingBrains(
+                start_date=start_dt,
+                end_date=periodicity_end_date,
+                getBookedObjectUID=booked_object_uid,
+                review_state=('pending', 'booked')
+        )
+
+        booking_infos_ts = [(btool.zdt2ts(DateTime(x.start)),
+                btool.zdt2ts(DateTime(x.end))) for x in booking_brains]
         periodicity_end_ts = btool.zdt2ts(periodicity_end_date)
         periodicity_infos_ts = []
         infos = []
@@ -181,14 +196,22 @@ class Booking(BaseContent):
             ref_end = DateTime(end_dt) + step
 
             while ref_start <= periodicity_end_date:
-                periodicity_infos_ts.append((btool.zdt2ts(ref_start), btool.zdt2ts(ref_end)))
+                periodicity_infos_ts.append(
+                    (btool.zdt2ts(ref_start), btool.zdt2ts(ref_end))
+                )
                 ref_start += step
                 ref_end += step
 
         elif periodicity_type == 3:
             week_day_number_of_month = btool.weekDayNumberOfMonth(start_dt)
-            result = self.getXthDayOfMonth(start_dt, end_dt, periodicity_end_date, week_day_number_of_month)
-            periodicity_infos_ts = [(btool.zdt2ts(x), btool.zdt2ts(y)) for x, y in result]
+            result = self.getXthDayOfMonth(
+                    start_dt,
+                    end_dt,
+                    periodicity_end_date,
+                    week_day_number_of_month
+            )
+            periodicity_infos_ts = [(btool.zdt2ts(x), btool.zdt2ts(y))
+                    for x, y in result]
 
         for pstart_ts, pend_ts in periodicity_infos_ts:
             b_booked = False
@@ -202,7 +225,8 @@ class Booking(BaseContent):
             infos.append((pstart_ts, pend_ts, b_booked))
         return infos
 
-    security.declareProtected(permissions.ModifyPortalContent, 'createOnePeriodicityBooking')
+    security.declareProtected(
+            permissions.ModifyPortalContent, 'createOnePeriodicityBooking')
     def createOnePeriodicityBooking(self, start_ts, end_ts):
         """
             Create an object for periodicity
@@ -217,29 +241,36 @@ class Booking(BaseContent):
         btool = getToolByName(self, 'portal_booking')
         booked_obj = self.getBookedObject()
         booked_object_uid = self.getBookedObjectUID()
-        start_date =  btool.ts2zdt(start_ts)
+        start_date = btool.ts2zdt(start_ts)
         end_date = btool.ts2zdt(end_ts)
-        booking_brains = self.getBookingBrains(start_date=start_date, end_date=end_date, getBookedObjectUID=booked_object_uid, review_state=('pending', 'booked'))
+        booking_brains = self.getBookingBrains(
+                start_date=start_date,
+                end_date=end_date,
+                getBookedObjectUID=booked_object_uid,
+                review_state=('pending', 'booked')
+        )
         if booking_brains:
             return "NOK"
         obj_id = self.generateUniqueId('Booking')
         booked_obj.invokeFactory('Booking', obj_id)
         obj = getattr(self, obj_id)
         args = {
-            'startDate' : start_date,
-            'endDate' : end_date,
-            'title' : self.Title(),
-            'description' : self.Description(),
-            'fullName' : self.getFullName(),
-            'phone' : self.getPhone(),
-            'email' : self.getEmail(),
-            'periodicityUID' : self.getPeriodicityUID()
+            'startDate': start_date,
+            'endDate': end_date,
+            'title': self.Title(),
+            'description': self.Description(),
+            'fullName': self.getFullName(),
+            'phone': self.getPhone(),
+            'email': self.getEmail(),
+            'periodicityUID': self.getPeriodicityUID()
         }
         obj.edit(**args)
         return "OK"
 
-    security.declareProtected(permissions.ModifyPortalContent, 'createPeriodicBookings')
-    def createPeriodicBookings(self, periodicity_type, periodicity_end_date, **kwargs):
+    security.declareProtected(
+            permissions.ModifyPortalContent, 'createPeriodicBookings')
+    def createPeriodicBookings(self, periodicity_type,
+                periodicity_end_date, **kwargs):
         """
         create one object for each item return by getPeriodicityInfos method
         date already booked will be ignored
@@ -249,7 +280,8 @@ class Booking(BaseContent):
         response = request.RESPONSE
         btool = getToolByName(self, 'portal_booking')
         booked_obj = self.getBookedObject()
-        infos = self.getPeriodicityInfos(periodicity_type, periodicity_end_date, **kwargs)
+        infos = self.getPeriodicityInfos(periodicity_type,
+                periodicity_end_date, **kwargs)
         ptool = getToolByName(self, 'portal_properties')
         charset = ptool.site_properties.default_charset
         response.setHeader('Content-type', 'text/html; charset=%s' % charset)
@@ -257,7 +289,7 @@ class Booking(BaseContent):
         if not infos:
             msg_id = "message_no_booking_created"
             msg_default = "No booking created."
-            msg = i18n.translate(
+            msg = _(
                 I18N_DOMAIN,
                 msg_id,
                 context=self,
@@ -286,14 +318,15 @@ class Booking(BaseContent):
             obj = getattr(self, obj_id)
 
             args = {
-                'startDate' : btool.ts2zdt(pstart_ts),
-                'endDate' : btool.ts2zdt(pend_ts),
-                'title' : title,
-                'description' : description,
-                'fullName' : fullname,
-                'phone' : phone,
-                'email' : email,
-                'periodicityUID' : periodicity_uid}
+                'startDate': btool.ts2zdt(pstart_ts),
+                'endDate': btool.ts2zdt(pend_ts),
+                'title': title,
+                'description': description,
+                'fullName': fullname,
+                'phone': phone,
+                'email': email,
+                'periodicityUID': periodicity_uid
+            }
 
             obj.edit(**args)
             created += 1
@@ -302,13 +335,15 @@ class Booking(BaseContent):
         mapping['created'] = str(created)
         mapping['already_booked'] = str(already_booked)
         msg_id = "message_create_periodic_bookings"
-        msg_default = "${created} items created, ${already_booked} already booked"
-        msg = i18n.translate(
+        msg_default = "${created} items created, ${already_booked} already"\
+                " booked"
+        msg = _(
             I18N_DOMAIN,
             msg_id,
             mapping=mapping,
             context=self,
-            default=msg_default)
+            default=msg_default
+        )
 
         return msg
 
@@ -331,7 +366,8 @@ class Booking(BaseContent):
     security.declareProtected('View', 'isPeriodicBooking')
     def isPeriodicBooking(self):
         """
-        Return True if self was created with periodicity --> len(all_periodic_bookings) > 1
+        Return True if self was created with
+        periodicity --> len(all_periodic_bookings) > 1
         """
         all_periodic_bookings = self.getAllPeriodicBookingBrains()
         if all_periodic_bookings and len(all_periodic_bookings) > 1:
@@ -367,7 +403,7 @@ class Booking(BaseContent):
 
         # Seconds are always equals to 0 and minutes a multiple of 5
         minutes = date_value.minute()
-        minutes = int(minutes/5) * 5
+        minutes = int(minutes / 5) * 5
         date_string = date_value.strftime('%Y/%m/%d %H')
         date_string += ':%s' % minutes
         return DateTime(date_string)
@@ -389,7 +425,7 @@ class Booking(BaseContent):
 
         # Seconds are always equals to 0 and minutes a multiple of 5
         minutes = date_value.minute()
-        minutes = int(minutes/5) * 5
+        minutes = int(minutes / 5) * 5
         date_string = date_value.strftime('%Y/%m/%d %H')
         date_string += ':%s' % minutes
         return DateTime(date_string)
@@ -502,7 +538,6 @@ class Booking(BaseContent):
                     return mtool.checkPermission(permission, self)
         return True
 
-
     security.declareProtected(permissions.View, 'widget')
     def widget(self, field_name, mode="view", field=None, **kwargs):
         """Returns the rendered widget
@@ -581,18 +616,25 @@ class Booking(BaseContent):
         start_date = DateTime(REQUEST.get('startDate'))
         end_date = DateTime(REQUEST.get('endDate'))
         booked_object_uid = self.getBookedObjectUID()
-        booking_brains = self.getBookingBrains(start_date=start_date, end_date=end_date, getBookedObjectUID=booked_object_uid, review_state=('pending', 'booked'))
+        booking_brains = self.getBookingBrains(
+                start_date=start_date,
+                end_date=end_date,
+                getBookedObjectUID=booked_object_uid,
+                review_state=('pending', 'booked')
+        )
         obj_path = '/'.join(self.getPhysicalPath())
 
         if end_date <= start_date:
-            response.setHeader('Content-type', 'text/html; charset=%s' % charset)
+            response.setHeader('Content-type', 'text/html; charset=%s' %
+                    charset)
             msg_id = "message_end_date_before_start"
             msg_default = "End date has to be strictly after start date."
-            msg = i18n.translate(
+            msg = _(
                 I18N_DOMAIN,
                 msg_id,
                 context=self,
-                default=msg_default)
+                default=msg_default
+            )
             errors['endDate'] = msg
 
         if booking_brains:
@@ -601,22 +643,23 @@ class Booking(BaseContent):
                 if obj_path == brain_path:
                     return
 
-            response.setHeader('Content-type', 'text/html; charset=%s' % charset)
+            response.setHeader('Content-type', 'text/html; charset=%s' %
+                    charset)
             msg_id = "message_date_already_booked"
             msg_default = "An object is already booked at this date."
-            msg = i18n.translate(
+            msg = _(
                 I18N_DOMAIN,
                 msg_id,
                 context=self,
-                default=msg_default)
+                default=msg_default
+            )
             errors['startDate'] = msg
             errors['endDate'] = msg
 
-
     security.declareProtected('View', 'getNonEmptyTitle')
     def getNonEmptyTitle(self, **kwargs):
-        """
-        Returns original title of booking if exists otherwise returns a defautl title.
+        """Returns original title of booking if exists otherwise returns a
+        default title.
         """
 
         value = self.getField('title').get(self, **kwargs)
@@ -631,17 +674,19 @@ class Booking(BaseContent):
         # Returns False if there is already a booked object on this period
 
         booked_object_uid = self.getBookedObjectUID()
-        booking_brains = self.getBookingBrains(start_date=start_ts,
-                                               end_date=end_ts,
-                                               getBookedObjectUID=booked_object_uid,
-                                               review_state=('pending', 'booked'))
-        for booking in [ brain.getObject() for brain in booking_brains ]:
+        booking_brains = self.getBookingBrains(
+                start_date=start_ts,
+                end_date=end_ts,
+                getBookedObjectUID=booked_object_uid,
+                review_state=('pending', 'booked'))
+        for booking in [brain.getObject() for brain in booking_brains]:
             if booking != self:
                 return False
 
         return True
 
-    security.declareProtected(permissions.ModifyPortalContent, 'testBookingPeriod')
+    security.declareProtected(permissions.ModifyPortalContent,
+                'testBookingPeriod')
     def testBookingPeriod(self, REQUEST):
         """
             Test if there are no bookings on the new period defined on
@@ -731,7 +776,8 @@ class Booking(BaseContent):
             try:
                 new_context = ftool.doCreate(self, self.getId())
             except AttributeError:
-                # Fallback for AT + plain CMF where we don't have a portal_factory
+                # Fallback for AT + plain CMF where we don't have a
+                # portal_factory
                 new_context = self
 
             # Initialize end and start dates
