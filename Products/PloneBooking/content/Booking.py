@@ -218,7 +218,7 @@ class Booking(BaseContent):
 
             for bstart_ts, bend_ts in booking_infos_ts:
                 if (bstart_ts >= pstart_ts and bstart_ts < pend_ts) or \
-                   (bend_ts > pstart_ts and bend_ts <= pend_ts):
+                        (bend_ts > pstart_ts and bend_ts <= pend_ts):
                     b_booked = True
                     break
 
@@ -287,13 +287,10 @@ class Booking(BaseContent):
         response.setHeader('Content-type', 'text/html; charset=%s' % charset)
 
         if not infos:
-            msg_id = "message_no_booking_created"
-            msg_default = "No booking created."
             msg = _(
-                I18N_DOMAIN,
-                msg_id,
-                context=self,
-                default=msg_default)
+                    u"message_no_booking_created",
+                    default=u"No booking created."
+            )
             return msg
 
         created = 0
@@ -334,15 +331,11 @@ class Booking(BaseContent):
         mapping = {}
         mapping['created'] = str(created)
         mapping['already_booked'] = str(already_booked)
-        msg_id = "message_create_periodic_bookings"
-        msg_default = "${created} items created, ${already_booked} already"\
-                " booked"
+
         msg = _(
-            I18N_DOMAIN,
-            msg_id,
-            mapping=mapping,
-            context=self,
-            default=msg_default
+                u"message_create_periodic_bookings",
+                default=u"${created} items created, ${already_booked} already"\
+                        " booked"
         )
 
         return msg
@@ -627,13 +620,9 @@ class Booking(BaseContent):
         if end_date <= start_date:
             response.setHeader('Content-type', 'text/html; charset=%s' %
                     charset)
-            msg_id = "message_end_date_before_start"
-            msg_default = "End date has to be strictly after start date."
             msg = _(
-                I18N_DOMAIN,
-                msg_id,
-                context=self,
-                default=msg_default
+                u"message_end_date_before_start",
+                default=u"End date has to be strictly after start date."
             )
             errors['endDate'] = msg
 
@@ -645,13 +634,9 @@ class Booking(BaseContent):
 
             response.setHeader('Content-type', 'text/html; charset=%s' %
                     charset)
-            msg_id = "message_date_already_booked"
-            msg_default = "An object is already booked at this date."
             msg = _(
-                I18N_DOMAIN,
-                msg_id,
-                context=self,
-                default=msg_default
+                    u"message_date_already_booked",
+                    default=u"An object is already booked at this date."
             )
             errors['startDate'] = msg
             errors['endDate'] = msg
@@ -706,13 +691,9 @@ class Booking(BaseContent):
             end_ts = kwargs.pop('end_ts')
 
             if not self._testBookingPeriod(start_ts, end_ts):
-                msg_id = "message_date_already_booked"
-                msg_default = "An object is already booked at this date."
-                msg = i18n.translate(
-                    I18N_DOMAIN,
-                    msg_id,
-                    context=self,
-                    default=msg_default
+                msg = _(
+                        u"message_date_already_booked",
+                        default=u"An object is already booked at this date."
                 )
                 errorMessages += '\n' + msg
 
@@ -744,13 +725,9 @@ class Booking(BaseContent):
             end_ts = kwargs.pop('end_ts')
 
             if not self._testBookingPeriod(start_ts, end_ts):
-                msg_id = "message_date_already_booked"
-                msg_default = "An object is already booked at this date."
-                msg = i18n.translate(
-                    I18N_DOMAIN,
-                    msg_id,
-                    context=self,
-                    default=msg_default
+                msg = _(
+                        u"message_date_already_booked",
+                        default=u"An object is already booked at this date."
                 )
                 errorMessages += '\n' + msg
             kwargs['startDate'] = DateTime(int(start_ts))

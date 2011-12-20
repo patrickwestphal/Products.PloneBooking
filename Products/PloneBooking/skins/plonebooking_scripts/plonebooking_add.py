@@ -20,6 +20,7 @@ response = request.RESPONSE
 atool = getToolByName(context, 'archetype_tool')
 btool = getToolByName(context, 'portal_booking')
 ftool = getToolByName(context, 'portal_factory')
+ref_catalog = getToolByName(context, 'reference_catalog')
 
 type_name = 'Booking'
 
@@ -30,7 +31,7 @@ bookable_obj = None
 if obj_uid is None:
     bookable_obj = context.getBookableObject()
 else:
-    bookable_obj = atool.getObject(obj_uid)
+    bookable_obj = ref_catalog.lookupObject(obj_uid)
 booking_id = context.generateUniqueId(type_name)
 start_date = end_date = None
 date_format = '%Y/%m/%d %H:%M:%S'

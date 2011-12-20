@@ -66,13 +66,13 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         required=True,
         widget=LinesWidget(
             label=_(
-                    'label_types',
-                    'Types'
+                    u'label_types',
+                    default=u'Types'
             ),
             description= _(
-                    'label_bookingcenter_types',
-                    'You can define here a list of bookable object types '\
-                            '(1 by line)'
+                    u'label_bookingcenter_types',
+                    default=u'You can define here a list of bookable object'\
+                            ' types (1 by line)'
             ),
         ),
     ),
@@ -81,12 +81,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         required=False,
         widget=LinesWidget(
             label=_(
-                    'label_categories',
-                    'Categories'
+                    u'label_categories',
+                    default=u'Categories'
             ),
             description=_(
-                    'help_bookingcenter_categories',
-                    'help_bookingcenter_categories'
+                    u'help_bookingcenter_categories',
+                    default=u''
             ),
         ),
     ),
@@ -95,15 +95,15 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         default=('published',),
         widget=LinesWidget(
             label = _(
-                    'label_bookable_object_states',
-                    'Bookable object allowed states for book'
+                    u'label_bookable_object_states',
+                    default=u'Bookable object allowed states for book'
             ),
             description = _(
-                    'help_bookable_object_states',
-                    'Define here the workflow states of bookable objects you'\
-                            ' can book. If a bookable object is in a workflow'\
-                            ' state that is not in this list, it will not'\
-                            ' appear in available bookable objects.'
+                    u'help_bookable_object_states',
+                    default=u'Define here the workflow states of bookable'\
+                            ' objects you can book. If a bookable object is'\
+                            ' in a workflow state that is not in this list,'\
+                            ' it will not appear in available bookable objects.'
             ),
         ),
     ),
@@ -114,12 +114,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
             default=tuple(),
             format='select',
             label = _(
-                    'label_required_filters',
-                    'Required filters'
+                    u'label_required_filters',
+                    default=u'Required filters'
             ),
             description=_(
-                    'help_required_filter',
-                    ''
+                    u'help_required_filter',
+                    default=u''
             ),
         ),
     ),
@@ -130,12 +130,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         widget=SelectionWidget(
             default = False,
             label = _(
-                    'label_refresh_mode',
-                    'Refresh mode'
+                    u'label_refresh_mode',
+                    default=u'Refresh mode'
             ),
             description = _(
-                    'help_calendar_refresh_mode',
-                    ''
+                    u'help_calendar_refresh_mode',
+                    default=u''
             ),
         ),
     ),
@@ -145,12 +145,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         vocabulary=GLOBAL_BOOKING_REVIEW_MODES,
         widget=SelectionWidget(
             label = _(
-                    'label_booking_review_mode',
-                    'Booking review mode'
+                    u'label_booking_review_mode',
+                    default=u'Booking review mode'
             ),
             description = _(
-                    'help_booking_review_mode',
-                    ''
+                    u'help_booking_review_mode',
+                    default=u''
             ),
         ),
     ),
@@ -163,12 +163,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         widget=SelectionWidget(
             format='radio',
             label = _(
-                    'label_bookingcenter_default_view_mode',
-                    'Default view mode'
+                    u'label_bookingcenter_default_view_mode',
+                    default=u'Default view mode'
             ),
             description = _(
-                    'help_bookingcenter_default_view_mode',
-                    ''
+                    u'help_bookingcenter_default_view_mode',
+                    default=u''
             ),
         ),
     ),
@@ -181,12 +181,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         widget=MultiSelectionWidget(
             format='select',
             label = _(
-                    'label_bookingcenter_available_view_modes',
-                    'Available view modes'
+                    u'label_bookingcenter_available_view_modes',
+                    default=u'Available view modes'
             ),
             description = _(
-                    'help_bookingcenter_available_view_modes',
-                    ''
+                    u'help_bookingcenter_available_view_modes',
+                    default=u''
             ),
         ),
     ),
@@ -199,12 +199,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         widget=SelectionWidget(
             format='select',
             label = _(
-                    'label_bookingcenter_default_listing_view',
-                    'Default listing view'
+                    u'label_bookingcenter_default_listing_view',
+                    default=u'Default listing view'
             ),
             description = _(
-                    'help_bookingcenter_default_listing_view',
-                    ''
+                    u'help_bookingcenter_default_listing_view',
+                    default=u''
             ),
         ),
     ),
@@ -217,12 +217,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         widget=MultiSelectionWidget(
             format='select',
             label = _(
-                    'label_bookingcenter_available_listing_views',
-                    'Available listing views'
+                    u'label_bookingcenter_available_listing_views',
+                    default=u'Available listing views'
             ),
             description = _(
-                    'help_bookingcenter_available_listing_views',
-                    ''
+                    u'help_bookingcenter_available_listing_views',
+                    default=u''
             ),
         ),
     ),
@@ -235,12 +235,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         widget=SelectionWidget(
             format='select',
             label = _(
-                    'label_bookingcenter_default_calendar_view',
-                    'Default calendar view'
+                    u'label_bookingcenter_default_calendar_view',
+                    default=u'Default calendar view'
             ),
             description = _(
-                    'help_bookingcenter_default_calendar_view',
-                    ''
+                    u'help_bookingcenter_default_calendar_view',
+                    default=u''
             ),
         ),
     ),
@@ -253,12 +253,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         widget=MultiSelectionWidget(
             format='select',
             labe = _(
-                    'label_bookingcenter_available_calendar_views',
-                    'Available calendar views'
+                    u'label_bookingcenter_available_calendar_views',
+                    default=u'Available calendar views'
             ),
             description = _(
-                    'help_bookingcenter_available_calendar_views',
-                    ''
+                    u'help_bookingcenter_available_calendar_views',
+                    default=u''
             ),
         ),
     ),
@@ -269,12 +269,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         default=8,
         widget=IntegerWidget(
             label = _(
-                    'label_bookingcenter_calendar_starting_hour',
-                    'Starting hour'
+                    u'label_bookingcenter_calendar_starting_hour',
+                    default=u'Starting hour'
             ),
             description = _(
-                    'help_bookingcenter_calendar_starting_hour',
-                    'This is used in day and week calendar views'
+                    u'help_bookingcenter_calendar_starting_hour',
+                    default=u'This is used in day and week calendar views'
             ),
         ),
     ),
@@ -285,12 +285,12 @@ BookingCenterSchema = ATFolderSchema.copy() + Schema((
         default=19,
         widget=IntegerWidget(
             label = _(
-                    'label_bookingcenter_calendar_ending_hour',
-                    'Ending hour'
+                    u'label_bookingcenter_calendar_ending_hour',
+                    default=u'Ending hour'
             ),
             description = _(
-                    'help_bookingcenter_calendar_ending_hour',
-                    'This is used in day and week calendar views'
+                    u'help_bookingcenter_calendar_ending_hour',
+                    default=u'This is used in day and week calendar views'
             ),
         ),
     ),
