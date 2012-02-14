@@ -60,7 +60,7 @@ class PloneBookingTestCase(PloneTestCase.PloneTestCase):
         self.member_folder = self.mbtool.getHomeFolder(portal_member)
         # Add role reviewer to portal_member in member_folder
         self.member_folder.manage_addLocalRoles(portal_member, roles = ['Reviewer',])
-    
+
     def createEmptyBookableObject(self, container, content_id = 'booking', wf_action=None):
         # return an empty bookable object
         container.invokeFactory(type_name='BookableObject', id=content_id)
@@ -68,12 +68,12 @@ class PloneBookingTestCase(PloneTestCase.PloneTestCase):
         self.bookable_object = getattr(container, content_id)
         self.assertEqual(self.bookable_object.title, '')
         self.assertEqual(self.bookable_object.getId(), content_id)
-        
+
         if wf_action is not None:
             self.wftool.doActionFor(self.bookable_object, wf_action)
-        
+
         return self.bookable_object
-    
+
     def createEmptyBooking(self, container, content_id = 'booking'):
         # return empty booking
         container.invokeFactory(type_name='Booking', id=content_id)
@@ -82,7 +82,7 @@ class PloneBookingTestCase(PloneTestCase.PloneTestCase):
         self.assertEqual(self.booking.title, '')
         self.assertEqual(self.booking.getId(), content_id)
         return self.booking
-    
+
     def createEmptyBookingCenter(self, container, content_id='booking_center', ):
         # return an empty booking center
         container.invokeFactory(type_name='BookingCenter', id=content_id)
@@ -91,8 +91,8 @@ class PloneBookingTestCase(PloneTestCase.PloneTestCase):
         self.assertEqual(self.booking_center.Title(), '')
         self.assertEqual(self.booking_center.getId(), content_id)
         return self.booking_center
-    
-    def createBookingStructure(self, container, center_id = 'booking_center', 
+
+    def createBookingStructure(self, container, center_id = 'booking_center',
                                object_id = 'bookable_object', booking_id = 'booking', ):
         # Content creation
         #create empty booking center
@@ -100,46 +100,46 @@ class PloneBookingTestCase(PloneTestCase.PloneTestCase):
         self.bookable_object = self.createEmptyBookableObject(self.booking_center, content_id=object_id)
         self.wftool.doActionFor(self.bookable_object, 'publish')
         self.booking = self.createEmptyBooking(self.bookable_object, content_id=booking_id)
-        
+
     def doBooking(self, booking, bookable_object, start_date, end_date, ):
         """
           Booking a bookable object
         """
         booking.edit(startDate=start_date, endDate=end_date)
-        self.failUnless(booking.getStartDate() == start_date, 
+        self.failUnless(booking.getStartDate() == start_date,
                         "Value is %s" % booking.getStartDate())
-        self.failUnless(booking.getEndDate() == end_date, 
+        self.failUnless(booking.getEndDate() == end_date,
                         "Value is %s" % booking.getEndDate())
         # let's book an object
         booking.addReference(bookable_object, "is_booking")
-        
+
         #raise NameError, "%s %s %s"%(bookable_object.UID(), booking.getBookedObject(bookable_object.UID()).UID(), booking.getBookedObject(booking.getBookedObjectUIDs()[0]).UID())
-        
-        self.failUnless(booking.getStartDate() == start_date, 
+
+        self.failUnless(booking.getStartDate() == start_date,
                         "Value is %s" % booking.getStartDate())
-        self.failUnless(booking.getEndDate() == end_date, 
+        self.failUnless(booking.getEndDate() == end_date,
                         "Value is %s" % booking.getEndDate())
-        self.failUnless((bookable_object.UID() == booking.getBookedObjectUID()), 
+        self.failUnless((bookable_object.UID() == booking.getBookedObjectUID()),
                         "Uid of bookable obj (%s) not in  %s" % (bookable_object.UID(), booking.getBookedObjectUID()))
-        
-        
+
+
 
     def beforeTearDown(self):
         # logout
         noSecurityManager()
-    
+
     def loginAsPortalMember(self):
         '''Use if you need to manipulate an object as member.'''
         uf = self.portal.acl_users
         user = uf.getUserById(portal_member).__of__(uf)
         newSecurityManager(None, user)
-        
+
     def loginAsPortalMember2(self):
         '''Use if you need to manipulate an object as member.'''
         uf = self.portal.acl_users
         user = uf.getUserById(portal_member2).__of__(uf)
         newSecurityManager(None, user)
-        
+
     def loginAsPortalOwner(self):
         '''Use if you need to manipulate an object as portal owner.'''
         uf = self.app.acl_users
@@ -150,23 +150,23 @@ def setupPloneBooking(app, quiet=0):
     get_transaction().begin()
     _start = time.time()
     portal = app.portal
-    
+
     if not quiet: ZopeTestCase._print('Installing PloneBooking ... ')
 
     # login as manager
     user = app.acl_users.getUserById(portal_owner).__of__(app.acl_users)
     newSecurityManager(None, user)
-    
+
     # add PloneBooking
     if hasattr(aq_base(portal), 'portal_booking'):
         ZopeTestCase._print('PloneBooking already installed ... ')
     else:
         installPloneBooking(portal)
-    
+
     # Create portal member
     portal.portal_registration.addMember(portal_member, 'azerty', ['Member'])
     portal.portal_registration.addMember(portal_member2, 'azerty', ['Member'])
-    
+
     # Log out
     noSecurityManager()
     get_transaction().commit()

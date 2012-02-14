@@ -27,6 +27,7 @@ from DateTime import DateTime
 from common import *
 from Products.CMFCore.utils import getToolByName
 
+
 tests = []
 class TestPloneBooking(PloneBookingTestCase):
 
