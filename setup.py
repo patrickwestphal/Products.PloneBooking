@@ -23,6 +23,11 @@ setup(name='Products.PloneBooking',
       namespace_packages=['Products'],
       include_package_data=True,
       zip_safe=False,
+      extras_require=dict(
+        test=[
+          'plone.app.testing',
+        ],
+      ),
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-

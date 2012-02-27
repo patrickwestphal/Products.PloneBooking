@@ -21,54 +21,35 @@ PloneBooking base test
 $Id: testSecurity.py,v 1.4 2006/02/16 11:30:40 cbosse Exp $
 """
 
-#Zope imports
 from DateTime import DateTime
 
-from common import *
+import unittest2 as unittest
+
 from Products.CMFCore.utils import getToolByName
+from Products.PloneBooking.testing import PRODUCTS_PLONEBOOKING_INTEGRATION_TESTING
+from plone.app.testing import TEST_USER_ID, TEST_USER_NAME, setRoles, login
 
-tests = []
-class TestSecurity(PloneBookingTestCase):
+from Products.PloneBooking import BookingPermissions
 
-    def testCheckPermissions(self):
+
+class TestSecurity(unittest.TestCase):
+    layer = PRODUCTS_PLONEBOOKING_INTEGRATION_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.mbtool = getToolByName(self.portal, 'portal_membership')
+        setRoles(self.portal, TEST_USER_ID, ['Member'])
+        login(self.portal, TEST_USER_NAME)
+
+    def test_check_permissions(self):
+        """Check permissions
         """
-        Check permissions
-        """
-        
-        self.loginAsPortalMember()
-        
-        # Check roles on member folder
-        permissions = (
-            BookingPermissions.AddBookingCenter,
-            BookingPermissions.AddBookableObject,
-            )
-        
-        for permission in permissions:
-            self.failUnless(not self.mbtool.checkPermission(permission ,self.portal))
-            self.failUnless(self.mbtool.checkPermission(permission ,self.member_folder))
-        
-        permissions = (
-            BookingPermissions.AddBooking,
-            )
-        
-        for permission in permissions:
-            self.failUnless(self.mbtool.checkPermission(permission ,self.portal))
-        
-        self.logout()
-        
-        
-        
-tests.append(TestSecurity)
-
-if __name__ == '__main__':
-    framework()
-else:
-    # While framework.py provides its own test_suite()
-    # method the testrunner utility does not.
-    import unittest
-    def test_suite():
-        suite = unittest.TestSuite()
-        for test in tests:
-            suite.addTest(unittest.makeSuite(test))
-        return suite
-
+        self.failUnless(
+            not self.mbtool.checkPermission(
+                BookingPermissions.AddBookingCenter, self.portal))
+        self.failUnless(
+            not self.mbtool.checkPermission(
+                BookingPermissions.AddBookableObject, self.portal))
+        self.failUnless(
+            self.mbtool.checkPermission(
+                BookingPermissions.AddBooking, self.portal))

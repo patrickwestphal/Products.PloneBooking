@@ -31,7 +31,7 @@ from types import StringType
 
 # Zope imports
 import Globals
-from Globals import InitializeClass
+from AccessControl.class_init import InitializeClass
 from AccessControl import ClassSecurityInfo
 from OFS.SimpleItem import SimpleItem
 from AccessControl import getSecurityManager
@@ -40,7 +40,7 @@ from AccessControl.SpecialUsers import emergency_user
 from zope.interface import implements
 from zope.interface import implementedBy
 
-        
+
 #from OFS.PropertyManager import PropertyManager
 from DateTime import DateTime
 

@@ -33,7 +33,8 @@ from zope.interface import implements
 
 from AccessControl import ClassSecurityInfo
 from DateTime import DateTime
-from Globals import InitializeClass
+from AccessControl.class_init import InitializeClass
+
 
 # CMF imports
 from Products.CMFCore import permissions
@@ -123,10 +124,15 @@ class Booking(BaseContent):
 
             # sometimes the month hasn't a fifth monday :)
             if result_date:
-                new_start_date = DateTime('%s %s' % (result_date, start_hour))
-                new_end_date = DateTime('%s %s' % (
-                        result_date + diff, end_hour)
+                new_start_date = DateTime('%s/%s/%s %s' % (result_date.year(),
+                    result_date.month(), result_date.day(), start_hour))
+                tmp_date = result_date + diff
+                new_end_date = DateTime('%s/%s/%s %s' % (tmp_date.year(),
+                    tmp_date.month(), tmp_date.day(), end_hour)
                 )
+                # new_end_date = DateTime('%s %s' % (
+                #         result_date + diff, end_hour)
+                # )
                 if new_start_date <= final_date:
                     result.append((new_start_date, new_end_date))
                 ref_date = self.getNewDate(new_start_date)

@@ -62,7 +62,7 @@ def addWorkflow(self, out):
             workflowTool.setDefaultChain(name)
     out.write("Workflow added")
 
-def DEPRECATED_install(self):
+def install(self):
     out = StringIO()
     
     # Install types

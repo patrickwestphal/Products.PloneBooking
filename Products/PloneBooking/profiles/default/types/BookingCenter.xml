@@ -2,6 +2,7 @@
 <object name="BookingCenter"
    meta_type="Factory-based Type Information with dynamic views"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
  <property name="title">Booking center</property>
  <property name="description">
         Booking Center contains all Bookable Object and Bookings

@@ -31,7 +31,7 @@ from zope.interface import implements
 
 from AccessControl import ClassSecurityInfo
 from DateTime import DateTime
-from Globals import InitializeClass
+from AccessControl.class_init import InitializeClass
 
 # CMF imports
 from Products.CMFCore import permissions

@@ -23,10 +23,10 @@ __version__ = "$Revision: 1.6 $"
 __author__  = ''
 __docformat__ = 'restructuredtext'
 
-# Python imports
-import sys
-from Globals import package_home
 
+import sys
+
+from App.Common import package_home
 from zope.i18nmessageid import MessageFactory
 
 # CMF imports
@@ -38,8 +38,8 @@ from Products.CMFCore.DirectoryView import registerDirectory
 from Products.Archetypes.public import listTypes, process_types
 
 # Products imports
-from Products.PloneBooking.interfaces import (IBookingCenter, 
-                                              IBooking, 
+from Products.PloneBooking.interfaces import (IBookingCenter,
+                                              IBooking,
                                               IBookableObject)
 from Products.PloneBooking.config import PROJECTNAME, SKINS_DIR, GLOBALS
 from Products.PloneBooking.config import I18N_DOMAIN
@@ -56,11 +56,11 @@ registerDirectory(SKINS_DIR, GLOBALS)
 
 def initialize(context):
     types_list = listTypes(PROJECTNAME)
-    
+
     content_types, constructors, ftis = process_types(
         types_list,
         PROJECTNAME)
-        
+
     bookingcenter_content_types = []
     bookingcenter_constructors  = []
     booking_content_types = []
@@ -73,7 +73,7 @@ def initialize(context):
     for i in range(len(types_list)):
         at_type = types_list[i]
         klass = at_type['klass']
-        
+
         if IBookingCenter.implementedBy(klass):
             bookingcenter_content_types.append(content_types[i])
             bookingcenter_constructors.append(constructors[i])
@@ -86,7 +86,7 @@ def initialize(context):
         else:
             other_content_types.append(content_types[i])
             other_constructors.append(constructors[i])
-            
+
     # others
     utils.ContentInit(
         PROJECTNAME + ' Content',
@@ -104,7 +104,7 @@ def initialize(context):
         extra_constructors = tuple(bookingcenter_constructors),
         fti = ftis,
         ).initialize(context)
-    
+
     # booking
     utils.ContentInit(
         PROJECTNAME + ' Booking',
@@ -113,7 +113,7 @@ def initialize(context):
         extra_constructors = tuple(booking_constructors),
         fti = ftis,
         ).initialize(context)
-        
+
     # bookable object
     utils.ContentInit(
         PROJECTNAME + ' BookableObject',
@@ -122,7 +122,7 @@ def initialize(context):
         extra_constructors = tuple(bookableobject_constructors),
         fti = ftis,
         ).initialize(context)
-    
+
     # Add tool
     utils.ToolInit(
         PROJECTNAME + ' Tool',

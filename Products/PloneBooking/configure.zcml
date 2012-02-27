@@ -17,7 +17,8 @@
   <genericsetup:registerProfile
      name="default"
      title="PloneBooking"
-     description="Profile for PloneBooking."
+     directory="profiles/default"
+     description="Profile for PloneBooking"
      provides="Products.GenericSetup.interfaces.EXTENSION"
    />
 
